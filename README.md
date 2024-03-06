@@ -2,4 +2,4 @@
 
 # Etapa 0
 
-https://drive.google.com/drive/folders/1ihntwdyTGmkNxkMzQ01WVpWoHjJrtqmX?usp=sharing
+https://docs.google.com/document/d/1BAEluXPCHf_pCYQq08MNQnt4o3Dl7ptpkt8Qt32oTao/edit?usp=sharing
