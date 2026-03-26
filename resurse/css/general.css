@@ -1,0 +1,763 @@
+/* =====================
+   VARIABILE CULORI
+===================== */
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --culoare-principala: #5a2a7a;
+    --culoare-secundara: #a678c3;
+    --culoare-accent: #e6b7ff;
+    --culoare-fundal: #f8f4fb;
+    --culoare-text: #2b2b2b;
+    --culoare-border: #d1b3e0;
+    --culoare-hover: #c084f5;
+    --margine-pagina:40px;
+    --spatire-text:20px;
+}
+body {
+    font-size: 16px; /* asta rămâne */
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+.grid-container {
+    gap: 1.2rem;
+}
+.container-centru {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 20px;
+}
+section {
+    padding: 1.2rem;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #f9f6ff 0%,
+        #f3e8ff 40%,
+        #fef6e4 70%,
+        #f9f6ff 100%
+    );
+
+    background-attachment: fixed;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 215, 0, 0.15),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(255, 215, 0, 0.1),
+        transparent 40%
+    );
+
+    pointer-events: none;
+}
+
+/* =====================
+   BODY
+===================== */
+
+body {
+    padding-left: var(--margine-pagina);
+    padding-right: var(--margine-pagina);
+}
+main {
+    margin-left:var(--margine-pagina);
+    margin-right:var(--margine-pagina);
+}
+/* =====================
+   HEADER
+===================== */
+header {
+    background-color: var(--culoare-principala);
+    color: white;
+    padding: 15px;
+}
+
+/* =====================
+   NAV
+===================== */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--culoare-accent);
+}
+
+/* =====================
+   TITLURI
+===================== */
+h1, h2, h3 {
+    color: var(--culoare-principala);
+}
+
+/* =====================
+   SECTIUNI
+===================== */
+section {
+    padding: 20px;
+    border-bottom: 1px solid var(--culoare-border);
+}
+
+/* =====================
+   LINKURI
+===================== */
+a {
+    color: var(--culoare-secundara);
+}
+
+a:hover {
+    color: var(--culoare-hover);
+}
+
+/* =====================
+   TABEL
+===================== */
+/* TABEL GENERAL */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* HEADER */
+th {
+    background-color: var(--culoare-principala);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+/* CELULE */
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--culoare-border);
+}
+tbody tr:nth-child(even),
+tbody tr:nth-child(even) td {
+    background-color: var(--culoare-accent);
+}
+/* FIX pentru rowspan (Dior) */
+tbody td[rowspan] {
+    background-color: inherit;
+}
+/* HOVER (super elegant) */
+tbody tr:hover {
+    background-color: var(--culoare-secundara);
+    color: white;
+    transition: 0.3s;
+}
+
+/* CAPTION */
+caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--culoare-text);
+}
+
+/* FOOTER */
+tfoot td {
+    text-align: center;
+    font-style: italic;
+    background-color: var(--culoare-fundal);
+}
+table {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background-color: var(--culoare-principala);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--culoare-principala);
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: var(--culoare-hover);
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        --margine-pagina: 80px;
+    }
+}
+@media screen and (max-width: 768px) {
+    body {
+        --margine-pagina: 50px;
+    }
+}
+@media (max-width: 900px) {
+    :root {
+        --margine-pagina: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --margine-pagina: 10px;
+    }
+}
+.grid-container {
+    display: grid;
+    gap: 20px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-template-areas:
+        "zona1 zona1 zona1"
+        "zona5 zona6 zona7"
+        "zona3 zona2 zona2"
+        "zona4 zona2 zona2"
+        "zona8 zona8 zona8";        
+}
+
+
+.zona1 { grid-area: zona1; }
+.zona2 { grid-area: zona2; }
+.zona3 { grid-area: zona3; }
+.zona4 { grid-area: zona4; }
+.zona5 { grid-area: zona5; }
+.zona6 { grid-area: zona6; }
+.zona7 { grid-area: zona7; }
+.zona8 { grid-area: zona8; }
+
+.grid-container section {
+    background-color: white;
+    padding: var(--spatire-text);
+    border-radius: 10px;
+    border: 1px solid var(--culoare-border);
+}
+@media (max-width: 600px) {
+    :root {
+        --spatiere-text: 15px;
+    }
+}
+@media (max-width: 900px) {
+    .grid-container {
+        gap: 15px;
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas:
+            "zona1 zona1"
+            "zona5 zona6"
+            "zona7 zona7"
+            "zona3 zona2"
+            "zona4 zona2"
+            "zona8 zona8";
+    }
+}
+@media (max-width: 600px) {
+    .grid-container {
+        gap:10px;
+        grid-template-columns: 1fr;
+       
+        grid-template-areas:
+            "zona1"
+            "zona5"
+            "zona6"
+            "zona7"
+            "zona3"
+            "zona4"
+            "zona2"
+            "zona8";
+    }
+}
+/* GRID PRINCIPAL */
+.grid-container {
+    display: grid;
+    gap: 15px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-template-areas:
+        "zona1 zona1 zona1"
+        "zona5 zona6 zona7"
+        "zona3 zona2 zona2"
+        "zona4 zona2 zona2"
+        "zona8 zona8 zona8";
+
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 20px;
+}
+.grid-container section {
+    background-color: white; /* fundal diferit */
+    border: 1px solid var(--culoare-border); /* border */
+    border-radius: 12px; /* colturi rotunjite */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* umbra */
+}
+
+.hero {
+    background: linear-gradient(
+        rgba(90, 42, 122, 0.8),
+        rgba(166, 120, 195, 0.8)
+    ),
+    url("resurse/imagini/parfum-mare.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.btn {
+    background-color: var(--culoare-accent);
+    color: var(--culoare-text);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: var(--culoare-hover);
+}
+
+.grid-container section:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+/* NAVBAR CONTAINER */
+nav {
+    background-color: var(--culoare-principala);
+    padding: 15px 0;
+}
+
+/* LISTA */
+.meniu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center; /* CENTRARE */
+    gap: 40px; /* spatiu intre elemente */
+}
+
+/* ITEM */
+.meniu > li {
+    position: relative;
+}
+
+/* LINKURI */
+.meniu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.meniu a:hover {
+    background-color: var(--culoare-hover);
+}
+.submenu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 0;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    min-width: 180px;
+}
+
+.submenu li {
+    padding: 10px 20px;
+}
+
+.submenu a {
+    color: var(--culoare-text);
+}
+
+.submenu li:hover {
+    background-color: var(--culoare-accent);
+}
+
+/* AFISARE */
+.meniu > li:hover .submenu {
+    display: block;
+}
+.submenu {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.meniu > li:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+.video-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+}
+iframe {
+    max-width: 600px;
+    margin: auto;
+}
+.icon-animat {
+    color: gold;
+    animation: rotire 2s infinite linear;
+}
+
+.icon-animat {
+    color: gold;
+    animation: puls 1.5s infinite;
+}
+
+@keyframes puls {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+/* CONTAINER */
+.tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 3px solid var(--culoare-principala);
+    margin-bottom: 0; /* IMPORTANT */
+}
+
+/* TAB */
+.tab {
+    background-color: var(--culoare-fundal);
+    border: 1px solid var(--culoare-border);
+    border-bottom: none; /* IMPORTANT */
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--culoare-text);
+    transition: 0.3s;
+}
+
+/* HOVER */
+.tab:hover {
+    background-color: var(--culoare-accent);
+}
+
+/* TAB ACTIV */
+.tab.active {
+    background-color: var(--culoare-principala);
+    color: white;
+    border: 1px solid var(--culoare-principala);
+    border-bottom: none;
+
+    position: relative;
+    top: 3px; /* LIPIT de tabel */
+}
+.table-container {
+    margin-top: 0;
+}
+.tab-content {
+    margin-top: 15px;
+}
+.tab-content {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+/* ACTIV */
+.tab-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+}
+.tab-content {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.zona2 {
+    position: relative;
+}
+
+/* CONTAINER TABEL */
+.table-container {
+    margin-top: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: var(--culoare-secundara);
+    border-radius: 10px;
+}
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--culoare-principala);
+    z-index: 1;
+}
+.buton-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        var(--culoare-principala),
+        var(--culoare-accent)
+    );
+
+    opacity: 0.6;
+    transition: 0.7s;
+}
+
+/* SAGEATA */
+.buton-top::before {
+    content: "↑";
+    position: relative;
+    transition: 0.7s;
+}
+
+/* CERCUL ROTUND (DOAR ASTA SE ROTEȘTE) */
+.buton-top::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px dashed var(--culoare-secundara);
+
+    transition: transform 0.7s ease;
+}
+
+/* HOVER */
+.buton-top:hover {
+    opacity: 1;
+}
+
+/* ROTIRE DOAR BORDER */
+.buton-top:hover::after {
+    transform: rotate(180deg);
+}
+
+/* SAGEATA MIC EFECT */
+.buton-top:hover::before {
+    transform: translateY(-3px);
+    font-weight: bold;
+}
+/* CONTAINER FORMULA */
+.parfum-detaliu math {
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    background: linear-gradient(
+        135deg,
+        rgba(166, 120, 195, 0.1),
+        rgba(199, 125, 255, 0.15)
+    );
+
+    padding: 10px 18px;
+    border-radius: 12px;
+
+    border: 1px solid var(--culoare-border);
+
+    display: inline-block;
+    margin-top: 10px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* TEXTURI DIFERITE */
+.litera {
+    color: var(--culoare-principala);
+    font-weight: 600;
+}
+
+.ulei {
+    color: var(--culoare-secundara);
+    font-style: italic;
+}
+
+.total {
+    color: var(--culoare-text);
+    opacity: 0.7;
+}
+
+.proc {
+    color: var(--culoare-hover);
+}
+
+.rezultat {
+    color: var(--culoare-principala);
+    font-weight: 600;
+}
+
+/* simboluri */
+math mo {
+    color: var(--culoare-text);
+    opacity: 0.8;
+}
+.parfum-detaliu math:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+/* LISTA PRODUSE */
+.produse-lista {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* CARD PRODUS */
+.produs {
+    background-color: white;
+    border: 1px solid var(--culoare-border);
+    border-radius: 12px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* HOVER */
+.produs:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGINE */
+.produs img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* PRET */
+.pret {
+    color: var(--culoare-principala);
+    font-weight: bold;
+}
+
+.oferta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    min-height: 300px;
+}
+.oferta-text p:first-child {
+    margin-top: 0;
+}
+/* text */
+.oferta-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centrează pe verticală */
+}
+.oferta-img{
+    max-width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    flex: 1;
+    text-align: right; /* IMPORTANT */
+}
+@media (max-width: 768px) {
+    .oferta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .oferta-img {
+        text-align: center;
+    }
+}

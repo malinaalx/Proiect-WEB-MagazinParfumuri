@@ -19,7 +19,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="./resurse/ico/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="resurse/css/style.css">
+    <link rel="stylesheet" href="./resurse/css/general.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
 </head>
 
 <body id="top">
@@ -29,38 +32,216 @@
     <h1>Magazin de Parfumuri de Lux</h1>
     <!--cerinta 8)-->
     <nav>
-        <ul>
-            <li>Acasa
-                <ul>
-                    <li><a href="#welcome">Bine ati venit</a></li>
-                    <li><a href="#evenimente">Evenimente</a></li>
-                    <li><a href="#produse">Produse</a></li>
-                </ul>
-            </li>
-            <li><a href="#produse">Parfumuri</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <ul class="meniu">
+        <li>
+            Acasa
+            <ul class="submenu">
+                <li><a href="#welcome">Bine ati venit</a></li>
+                <li><a href="#evenimente">Evenimente</a></li>
+                <li><a href="#produse">Produse</a></li>
+            </ul>
+        </li>
+        <li><a href="#produse">Parfumuri</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
     </nav>
 </header>
 
-<!-- MAIN -->
-<main>
+<main class="grid-container">
 
+    <section id="welcome" class="zona1 hero">
+        
+    <h2>Descoperă esența eleganței</h2>
+    <p>Parfumuri de lux pentru femei și bărbați</p>
+    <a href="#produse" class="btn">Vezi produse</a>
+</section>
+    
+    <section class="zona5">
+    <h3>Utilizatori online</h3>
+    <p>42 utilizatori activi</p>
+</section>
+    <section class="zona6">
+    <h3>Statistici</h3>
+    <p>1000+ produse</p>
+    <p>500+ clienți mulțumiți</p>
+</section>
+    <section class="zona7">
+    <h3>Info server</h3>
+    <p>Server activ</p>
+    <p>Timp răspuns: 120ms</p>
+</section>
+
+    <section class="zona3">
+        
+        <section id="evenimente">
+    <h2>Evenimente</h2>
+    <ul>
+        <li>
+            <time datetime="2026-04-05T12:00">5 aprilie ora 12</time>,
+            <b>Lansare parfum nou</b> - testare gratuită
+        </li>
+        <li>
+            <time datetime="2026-04-10T18:00">10 aprilie ora 18</time>,
+            <b>Promoție weekend</b> - reduceri speciale
+        </li>
+    </ul>
+</section>
+
+    </section>
+   <section class="zona4">
+    <h3>Anunțuri</h3>
+    <p>Reduceri de până la 30% weekendul acesta!</p>
+</section>
+
+   <section class="zona2">
+
+    <h2>
+        Top vânzări 
+        <i class="fa-solid fa-star icon-animat"></i>
+    </h2>
+
+    <!-- TABURI -->
+    <div class="tabs">
+        <button class="tab active" onclick="schimbaTab('femei')">Femei</button>
+        <button class="tab" onclick="schimbaTab('barbati')">Bărbați</button>
+        <button class="tab" onclick="schimbaTab('unisex')">Unisex</button>
+    </div>
+
+    <!-- FEMEI -->
+    <div class="tab-content" id="femei">
+        <table>
+            <caption>Parfumuri femei</caption>
+            <thead>
+                <tr>
+                    <th>Parfum</th>
+                    <th>Preț</th>
+                    <th>Note</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dior J'adore</td>
+                    <td>400</td>
+                    <td>Floral</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+                <tr>
+                    <td>Chanel No.5</td>
+                    <td>500</td>
+                    <td>Elegant</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+                <tr>
+                    <td>Lancome La Vie Est Belle</td>
+                    <td>450</td>
+                    <td>Sweet</td>
+                    <td class="rating">★★★★★</td>
+                    </tr>
+                    <tr>
+                    <td>YSL Libre</td>
+                    <td>430</td>
+                    <td>Floral</td>
+                    <td class="rating">★★★★☆</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- BARBATI -->
+    <div class="tab-content" id="barbati" style="display:none;">
+        <table>
+            <caption>Parfumuri bărbați</caption>
+            <thead>
+                <tr>
+                    <th>Parfum</th>
+                    <th>Preț</th>
+                    <th>Note</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Armani Code</td>
+                    <td>350</td>
+                    <td>Lemn</td>
+                    <td class="rating">★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>Dior Sauvage</td>
+                    <td>420</td>
+                    <td>Fresh</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+                <tr>
+                    <td>Bleu de Chanel</td>
+                    <td>480</td>
+                    <td>Woody</td>
+                    <td class="rating">★★★★★</td>
+                    </tr>
+                    <tr>
+                    <td>Paco Rabanne Invictus</td>
+                    <td>390</td>
+                    <td>Sport</td>
+                    <td class="rating">★★★★☆</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- UNISEX -->
+    <div class="tab-content" id="unisex" style="display:none;">
+        <table>
+            <caption>Parfumuri unisex</caption>
+            <thead>
+                <tr>
+                    <th>Parfum</th>
+                    <th>Preț</th>
+                    <th>Note</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tom Ford Oud</td>
+                    <td>600</td>
+                    <td>Oriental</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+                <tr>
+                    <td>CK One</td>
+                    <td>300</td>
+                    <td>Citrus</td>
+                    <td class="rating">★★★★☆</td>
+                </tr>
+                <tr>
+                        <td>Maison Francis Kurkdjian</td>
+                        <td>700</td>
+                        <td>Luxury</td>
+                        <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                        <td>Byredo Gypsy Water</td>
+                        <td>650</td>
+                        <td>Fresh</td>
+                        <td class="rating">★★★★☆</td>
+                        </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+    <section class="zona8">
+    <h3>Despre noi</h3>
+    <p>Magazin online de parfumuri premium cu livrare rapidă.</p>
+</section>
+
+</main>
+<div class="container-centru">
 <!-- HGROUP 7) -->
-<section id="welcome">
-    <hgroup>
-        <h2>Bine ati venit</h2>
-        <p>Descopera parfumuri originale</p>
-    </hgroup>
+<section class="oferta">
 
-    <p>
-        Oferim <b>parfumuri originale</b>, <b>parfumuri dama</b> și <b>parfumuri barbati</b>. <!--cerinta 12)-->
-    </p>
-
-    <p>
-        Tipuri precum <i>eau de parfum</i> și <i>eau de toilette</i>.
-    </p>
-
+    <div class="oferta-text">
     <p><strong>Reducere urgentă azi!</strong></p>
 
     <p>Acest parfum este <em>incredibil</em>.</p>
@@ -75,50 +256,83 @@
         <q>Parfumul definește personalitatea</q>
         <cite>expert parfumerie</cite>
     </blockquote>
+    </div>
+    <div class="oferta-img">
+        <img src="resurse/imagini/imag4.jpg" alt="Parfum redus">
+    </div>
+
 </section>
 
 <!-- SECTIUNE IMBRICATA -6)-->
 <section id="produse">
-    <h2>Produse</h2>
+    <h2>Produsele lunii</h2>
 
-    <section>
-        <h3>Parfumuri dama</h3>
-        <p>Parfumuri elegante și rafinate.</p>
-    </section>
+    <div class="produse-lista">
 
-    <section>
-        <h3>Parfumuri barbati</h3>
-        <p>Parfumuri puternice.</p>
-    </section>
-</section>
+        <div class="produs">
+            <img src="resurse/imagini/imag1.jpg" alt="Dior">
+            <h3>Dior J'adore</h3>
+            <p>Floral, elegant, feminin</p>
+            <p class="pret">400 lei</p>
+        </div>
 
-<!-- EVENIMENTE cerinta 10)-->
-<section id="evenimente">
-    <h2>Evenimente</h2>
-    <ul>
-        <li>
-            <time datetime="2026-04-05T12:00">5 aprilie ora 12</time>,
-            <b>Lansare parfum nou</b> - testare gratuită
-        </li>
-        <li>
-            <time datetime="2026-04-10T18:00">10 aprilie ora 18</time>,
-            <b>Promoție weekend</b> - reduceri speciale
-        </li>
-    </ul>
+        <div class="produs">
+            <img src="resurse/imagini/imag2.jpg" alt="Chanel">
+            <h3>Chanel No.5</h3>
+            <p>Clasic, rafinat</p>
+            <p class="pret">500 lei</p>
+        </div>
+
+        <div class="produs">
+            <img src="resurse/imagini/imag3.jpg" alt="Armani">
+            <h3>Armani Code</h3>
+            <p>Puternic, masculin</p>
+            <p class="pret">350 lei</p>
+        </div>
+
+    </div>
 </section>
 
 <!-- IMAGINE RESPONSIVA cerinta 11)-->
-<section>
-    <h2>Imagine produs</h2>
-
+<section class="parfum-detaliu">
+    <h2>Lancome - La Vie Est Belle</h2>
     <figure>
         <picture>
             <source srcset="resurse/imagini/parfum-mic.jpg" media="(max-width:700px)">
             <source srcset="resurse/imagini/parfum-mediu.jpg" media="(max-width:1200px)">
-            <img src="resurse/imagini/parfum-mare.jpg" alt="parfum" title="Parfum de lux">
+            <img src="resurse/imagini/parfum-mare.jpg" alt="La vie est belle" title="Parfum de lux">
         </picture>
         <figcaption>Parfum premium</figcaption>
     </figure>
+
+    <p>
+        Un parfum dulce și elegant, cu note de vanilie, iris și patchouli.
+    </p>
+
+    <ul>
+        <li>Concentrație ulei: 20 ml</li>
+        <li>Volum total: 100 ml</li>
+    </ul>
+
+    <p><strong>Calcul concentrație:</strong></p>
+
+    <math>
+        <mrow>
+            <mi class="litera">C</mi>
+            <mo>=</mo>
+            <mfrac>
+                <mi class="ulei">20</mi>
+                <mi class="total">100</mi>
+            </mfrac>
+            <mo>×</mo>
+            <mn class="proc">100</mn>
+            <mo>=</mo>
+            <mn class="rezultat">20%</mn>
+        </mrow>
+    </math>
+
+    <p><em>Acest parfum este de tip Eau de Parfum (EDP).</em></p>
+
 </section>
 
 <!-- LINKURI -->
@@ -167,64 +381,15 @@
             Proces producție parfum
         </a>
     </div>
-
-    <iframe name="video" width="560" height="315"
+    <div class="video-container">
+     <iframe name="video" 
         src="https://www.youtube.com/embed/hTHqjfVfykg"
         title="YouTube video player"
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
-    </iframe>
+    </iframe>   
+    </div>  
 </section>
-<!-- TABEL cerinta 15)-->
-<section>
-    <h2>Top parfumuri</h2>
-
-    <table>
-        <caption>Top vânzări</caption>
-
-        <thead>
-            <tr>
-                <th>Parfum</th>
-                <th>Tip</th>
-                <th>Preț</th>
-                <th>Rating</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td rowspan="2">Dior</td>
-                <td>Dama</td>
-                <td>400</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>Barbati</td>
-                <td>420</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>Chanel</td>
-                <td>Dama</td>
-                <td>500</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>Armani</td>
-                <td>Barbati</td>
-                <td>350</td>
-                <td>4</td>
-            </tr>
-        </tbody>
-
-        <tfoot>
-            <tr>
-                <td colspan="4">Date orientative</td>
-            </tr>
-        </tfoot>
-    </table>
-</section>
-
 <!-- DETAILS cerinta 16-->
 <section>
     <h2>Întrebări frecvente</h2>
@@ -256,7 +421,7 @@
 </section>
 
 </main>
-
+</div>
 <!-- FOOTER cerinta 18)-->
 <footer id="contact">
 
@@ -264,16 +429,16 @@
 
     <address>
         Telefon: <a href="tel:+40721111111">0721111111</a><br>
-
+        
         Strada Parfumurilor 10<br>
         București<br>
 
         <a href="https://www.google.com/maps/place/Facultatea+de+Matematică+și+Informatică/@44.4450299,26.1590576,15z/data=!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
             Vezi locația
         </a><br>
-
-        Email: <a href="mailto:test@gmail.com">test@gmail.com</a><br>
-
+         <i class="fa-solid fa-envelope"></i> test@gmail.com
+        <!--Email: <a href="mailto:test@gmail.com">test@gmail.com</a><br>!-->
+        
         <a href="https://wa.me/40721111111">WhatsApp</a>
     </address>
 
@@ -283,6 +448,31 @@
     </small>
 
 </footer>
+<script>
+function schimbaTab(tab) {
 
+    // ascunde toate
+    let contents = document.querySelectorAll(".tab-content");
+    contents.forEach(c => {
+        c.classList.remove("active");
+    });
+
+    // activează cel selectat
+    let current = document.getElementById(tab);
+    current.style.display = "block";
+
+    setTimeout(() => {
+        current.classList.add("active");
+    }, 10);
+
+    // update taburi
+    let tabs = document.querySelectorAll(".tab");
+    tabs.forEach(t => t.classList.remove("active"));
+
+    event.target.classList.add("active");
+}
+</script>
+<body id="top">
+<a href="#top" class="buton-top" title="Mergi sus"></a>
 </body>
 </html>
