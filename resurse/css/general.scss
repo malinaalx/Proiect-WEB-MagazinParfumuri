@@ -1,0 +1,1267 @@
+
+
+html {
+    font-size: 16px;
+    transition: font-size 0.3s ease;
+}
+
+/* ecran mare */
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+/* ecran mediu */
+@media (max-width: 1200px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* ecran mic */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+:root {
+    --culoare-principala: #5a2a7a;
+    --culoare-secundara: #a678c3;
+    --culoare-accent: #e6b7ff;
+    --culoare-fundal: #f8f4fb;
+    --culoare-text: #2b2b2b;
+    --culoare-border: #d1b3e0;
+    --culoare-hover: #c084f5;
+    /*!--task.rudimentar, cerinta a!--*/
+    --margine-pagina:40px;
+    /*!--task.rudimentar, cerinta d.!--*/
+    --spatire-text:20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+.grid-container {
+    gap: 1.2rem;
+}
+.container-centru {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 20px;
+}
+section {
+    padding: 1.2rem;
+}
+body {
+    /* --task.stilizare_tabel */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #f9f6ff 0%,
+        #f3e8ff 40%,
+        #fef6e4 70%,
+        #f9f6ff 100%
+    );
+
+    background-attachment: fixed;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 215, 0, 0.15),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(255, 215, 0, 0.1),
+        transparent 40%
+    );
+
+    pointer-events: none;
+}
+
+/* =====================
+   BODY
+===================== */
+/*!--task.rudimentar, cerinta a!--*/
+body {
+    padding-left: var(--margine-pagina);
+    padding-right: var(--margine-pagina);
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+    background-color: var(--culoare-principala); /*!--task.rudimentar, cerinta 3!--*/
+    color: white;
+    padding: 1rem;
+}
+
+/* =====================
+   NAV
+===================== */
+nav li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--culoare-accent);
+}
+
+/* =====================
+   TITLURI
+===================== */
+h1, h2, h3 {
+    color: var(--culoare-principala);
+}
+
+/* =====================
+   SECTIUNI
+===================== */
+section {
+    /*!--task.rudimentar, cerinta d.!--*/
+    padding: var(--spatire-text);
+    border-bottom: 1px solid var(--culoare-border);
+}
+
+/* =====================
+   LINKURI
+===================== */
+a {
+    color: var(--culoare-secundara);
+}
+
+a:hover {
+    color: var(--culoare-hover);
+}
+
+/* =====================
+   task-TABEL
+===================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+
+    border: 5px double var(--culoare-principala); 
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* HEADER */
+th {
+    background-color: var(--culoare-principala);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+/* CELULELE */
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--culoare-border);
+    transition: all 0.75s; 
+}
+
+/* CULORILE PE COLOANE */
+td:nth-child(odd) {
+    color: var(--culoare-principala);
+}
+
+td:nth-child(even) {
+    color: var(--culoare-secundara);
+}
+
+/* HOVER PE RÂND */
+tbody tr:hover td {
+    background-color: var(--culoare-secundara);
+    color: white;
+    border: 3px solid var(--culoare-principala); /* crește grosimea */
+}
+
+/* CAPTION JOS */
+caption {
+    caption-side: bottom;
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--culoare-text);
+}
+
+/* FOOTER */
+tfoot td {
+    text-align: center;
+    font-style: italic;
+    background-color: var(--culoare-fundal);
+}
+table {
+    border-collapse: collapse;
+    border: 5px double var(--culoare-principala);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+td, th {
+    border: 1px solid var(--culoare-border);
+}
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background-color: var(--culoare-principala); /*!--task.rudimentar, cerinta 3!--*/
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--culoare-principala);
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: var(--culoare-hover);
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+        --margine-pagina: 50px;
+    }
+}
+/*!--task.rudimentar, cerinta 1!---responsive*/
+@media (max-width: 900px) {
+    :root {
+        --margine-pagina: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --margine-pagina: 10px;
+    }
+}
+.grid-container {
+    display: grid;
+    gap: 20px;
+    
+    /* Pasul 1: Împărțim ecranul în 4 coloane egale */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+    /* Pasul 2: Desenăm harta (ai grijă că acum fiecare rând are 4 cuvinte!) */
+    grid-template-areas:
+        "zona1 zona1 zona1 zona1"   /* Zona 1 ocupă tot rândul */
+        "zona5 zona6 zona6 zona7"   /* Zona 6 ocupă două casuțe din mijloc */
+        "zona3 zona3 zona2 zona2"   /* Zona 3 se oprește la jumătatea lui 6. Zona 2 preia restul */
+        "zona4 zona4 zona2 zona2"   /* Zona 4 la fel, Zona 2 continuă în jos */
+        "zona8 zona8 zona8 zona8";  /* Zona 8 ocupă tot rândul */
+}
+
+
+.zona1 { grid-area: zona1; }
+.zona2 { grid-area: zona2; }
+.zona3 { grid-area: zona3; }
+.zona4 { grid-area: zona4; }
+.zona5 { grid-area: zona5; }
+.zona6 { grid-area: zona6; }
+.zona7 { grid-area: zona7; }
+.zona8 { grid-area: zona8; }
+
+.grid-container section {
+    background-color: white;
+    /*!--task.rudimentar, cerinta d!--*/
+    padding: var(--spatire-text);
+    border-radius: 10px;
+    border: 1px solid var(--culoare-border);
+}
+@media (max-width: 600px) {
+    :root {
+        --spatiere-text: 15px;
+    }
+}
+/*!--task.rudimentar, cerinta b - responsive!--*/
+@media (max-width: 900px) {
+    .grid-container {
+        gap: 15px;
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas:
+            "zona1 zona1"
+            "zona5 zona6"
+            "zona7 zona7"
+            "zona3 zona2"
+            "zona4 zona2"
+            "zona8 zona8";
+    }
+}
+@media (max-width: 600px) {
+    .grid-container {
+        gap:10px;
+        grid-template-columns: 1fr;
+       
+        grid-template-areas:
+            "zona1"
+            "zona5"
+            "zona6"
+            "zona7"
+            "zona3"
+            "zona4"
+            "zona2"
+            "zona8";
+    }
+}
+
+/*!--task.rudimentar, cerinta c!--*/
+.grid-container section {
+    background-color: white; /* fundal diferit */
+    border: 1px solid var(--culoare-border); /* border */
+    border-radius: 12px; /* colturi rotunjite */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* umbra */
+}
+
+.hero {
+    background: linear-gradient(
+        rgba(90, 42, 122, 0.8),
+        rgba(166, 120, 195, 0.8)
+    ),
+    url("resurse/imagini/parfum-mare.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+    text-align: center;
+    padding: 4rem 1.2rem;
+}
+
+.hero {
+    /* ... păstrează gradientul, imaginea de fundal și ce mai aveai tu aici ... */
+
+    min-height: 50vh; /* 🔥 Secretul! Ocupă 50% din înălțimea ecranului */
+    
+    /* 🔥 Următoarele linii centrează textul perfect pe mijlocul acelei zone mari: */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.hero h2 {
+    font-size: 3rem; /* Îl facem un pic mai impunător */
+    margin-bottom: 15px;
+    
+    /* Magia textului de aur */
+    background: linear-gradient(270deg, #ffdf00, #d4af37, #ffdf00, #fff8dc);
+    background-size: 300% 300%; /* Lățim gradientul ca să avem ce mișca */
+    
+    /* Decupăm gradientul fix pe forma literelor */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Pornim animația */
+    animation: reflexie_aur 4s ease infinite;
+}
+
+/* Aici definim cum se mișcă lumina */
+@keyframes reflexie_aur {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+.btn {
+    background-color: var(--culoare-accent);
+    color: var(--culoare-text);
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    border-radius: 30px; /* Colțuri mult mai rotunjite, stil buton modern */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Adăugăm animația de puls */
+    animation: puls_buton 2s infinite alternate;
+}
+
+/* Definim pulsul (umbra crește și scade) */
+@keyframes puls_buton {
+    0% {
+        box-shadow: 0 0 10px rgba(230, 183, 255, 0.4);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(230, 183, 255, 0.8), 0 0 40px rgba(230, 183, 255, 0.4);
+        transform: scale(1.05); /* Se mărește foarte subtil (5%) */
+    }
+}
+/* Forțăm textul să rămână la fel chiar și după ce a fost apăsat/vizitat */
+.btn:visited, 
+.btn:active {
+    color: var(--culoare-text) !important; 
+}
+
+/* Efectul mecanic de apăsare (butonul se micșorează un pic când ții click-ul apăsat) */
+.btn:active {
+    transform: scale(0.95); /* Îl face 95% din mărime */
+    animation: none; /* Oprim pulsul cât timp e apăsat */
+    box-shadow: 0 0 10px rgba(230, 183, 255, 0.8); /* Umbra devine mai intensă/mică */
+}
+.btn:hover {
+    background-color: var(--culoare-hover);
+}
+
+.grid-container section:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+/* NAVBAR CONTAINER */
+nav {
+    background-color: var(--culoare-principala);
+    padding: 15px 0;
+}
+
+/* LISTA */
+.meniu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center; /* CENTRARE */
+    gap: 40px; /* spatiu intre elemente */
+}
+
+/* ITEM */
+.meniu > li {
+    position: relative;
+}
+
+/* LINKURI */
+.meniu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.meniu a:hover {
+    background-color: var(--culoare-hover);
+}
+.submenu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 0;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    min-width: 180px;
+}
+
+.submenu li {
+    padding: 10px 20px;
+}
+
+.submenu a {
+    color: var(--culoare-text);
+}
+
+.submenu li:hover {
+    background-color: var(--culoare-accent);
+}
+
+/* AFISARE */
+.meniu > li:hover .submenu {
+    display: block;
+}
+.submenu {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.meniu > li:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.submenu {
+                    @extend %reset-lista;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: white;
+                    min-width: 200px;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    
+                    // Animația de scalare
+                    transform: scale(0);
+                    transform-origin: center center;
+                    transition: transform 0.4s ease-in-out;
+                    z-index: 10;
+
+                    /* 🔥 CELE 3 LINII SALVATOARE: Forțăm structura de coloană! */
+                    display: flex;
+                    flex-direction: column; 
+                    width: 100%; 
+
+                    li {
+                        display: block; /* Anulăm regulile vechi care le puneau pe orizontală */
+                        width: 100%;    /* Forțăm "cutia" să se lățească la maxim */
+
+                        a {
+                            display: block;
+                            width: 100%; /* Forțăm și linkul să fie cât cutia */
+                            box-sizing: border-box; /* Ca padding-ul să nu strice calculele */
+                            padding: 12px 20px;
+                            color: var(--culoare-text);
+                            text-decoration: none;
+                            transition: background-color 0.3s;
+                            text-align: left; /* Ținem textul frumos aliniat la stânga */
+
+                            &:hover {
+                                background-color: var(--culoare-accent);
+                            }
+                        }
+                    }
+                }
+header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+/*!--task.rudimentar, cerinta e.!--*/
+img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+/*!--task.stilizare-taburi--*/
+
+.video-section {
+    max-width: 800px;   
+    margin: 0 auto;     
+}
+.video-tabs {
+    display: flex;
+    justify-content:center; 
+    gap: 10px;
+}
+.video-wrapper {
+    display: flex; 
+    gap: 20px;
+}
+
+/* linkuri */
+.video-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.video-tabs a {
+    background-color: var(--culoare-fundal);
+    border: 2px solid var(--culoare-border);
+    border-bottom: none; /* 🔥 efect tab */
+    padding: 10px 15px;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+    color: var(--culoare-text);
+
+    transition: 0.3s;
+}
+
+.video-tabs a:hover {
+    background-color: var(--culoare-accent);
+}
+/* iframe container */
+.video-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid var(--culoare-border);
+    border-radius: 0 12px 12px 12px; 
+    padding: 10px;
+    
+}
+
+.video-frame iframe {
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+iframe {
+    max-width: 600px;
+    margin: auto;
+}
+/* --task.stilizare_tabel icon animat*/
+
+
+.icon-animat {
+    color: gold;
+    animation: puls 1.5s infinite;
+}
+
+@keyframes puls {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+/* CONTAINER */
+.tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 3px solid var(--culoare-principala);
+    margin-bottom: 0; /* IMPORTANT */
+}
+
+/* TAB */
+.tab {
+    background-color: var(--culoare-fundal);
+    border: 1px solid var(--culoare-border);
+    border-bottom: none; /* IMPORTANT */
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--culoare-text);
+    transition: 0.3s;
+}
+
+/* HOVER */
+.tab:hover {
+    background-color: var(--culoare-accent);
+}
+
+/* TAB ACTIV */
+.tab.active {
+    background-color: var(--culoare-principala);
+    color: white;
+    border: 1px solid var(--culoare-principala);
+    border-bottom: none;
+
+    position: relative;
+    top: 3px; /* LIPIT de tabel */
+}
+.table-container {
+    margin-top: 0;
+}
+.tab-content {
+    margin-top: 15px;
+}
+.tab-content {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+/* ACTIV */
+.tab-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+}
+.tab-content {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.zona2 {
+    position: relative;
+}
+
+/* CONTAINER TABEL */
+.table-container {
+    margin-top: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: var(--culoare-secundara);
+    border-radius: 10px;
+}
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--culoare-principala);
+    z-index: 1;
+}
+/* task-buton */
+.buton-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        var(--culoare-principala),
+        var(--culoare-accent)
+    );
+
+    opacity: 0.6;
+    transition: 0.7s;
+}
+
+/* SAGEATA */
+.buton-top::before {
+    content: "↑";
+    position: relative;
+    transition: 0.7s;
+}
+
+/* CERCUL ROTUND */
+.buton-top::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px dashed var(--culoare-secundara);
+
+    transition: transform 0.7s ease;
+}
+
+/* HOVER */
+.buton-top:hover {
+    opacity: 1;
+}
+
+
+.buton-top:hover::after {
+    transform: rotate(180deg);
+}
+
+/* SAGEATA MIC EFECT */
+.buton-top:hover::before {
+    transform: translateY(-3px);
+    font-weight: bold;
+}
+/* CONTAINER FORMULA */
+.parfum-detaliu math {
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    background: linear-gradient(
+        135deg,
+        rgba(166, 120, 195, 0.1),
+        rgba(199, 125, 255, 0.15)
+    );
+
+    padding: 10px 18px;
+    border-radius: 12px;
+
+    border: 1px solid var(--culoare-border);
+
+    display: inline-block;
+    margin-top: 10px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+.litera {
+    color: var(--culoare-principala);
+    font-weight: 600;
+}
+
+.ulei {
+    color: var(--culoare-secundara);
+    font-style: italic;
+}
+
+
+.total {
+    color: var(--culoare-text);
+    opacity: 0.7;
+}
+
+.proc {
+    color: var(--culoare-hover);
+}
+
+.rezultat {
+    color: var(--culoare-principala);
+    font-weight: 600;
+}
+
+/* simboluri */
+math mo {
+    color: var(--culoare-text);
+    opacity: 0.8;
+}
+.parfum-detaliu math:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+/* LISTA PRODUSE */
+.produse-lista {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* CARD PRODUS */
+.produs {
+    background-color: white;
+    border: 1px solid var(--culoare-border);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* HOVER */
+.produs:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGINE */
+.produs img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* PRET */
+.pret {
+    color: var(--culoare-principala);
+    font-weight: bold;
+}
+
+.oferta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    min-height: 300px;
+}
+.oferta-text p:first-child {
+    margin-top: 0;
+}
+/* text */
+.oferta-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centrează pe verticală */
+}
+.oferta-img{
+    max-width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    flex: 1;
+    text-align: right; /* IMPORTANT */
+}
+@media (max-width: 768px) {
+    .oferta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .oferta-img {
+        text-align: center;
+    }
+}
+
+.rating {
+    letter-spacing: 2px;
+    font-size: 18px;
+    color: #c5a3e0;
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover .rating {
+    animation: glow 0.5s ease;
+}
+
+@keyframes glow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1.1); }
+}
+tbody tr {
+    cursor: pointer;
+}
+
+// 1. Extend pentru resetare liste
+%reset-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// Checkbox ascuns pentru logica de mobil
+.checkbox-meniu, .hamburger-icon {
+    display: none;
+}
+
+/* --- IMBRICARE SASS --- */
+header {
+    background-color: var(--culoare-principala);
+    color: white;
+    padding: 1rem;
+    position: relative; // Pentru a ține submeniul ancorat
+    z-index: 100; // Să stea peste hero imagine
+
+    nav {
+        .meniu {
+            @extend %reset-lista;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            .item-meniu {
+                position: relative;
+
+                // Linkurile principale
+                > a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1.1rem;
+                    padding: 10px 15px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    position: relative; // Pt bara gradient
+                    overflow: hidden; // Să nu iasă bara afară
+                    transition: 0.3s;
+
+                    /* Cerința Ecran Mare a): Bara care coboară */
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: -100%; // Ascunsă sus
+                        left: 0;
+                        width: 100%;
+                        height: 5px;
+                        background: linear-gradient(90deg, #333, #fff, #333); // 3 culori
+                        opacity: 0;
+                        transition: all 0.4s ease;
+                    }
+                }
+
+                // Hover pe opțiunea principală
+                &:hover > a {
+                    background-color: var(--culoare-secundara);
+                    
+                    // Coborâm bara
+                    &::before {
+                        top: 100%; 
+                        transform: translateY(-100%); // Se aliniază jos
+                        opacity: 1;
+                    }
+                }
+
+                /* Cerința Ecran Mare b): Submeniul scalează din centru */
+                .submenu {
+                    @extend %reset-lista;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: white;
+                    min-width: 200px;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    
+                    // Animația de scalare cerută
+                    transform: scale(0);
+                    transform-origin: center center;
+                    transition: transform 0.4s ease-in-out;
+                    z-index: 10;
+
+                    li a {
+                        display: block;
+                        padding: 12px 20px;
+                        color: var(--culoare-text);
+                        text-decoration: none;
+                        transition: background-color 0.3s;
+
+                        /* Cerința Ecran Mare c): Schimbă fundalul */
+                        &:hover {
+                            background-color: var(--culoare-accent);
+                        }
+                    }
+                }
+
+                // Afișăm submeniul pe ecran mare
+                &:hover .submenu {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+
+/* =====================
+   RESPONSIVITATE ECRAN MEDIU & MIC
+===================== */
+
+@media (max-width: 900px) {
+    /* Cerința Ecran Mediu: Ascundem textul, lăsăm doar FontAwesome */
+    header nav .meniu .item-meniu > a .text-optiune {
+        display: none;
+    }
+    header nav .meniu .item-meniu > a i {
+        font-size: 1.5rem; // Mărim iconița ca să compenseze
+    }
+}
+
+@media (max-width: 600px) {
+    /* --- CORECȚIE 1: Afișăm butonul de Hamburger în STÂNGA-SUS --- */
+    .hamburger-icon {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+        position: absolute;
+        top: 20px;
+        left: 20px; // <--- Aceasta este corecția de poziție
+    }
+
+    header {
+        nav .meniu {
+            /* Transformăm meniul într-o coloană ascunsă initial */
+            flex-direction: column; // Opțiunile sunt una sub alta
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--culoare-principala);
+            
+            /* Cerința Clip-Path circular din colțul stânga-sus */
+            clip-path: circle(0% at 0 0);
+            transition: clip-path 0.6s ease-out;
+
+            .item-meniu {
+                // Pe mobil, submeniul împinge continutul in jos, nu mai plutește
+                .submenu {
+                    position: static;
+                    transform: none; // Anulăm scalarea de desktop
+                    display: none; // Ascuns initial pe mobil
+                    flex-direction: column; // Opțiunile din submeniu sunt una sub alta
+                    
+                    /* --- CORECȚIE 2: Fundal pe toată caseta la hover --- */
+                    li a {
+                        width: 100%; // <--- Aceasta este corecția de lățime
+                        box-sizing: border-box; // Ca padding-ul să nu strice lățimea
+                    }
+                }
+
+                // Hover pe mobil deschide submeniul
+                &:hover .submenu {
+                    display: block;
+                }
+
+                /* Cerință: Anulăm tranzițiile complexe (bara glisantă) pe mobil */
+                > a::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    /* Magia Checkbox Hack: Cand dam click pe hamburger, desenam cercul complet */
+    .checkbox-meniu:checked ~ nav .meniu {
+        clip-path: circle(150% at 0 0);
+    }
+}
+
+/* =========================================
+   STILURI PENTRU PRINTARE (Exercițiul 7)
+========================================= */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Asigură-te că săgeata e ascunsă (pune aici clasa EXACTĂ a butonului tău) */
+    .buton-mergi-sus, a[href="#top"], .fas.fa-arrow-up { 
+        display: none !important; 
+    }
+    /* Cerința 7: Marginile paginilor stânga/dreapta (se folosește @page) */
+    @page :left {
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+    @page :right {
+        margin-left: 0.5cm;
+        margin-right: 2.5cm;
+    }
+
+    /* Cerința 1: Banner-ul din footer mutat fix sus pe prima pagină */
+    .banner-scolar {
+        position: absolute;
+        top: 0;
+        left: 10%; /* (100% - 80%) / 2 = 10% ca să fie perfect pe centru */
+        width: 80%;
+        text-align: center;
+        border: 2px dotted black; /* Border negru punctat */
+        margin: 0;
+        padding: 10px;
+        display: block !important;
+    }
+
+    /* Cerința 2: Ascundem imaginile, clipurile, iframes și butonul de Mergi Sus */
+    img, video, iframe, figure, .mergi-sus {
+        display: none !important;
+    }
+
+    /* Cerința 3: Gridul transformat în block + evitarea tăierii celulelor */
+    .grid-container {
+        display: block !important; /* Anulăm grila ca să curgă textul normal */
+    }
+    
+    .grid-container > * {
+        page-break-inside: avoid; /* Îi zice imprimantei: Nu tăia cutia asta pe jumătate! */
+        break-inside: avoid;
+        margin-bottom: 20px; /* Punem spațiu între ele pentru că a dispărut grid gap-ul */
+    }
+
+    /* Cerința 4: Linkurile arată ca text normal */
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    /* Cerința 5: Titlul H1 centrat (Coperta), fără meniu, cu page-breaks */
+    header nav, .hamburger-icon {
+        display: none !important; /* Ascundem meniul complet */
+    }
+
+    h1 {
+        /* Centrare verticală și orizontală forțând H1 să ocupe toată prima pagină */
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+        text-decoration: underline; /* Subliniat */
+        font-size: 2.5rem !important; /* 2.5 ori dimensiunea html-ului */
+        margin: 0;
+        
+        page-break-after: always; /* Page break DUPĂ heading */
+        break-after: page;
+    }
+
+    footer {
+        page-break-before: always; /* Page break ÎNAINTE de footer */
+        break-before: page;
+    }
+
+    /* Cerința 6: Watermark pe fiecare pagină (Folosim pseudo-element pe body) */
+    body::after {
+        content: "Brânzea Mălina Alexandra"; /* ⚠️ SCHIMBĂ CU NUMELE TĂU! */
+        position: fixed; /* Secretul ca să apară pe FIECARE pagină printată */
+        bottom: 0.5cm;
+        right: 0.5cm;
+        width: 100px;
+        height: 2cm;
+        border: 3px double black; /* Border dublu */
+        opacity: 0.65; /* Opacitate 0.65 */
+        
+        /* Centrarea textului în interiorul watermark-ului */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 12px;
+        color: black;
+        z-index: 9999;
+    }
+}
+@media print {
+    /* ... (regulile cu text negru și background transparent rămân sus) ... */
+
+    /* 1. Ascundem meniul complet */
+    header nav, .hamburger-icon, .checkbox-meniu {
+        display: none !important;
+    }
+
+    /* 2. Forțăm Header-ul să fie o copertă A4 (Centrare verticală și orizontală) */
+    header {
+        height: 100vh !important; /* Ocupă 100% din înălțimea foii */
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center !important; /* Centrare pe verticală */
+        align-items: center !important;     /* Centrare pe orizontală */
+        
+        /* 4. Page break DUPĂ copertă (heading) */
+        page-break-after: always !important; 
+        break-after: page !important;
+    }
+
+    /* 3. Stilizarea cerută pentru H1 */
+    h1 {
+        font-size: 2.5rem !important; /* De 2.5 ori mai mare decât HTML */
+        text-decoration: underline !important; /* Subliniat */
+        text-align: center;
+        color: black !important;
+        margin: 0;
+    }
+
+    /* 4. Page break ÎNAINTE de footer */
+    footer {
+        page-break-before: always !important;
+        break-before: page !important;
+    }
+}

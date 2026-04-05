@@ -19,7 +19,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="./resurse/ico/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="./resurse/css/general.css">
+    <link rel="stylesheet" href="./resurse/css/reset.css"> <link rel="stylesheet" href="./resurse/css/general.css">
+    <!-- task.stilizare_tabel -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
@@ -27,24 +28,46 @@
 
 <body id="top">
 
-<!-- HEADER -->
 <header>
     <h1>Magazin de Parfumuri de Lux</h1>
-    <!--cerinta 8)-->
+
+    <input type="checkbox" id="menu-toggle" class="checkbox-meniu">
+    <label for="menu-toggle" class="hamburger-icon">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+
     <nav>
-    <ul class="meniu">
-        <li>
-            Acasa
-            <ul class="submenu">
-                <li><a href="#welcome">Bine ati venit</a></li>
-                <li><a href="#evenimente">Evenimente</a></li>
-                <li><a href="#produse">Produse</a></li>
-            </ul>
-        </li>
-        <li><a href="#produse">Parfumuri</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+        <ul class="meniu">
+            <li class="item-meniu">
+                <a href="#">
+                    <i class="fa-solid fa-house"></i> 
+                    <span class="text-optiune">Acasă</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#welcome">Bine ați venit</a></li>
+                    <li><a href="#evenimente">Evenimente</a></li>
+                    <li><a href="#produse">Produse</a></li>
+                </ul>
+            </li>
+
+            <li class="item-meniu">
+                <a href="#">
+                    <i class="fa-solid fa-images"></i> 
+                    <span class="text-optiune">Galerii</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="statica.html">Galerie Statică</a></li>
+                    <li><a href="dinamica.html">Galerie Dinamică</a></li>
+                </ul>
+            </li>
+
+            <li class="item-meniu">
+                <a href="#contact">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span class="text-optiune">Contact</span>
+                </a>
+            </li>
+        </ul>
     </nav>
 </header>
 
@@ -99,6 +122,7 @@
     <h2>
         Top vânzări 
         <i class="fa-solid fa-star icon-animat"></i>
+       <!-- task.stilizare_tabel, icon animat -->
     </h2>
 
     <!-- TABURI -->
@@ -109,7 +133,8 @@
     </div>
 
     <!-- FEMEI -->
-    <div class="tab-content" id="femei">
+    <div class="table-container">
+    <div class="tab-content active" id="femei">
         <table>
             <caption>Parfumuri femei</caption>
             <thead>
@@ -134,12 +159,17 @@
                     <td class="rating">★★★★★</td>
                 </tr>
                 <tr>
-                    <td>Lancome La Vie Est Belle</td>
+                <td rowspan="2">La Vie Est Belle</td>
                     <td>450</td>
-                    <td>Sweet</td>
+                    <td>Clasic - Sweet</td>
                     <td class="rating">★★★★★</td>
-                    </tr>
-                    <tr>
+                </tr>
+                <tr>
+                    <td>470</td>
+                    <td>Rose - Floral</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+                <tr>
                     <td>YSL Libre</td>
                     <td>430</td>
                     <td>Floral</td>
@@ -230,6 +260,7 @@
             </tbody>
         </table>
     </div>
+</div>
 </section>
     <section class="zona8">
     <h3>Despre noi</h3>
@@ -365,30 +396,25 @@
 </section>
 
 <!-- IFRAME cerinta 14)-->
-<section>
+<section class="video-section">
+
     <h2>Video parfumuri</h2>
 
-    <div>
-        <a href="https://www.youtube.com/embed/hTHqjfVfykg" target="video">
-            Cum se face parfumul
-        </a>
-
-        <a href="https://www.youtube.com/embed/aPjQmbdESzg" target="video">
-            Adevărul despre parfumuri
-        </a>
-
-        <a href="https://www.youtube.com/embed/SZHqqL7rUQo" target="video">
-            Proces producție parfum
-        </a>
+    <!-- TABURI -->
+    <div class="video-tabs">
+        <a href="https://www.youtube.com/embed/hTHqjfVfykg" target="video">Cum se face parfumul</a>
+        <a href="https://www.youtube.com/embed/aPjQmbdESzg" target="video">Adevărul despre parfumuri</a>
+        <a href="https://www.youtube.com/embed/SZHqqL7rUQo" target="video">Proces producție</a>
     </div>
-    <div class="video-container">
-     <iframe name="video" 
-        src="https://www.youtube.com/embed/hTHqjfVfykg"
-        title="YouTube video player"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>   
-    </div>  
+
+    <!-- VIDEO -->
+    <div class="video-frame">
+        <iframe name="video"
+            src="https://www.youtube.com/embed/hTHqjfVfykg"
+            allowfullscreen>
+        </iframe>
+    </div>
+
 </section>
 <!-- DETAILS cerinta 16-->
 <section>
@@ -436,8 +462,8 @@
         <a href="https://www.google.com/maps/place/Facultatea+de+Matematică+și+Informatică/@44.4450299,26.1590576,15z/data=!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
             Vezi locația
         </a><br>
-         <i class="fa-solid fa-envelope"></i> test@gmail.com
-        <!--Email: <a href="mailto:test@gmail.com">test@gmail.com</a><br>!-->
+         <i class="fa-solid fa-envelope"></i> test@gmail.com 
+         <!--task.stilizare_tabel - icon static -- >
         
         <a href="https://wa.me/40721111111">WhatsApp</a>
     </address>
@@ -446,6 +472,8 @@
     <small>
         &copy; <time datetime="2026-03-22">22 martie 2026</time>
     </small>
+
+    <p class="banner-scolar">Acesta este un proiect școlar!</p>
 
 </footer>
 <script>
