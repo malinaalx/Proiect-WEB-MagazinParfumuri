@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ro">
+<%- include('../fragmente/head') %>
+<body>
+    <%- include('../fragmente/header') %>
+    
+    <main style="text-align: center; padding: 100px;">
+        <h1><%= locals.titlu %></h1>
+        <p><%= locals.text %></p>
+        
+        <img src="<%= locals.imagine %>" alt="Imagine eroare" style="max-width: 400px; margin-top: 20px; border-radius: 10px;">
+        
+        <br><br>
+        <a href="/" class="btn">Întoarce-te Acasă</a>
+    </main>
+
+    <%- include('../fragmente/footer') %>
+</body>
+</html>

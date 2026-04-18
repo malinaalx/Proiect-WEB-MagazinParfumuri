@@ -1,0 +1,52 @@
+{
+  "name": "mabfragrance",
+  "version": "1.0.0",
+  "description": "MABFragrance. Esențe fine. Experiente unice. Descoperă parfumurile de lux care definesc eleganța ta. Vă oferim o cumpărare ușoară și plăcută cu descrieri detaliate și consultanță olfactivă.",
+  "keywords": [
+    "magazin",
+    "online",
+    "de",
+    "parfumuri",
+    "MABFragrance",
+    "aromă",
+    "note",
+    "esență",
+    "femei",
+    "bărbați",
+    "unisex",
+    "brand",
+    "Dior",
+    "Lancome",
+    "ulei",
+    "esențial",
+    "cremă",
+    "hidratantă",
+    "piele",
+    "stoc",
+    "ofertă",
+    "preț",
+    "comandă",
+    "transport",
+    "la",
+    "domiciliu"
+  ],
+  "homepage": "https://github.com/malinaalx/Proiect-WEB-MagazinParfumuri#readme",
+  "bugs": {
+    "url": "https://github.com/malinaalx/Proiect-WEB-MagazinParfumuri/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malinaalx/Proiect-WEB-MagazinParfumuri.git"
+  },
+  "license": "ISC",
+  "author": "Branzea Malina Alexandra",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  }
+}

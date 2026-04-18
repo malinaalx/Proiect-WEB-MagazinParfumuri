@@ -1,0 +1,38 @@
+{
+  "cale_baza": "/resurse/imagini/erori/",
+  "eroare_default": {
+    "titlu": "Eroare generică",
+    "text": "A apărut o problemă necunoscută pe server. Vă rugăm reveniți mai târziu.",
+    "imagine": "default.png.jpg"
+  },
+  "info_erori": [
+    {
+      "identificator": 404,
+      "status": true,
+      "titlu": "Pagina nu a fost găsită (404)",
+      "text": "Ne pare rău, dar pagina de parfumuri pe care o cauți s-a evaporat!",
+      "imagine": "404.png.jpg"
+    },
+    {
+      "identificator": 500,
+      "status": true,
+      "titlu": "Eroare internă a serverului (500)",
+      "text": "Echipa noastră tehnică remediază problema. Miroase a scurtcircuit!",
+      "imagine": "500.png.jpg"
+    },
+    {
+      "identificator": 403,
+      "status": true,
+      "titlu": "Acces Interzis (403)",
+      "text": "Nu ai permisiunea să explorezi folderele cu resurse ale site-ului!",
+      "imagine": "403.png.webp"
+    },
+    {
+      "identificator": 400,
+      "status": true,
+      "titlu": "Cerere Invalidă (400)",
+      "text": "Fișierele EJS fac parte din codul sursă și sunt secrete! Nu pot fi accesate direct.",
+      "imagine": "400.png.webp"
+    }
+  ]
+}

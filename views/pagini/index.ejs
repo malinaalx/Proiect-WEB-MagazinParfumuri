@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<%- include('../fragmente/head') %>
+
+<body id="top">
+
+<%- include('../fragmente/header') %>
+
+<main class="grid-container">
+    <section id="welcome" class="zona1 hero">
+        <h2>Descoperă esența eleganței</h2>
+        <p>Parfumuri de lux pentru femei și bărbați</p>
+        <a href="#produse" class="btn">Vezi produse</a>
+    </section>
+
+    <section class="zona5">
+        <h3>Date Utilizator</h3>
+        <p>Adresa ta IP: <strong><%= locals.ip_utilizator %></strong></p>
+    </section>
+
+    <section class="zona6">
+        <h3>Statistici</h3>
+        <p>1000+ produse</p>
+        <p>500+ clienți mulțumiți</p>
+    </section>
+
+    <section class="zona7">
+        <h3>Info server</h3>
+        <p>Server activ</p>
+        <p>Timp răspuns: 120ms</p>
+    </section>
+
+    <section class="zona3">
+        <section id="evenimente">
+            <h2>Evenimente</h2>
+            <ul>
+                <li>
+                    <time datetime="2026-04-05T12:00">5 aprilie ora 12</time>,
+                    <b>Lansare parfum nou</b> - testare gratuită
+                </li>
+                <li>
+                    <time datetime="2026-04-10T18:00">10 aprilie ora 18</time>,
+                    <b>Promoție weekend</b> - reduceri speciale
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="zona4">
+        <h3>Anunțuri</h3>
+        <p>Reduceri de până la 30% weekendul acesta!</p>
+    </section>
+
+    <section class="zona2">
+        <h2>
+            Top vânzări 
+            <i class="fa-solid fa-star icon-animat"></i>
+        </h2>
+
+        <div class="tabs">
+            <button class="tab active" onclick="schimbaTab('femei')">Femei</button>
+            <button class="tab" onclick="schimbaTab('barbati')">Bărbați</button>
+            <button class="tab" onclick="schimbaTab('unisex')">Unisex</button>
+        </div>
+
+        <div class="table-container">
+            <div class="tab-content active" id="femei">
+                <table>
+                    <caption>Parfumuri femei</caption>
+                    <thead>
+                        <tr>
+                            <th>Parfum</th>
+                            <th>Preț</th>
+                            <th>Note</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dior J'adore</td>
+                            <td>400</td>
+                            <td>Floral</td>
+                            <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>Chanel No.5</td>
+                            <td>500</td>
+                            <td>Elegant</td>
+                            <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">La Vie Est Belle</td>
+                            <td>450</td>
+                            <td>Clasic - Sweet</td>
+                            <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>470</td>
+                            <td>Rose - Floral</td>
+                            <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>YSL Libre</td>
+                            <td>430</td>
+                            <td>Floral</td>
+                            <td class="rating">★★★★☆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-content" id="unisex" style="display:none;">
+                <table>
+                    <caption>Parfumuri unisex</caption>
+                    <thead>
+                        <tr>
+                            <th>Parfum</th>
+                            <th>Preț</th>
+                            <th>Note</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tom Ford Oud</td>
+                            <td>600</td>
+                            <td>Oriental</td>
+                            <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>CK One</td>
+                            <td>300</td>
+                            <td>Citrus</td>
+                            <td class="rating">★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td>Maison Francis Kurkdjian</td>
+                            <td>700</td>
+                            <td>Luxury</td>
+                            <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>Byredo Gypsy Water</td>
+                            <td>650</td>
+                            <td>Fresh</td>
+                            <td class="rating">★★★★☆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="zona8">
+        <h3>Despre noi</h3>
+        <p>Magazin online de parfumuri premium cu livrare rapidă.</p>
+    </section>
+</main>
+
+<div class="container-centru">
+    <section class="oferta">
+        <div class="oferta-text">
+            <p><strong>Reducere urgentă azi!</strong></p>
+            <p>Acest parfum este <em>incredibil</em>.</p>
+            <p><s>300 lei</s> <ins>199 lei</ins></p>
+            <p><abbr title="Eau de Parfum">EDP</abbr></p>
+            <p><dfn>Notele de bază</dfn> sunt persistente.</p>
+            <blockquote>
+                <q>Parfumul definește personalitatea</q>
+                <cite>expert parfumerie</cite>
+            </blockquote>
+        </div>
+        <div class="oferta-img">
+            <img src="/resurse/imagini/imag4.jpg" alt="Parfum redus">
+        </div>
+    </section>
+
+    <section id="produse">
+        <h2>Produsele lunii</h2>
+        <div class="produse-lista">
+            <div class="produs">
+                <img src="/resurse/imagini/imag1.jpg" alt="Dior">
+                <h3>Dior J'adore</h3>
+                <p>Floral, elegant, feminin</p>
+                <p class="pret">400 lei</p>
+            </div>
+            <div class="produs">
+                <img src="/resurse/imagini/imag2.jpg" alt="Chanel">
+                <h3>Chanel No.5</h3>
+                <p>Clasic, rafinat</p>
+                <p class="pret">500 lei</p>
+            </div>
+            <div class="produs">
+                <img src="/resurse/imagini/imag3.jpg" alt="Armani">
+                <h3>Armani Code</h3>
+                <p>Puternic, masculin</p>
+                <p class="pret">350 lei</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="parfum-detaliu">
+        <h2>Lancome - La Vie Est Belle</h2>
+        <figure>
+            <picture>
+                <source srcset="/resurse/imagini/parfum-mic.jpg" media="(max-width:700px)">
+                <source srcset="/resurse/imagini/parfum-mediu.jpg" media="(max-width:1200px)">
+                <img src="/resurse/imagini/parfum-mare.jpg" alt="La vie est belle" title="Parfum de lux">
+            </picture>
+            <figcaption>Parfum premium</figcaption>
+        </figure>
+
+        <p>Un parfum dulce și elegant, cu note de ilie, iris și patchouli.</p>
+        <ul>
+            <li>Concentrație ulei: 20 ml</li>
+            <li>Volum total: 100 ml</li>
+        </ul>
+
+        <p><strong>Calcul concentrație:</strong></p>
+        <math>
+            <mrow>
+                <mi class="litera">C</mi>
+                <mo>=</mo>
+                <mfrac>
+                    <mi class="ulei">20</mi>
+                    <mi class="total">100</mi>
+                </mfrac>
+                <mo>×</mo>
+                <mn class="proc">100</mn>
+                <mo>=</mo>
+                <mn class="rezultat">20%</mn>
+            </mrow>
+        </math>
+        <p><em>Acest parfum este de tip Eau de Parfum (EDP).</em></p>
+    </section>
+
+    <section>
+        <h2>Linkuri utile</h2>
+        <p><a href="https://www.fragrantica.com" target="_blank">Site parfumuri</a></p>
+        <p><a href="https://ro.wikipedia.org/wiki/Parfum#Istorie_lunga_si_interesanta">https://ro.wikipedia.org/wiki/Parfum<wbr>#Istorie_lunga_si_interesanta</a></p>
+        <p>
+            <a href="/resurse/imagini/parfum-mic.jpg">
+                <img src="/resurse/imagini/parfum-mic.jpg" width="100" alt="parfum">
+            </a>
+        </p>
+        <p><a href="/resurse/imagini/parfum-mic.jpg" download="parfum_descarcat.jpg">Descarcă imagine</a></p>
+    </section>
+
+    <section class="video-section">
+    <h2>Prezentare Video VTT</h2>
+    
+    <video id="parfum-video" class="video-responsive" controls poster="/resurse/imagini/poster.videoclip.png" preload="none">
+        
+        <source src="/resurse/video/videoplayback.mp4" type="video/mp4">
+        <source src="/resurse/video/videoplayback (1).webm" type="video/webm">
+
+        <track src="/resurse/trackuri/ro.vtt" kind="subtitles" srclang="ro" label="Română" default>
+        <track src="/resurse/trackuri/en.vtt" kind="subtitles" srclang="en" label="English">
+
+        Browserul dumneavoastră nu suportă formatul video.
+    </video>
+    </section>
+
+    <section>
+        <h2>Întrebări frecvente</h2>
+        <details>
+            <summary>Parfumurile sunt originale?</summary>
+            <p>Da.</p>
+        </details>
+        <details>
+            <summary>Livrare rapidă?</summary>
+            <p>Da.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Popularitate</h2>
+        <p>Parfum A: <meter min="0" max="100" low="30" high="80" optimum="90" value="20"></meter></p>
+        <p>Parfum B: <meter min="0" max="100" low="30" high="80" optimum="90" value="90"></meter></p>
+    </section>
+</div>
+
+<%- include('../fragmente/footer') %>
+
+<script>
+function schimbaTab(tab) {
+    let contents = document.querySelectorAll(".tab-content");
+    contents.forEach(c => {
+        c.classList.remove("active");
+    });
+    let current = document.getElementById(tab);
+    current.style.display = "block";
+    setTimeout(() => {
+        current.classList.add("active");
+    }, 10);
+    let tabs = document.querySelectorAll(".tab");
+    tabs.forEach(t => t.classList.remove("active"));
+    event.target.classList.add("active");
+}
+</script>
+
+<a href="#top" class="buton-top" title="Mergi sus"></a>
+
+</body>
+</html>
