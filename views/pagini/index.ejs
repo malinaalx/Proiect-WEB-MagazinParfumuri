@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="ro" data-bs-theme="lux">
 
 <%- include('../fragmente/head') %>
 
@@ -7,9 +7,19 @@
 
 <%- include('../fragmente/header') %>
 
+<div class="bandou-anunt" aria-label="Anunțuri MABFragrance">
+    <div class="bandou-anunt__track">
+        <span class="bandou-anunt__text">✦ MABFragrance — Esențe fine · Livrare rapidă · Parfumuri originale · Reduceri weekend ✦&nbsp;&nbsp;&nbsp;</span>
+        <span class="bandou-anunt__text" aria-hidden="true">✦ MABFragrance — Esențe fine · Livrare rapidă · Parfumuri originale · Reduceri weekend ✦&nbsp;&nbsp;&nbsp;</span>
+    </div>
+</div>
+
 <main class="grid-container">
     <section id="welcome" class="zona1 hero">
-        <h2>Descoperă esența eleganței</h2>
+        <div class="container-reflexie text-center mt-5 mb-3">
+            <h2 class="text-original">Colecția de Lux</h2>
+            <h2 class="text-reflectat" aria-hidden="true">Colecția de Lux</h2>
+        </div>
         <p>Parfumuri de lux pentru femei și bărbați</p>
         <a href="#produse" class="btn">Vezi produse</a>
     </section>
@@ -48,8 +58,10 @@
     </section>
 
     <section class="zona4">
-        <h3>Anunțuri</h3>
-        <p>Reduceri de până la 30% weekendul acesta!</p>
+        <h3 class="visually-hidden">Anunțuri</h3>
+        <div class="alert alert-warning mb-0 py-2" role="alert">
+            <strong>Weekend promo:</strong> reduceri de până la 30% la parfumuri selectate.
+        </div>
     </section>
 
     <section class="zona2">
@@ -90,12 +102,13 @@
                             <td class="rating">★★★★★</td>
                         </tr>
                         <tr>
-                            <td rowspan="2">La Vie Est Belle</td>
+                            <td>La Vie Est Belle (Clasic)</td>
                             <td>450</td>
                             <td>Clasic - Sweet</td>
                             <td class="rating">★★★★★</td>
                         </tr>
                         <tr>
+                            <td>La Vie Est Belle (Rose)</td>
                             <td>470</td>
                             <td>Rose - Floral</td>
                             <td class="rating">★★★★★</td>
@@ -159,7 +172,65 @@
 </main>
 
 <div class="container-centru">
-    <section class="oferta">
+    <%- include('../fragmente/produse-bootstrap') %>
+
+    <hr class="hr-tema" aria-hidden="true">
+
+    <section class="sectiune-tabel-responsive" aria-labelledby="titlu-catalog-parfumuri">
+        <h2 id="titlu-catalog-parfumuri">Catalog parfumuri</h2>
+        <div class="tabel-responsive-cadru">
+            <table id="transpus" class="tabel-responsive">
+                <caption class="sr-only-visually">Catalog parfumuri MABFragrance</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nume</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Concentrație</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Stoc</th>
+                        <th scope="col">Preț (lei)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Nume">J'adore</td>
+                        <td data-label="Brand">Dior</td>
+                        <td data-label="Concentrație">EDP</td>
+                        <td data-label="Note">Floral</td>
+                        <td data-label="Stoc">Da</td>
+                        <td data-label="Preț (lei)">400</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nume">No.5</td>
+                        <td data-label="Brand">Chanel</td>
+                        <td data-label="Concentrație">EDP</td>
+                        <td data-label="Note">Elegant</td>
+                        <td data-label="Stoc">Da</td>
+                        <td data-label="Preț (lei)">500</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nume">Libre</td>
+                        <td data-label="Brand">YSL</td>
+                        <td data-label="Concentrație">EDP</td>
+                        <td data-label="Note">Floral</td>
+                        <td data-label="Stoc">Limitat</td>
+                        <td data-label="Preț (lei)">430</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nume">La Vie Est Belle</td>
+                        <td data-label="Brand">Lancome</td>
+                        <td data-label="Concentrație">EDP</td>
+                        <td data-label="Note">Dulce</td>
+                        <td data-label="Stoc">Da</td>
+                        <td data-label="Preț (lei)">450</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="tabel-sumar">Număr produse listate: 4</p>
+        </div>
+    </section>
+
+    <section id="oferta" class="oferta">
         <div class="oferta-text">
             <p><strong>Reducere urgentă azi!</strong></p>
             <p>Acest parfum este <em>incredibil</em>.</p>
@@ -176,38 +247,19 @@
         </div>
     </section>
 
-    <section id="produse">
-        <h2>Produsele lunii</h2>
-        <div class="produse-lista">
-            <div class="produs">
-                <img src="/resurse/imagini/imag1.jpg" alt="Dior">
-                <h3>Dior J'adore</h3>
-                <p>Floral, elegant, feminin</p>
-                <p class="pret">400 lei</p>
-            </div>
-            <div class="produs">
-                <img src="/resurse/imagini/imag2.jpg" alt="Chanel">
-                <h3>Chanel No.5</h3>
-                <p>Clasic, rafinat</p>
-                <p class="pret">500 lei</p>
-            </div>
-            <div class="produs">
-                <img src="/resurse/imagini/imag3.jpg" alt="Armani">
-                <h3>Armani Code</h3>
-                <p>Puternic, masculin</p>
-                <p class="pret">350 lei</p>
-            </div>
-        </div>
+    <section class="sectiune-galerie-statica" aria-label="Galerie statică parfumuri">
+        <%- include('../fragmente/galerie') %>
     </section>
 
     <section class="parfum-detaliu">
         <h2>Lancome - La Vie Est Belle</h2>
         <figure>
-            <picture>
-                <source srcset="/resurse/imagini/parfum-mic.jpg" media="(max-width:700px)">
-                <source srcset="/resurse/imagini/parfum-mediu.jpg" media="(max-width:1200px)">
-                <img src="/resurse/imagini/parfum-mare.jpg" alt="La vie est belle" title="Parfum de lux">
-            </picture>
+            <div
+                id="efect-css-duotone"
+                class="efect-duotone"
+                role="img"
+                aria-label="La Vie Est Belle — parfum de lux">
+            </div>
             <figcaption>Parfum premium</figcaption>
         </figure>
 
@@ -248,18 +300,20 @@
     </section>
 
     <section class="video-section">
-    <h2>Prezentare Video VTT</h2>
-    
-    <video id="parfum-video" class="video-responsive" controls poster="/resurse/imagini/poster.videoclip.png" preload="none">
-        
-        <source src="/resurse/video/videoplayback.mp4" type="video/mp4">
-        <source src="/resurse/video/videoplayback (1).webm" type="video/webm">
+        <h2>Prezentare Video VTT</h2>
 
-        <track src="/resurse/trackuri/ro.vtt" kind="subtitles" srclang="ro" label="Română" default>
-        <track src="/resurse/trackuri/en.vtt" kind="subtitles" srclang="en" label="English">
-
-        Browserul dumneavoastră nu suportă formatul video.
-    </video>
+        <div class="video-frame">
+            <div class="ratio ratio-16x9 video-ratio">
+                <video id="parfum-video" class="video-prezentare" controls
+                    poster="/resurse/imagini/poster.videoclip.png" preload="metadata">
+                    <source src="/resurse/video/videoplayback.mp4" type="video/mp4">
+                    <source src="/resurse/video/videoplayback%20(1).webm" type="video/webm">
+                    <track src="/resurse/trackuri/ro.vtt" kind="subtitles" srclang="ro" label="Română" default>
+                    <track src="/resurse/trackuri/en.vtt" kind="subtitles" srclang="en" label="English">
+                    Browserul dumneavoastră nu suportă formatul video.
+                </video>
+            </div>
+        </div>
     </section>
 
     <section>

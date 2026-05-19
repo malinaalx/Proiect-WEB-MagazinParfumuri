@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ro">
+<%- include('../fragmente/head') %>
+<body>
+    <%- include('../fragmente/header') %>
+    <main class="pagina-galerie-statica">
+        <h2>Galerie statică</h2>
+        <% if (imagini && imagini.length) { %>
+        <p class="info-sfert-galerie">
+            Sfert de oră activ: <strong><%= imagini[0].sfert_afisat %></strong>
+            (<%= imagini.length %> imagini — aceeași structură grid, poze diferite la fiecare sfert).
+        </p>
+        <% } %>
+        <section class="sectiune-galerie-statica" aria-label="Galerie statică parfumuri">
+            <%- include('../fragmente/galerie') %>
+        </section>
+    </main>
+    <%- include('../fragmente/footer') %>
+</body>
+</html>

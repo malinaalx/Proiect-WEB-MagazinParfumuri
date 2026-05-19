@@ -1,0 +1,88 @@
+// Corectare aspect site după integrarea Bootstrap
+// (general.css se încarcă după custom.css și suprascrie unde e nevoie)
+
+body#top {
+    padding-left: var(--margine-pagina) !important;
+    padding-right: var(--margine-pagina) !important;
+    background: linear-gradient(135deg, #f9f6ff 0%, #f3e8ff 40%, #fef6e4 70%, #f9f6ff 100%) !important;
+    background-attachment: fixed !important;
+}
+
+header {
+    background-color: var(--culoare-principala) !important;
+    color: white !important;
+
+    h1 {
+        color: white !important;
+        font-size: 1.8rem !important;
+        margin: 0.5rem 0 !important;
+    }
+
+    nav .meniu {
+        list-style: none !important;
+        padding-left: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+.zona2 .tabs .tab {
+    background-color: var(--culoare-fundal) !important;
+    border: 1px solid var(--culoare-border) !important;
+    color: var(--culoare-text) !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+
+    &.active {
+        background-color: var(--culoare-principala) !important;
+        color: #fff !important;
+    }
+}
+
+// Butonul site-ului (fără clase Bootstrap suplimentare)
+a.btn:not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-light):not(.btn-dark):not(.btn-outline-primary):not(.btn-outline-secondary) {
+    background-color: var(--culoare-accent) !important;
+    color: var(--culoare-text) !important;
+    padding: 0.8rem 1.8rem !important;
+    border-radius: 30px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    display: inline-block !important;
+}
+
+main a:not(.btn):not(.nav-link) {
+    color: var(--culoare-secundara);
+}
+
+.grid-container section {
+    background-color: white;
+}
+
+// Player video HTML5 (VTT) — dimensiuni clare după integrarea Bootstrap
+.video-section {
+    .video-frame {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .video-ratio {
+        max-width: 700px;
+        margin: 0 auto;
+        background: #000;
+        border-radius: 0 12px 12px 12px;
+    }
+
+    .video-prezentare {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        display: block !important;
+        object-fit: contain;
+        background: #000;
+    }
+}

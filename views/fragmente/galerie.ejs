@@ -1,0 +1,25 @@
+<!-- Cerinta: galerie-statica — fragment reutilizat (index + pagina statica) -->
+<div id="galerie-statica">
+    <% if (!imagini || imagini.length === 0) { %>
+        <p class="galerie-fara-imagini">Nu exista imagini pentru sfertul de ora curent.</p>
+    <% } else { %>
+        <% for (let i = 0; i < imagini.length; i++) { %>
+            <% let img = imagini[i]; %>
+            <figure>
+                <span class="cadru-imagine">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="<%= img.cale_mic_abs %>">
+                        <source media="(max-width: 900px)" srcset="<%= img.cale_mediu_abs %>">
+                        <img src="<%= img.cale_absoluta %>"
+                             alt="<%= img.alt_text %>"
+                             title="<%= img.descriere %>"
+                             width="450"
+                             height="450"
+                             loading="lazy">
+                    </picture>
+                </span>
+                <figcaption><%= img.descriere %></figcaption>
+            </figure>
+        <% } %>
+    <% } %>
+</div>

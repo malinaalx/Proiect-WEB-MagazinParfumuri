@@ -1,0 +1,91 @@
+// ============================================
+// Customizare Bootstrap — MABFragrance (SASS)
+// Variabilele se definesc ÎNAINTE de @import (sintaxa cerută la laborator)
+// ============================================
+
+$font-family-base: 'Poppins', sans-serif;
+$headings-font-family: 'Poppins', sans-serif;
+
+$primary: #5a2a7a;
+$secondary: #a678c3;
+$success: #2d6a4f;
+$info: #9d4edd;
+$warning: #e9c46a;
+$danger: #c9184a;
+
+$body-bg: #f8f4fb;
+$body-color: #2b2b2b;
+$link-color: #7b4b9a;
+
+$btn-color: #ffffff;
+$btn-primary-color: #ffffff;
+$btn-secondary-color: #1a1028;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 900px,
+    lg: 1200px,
+    xl: 1400px,
+    xxl: 1600px
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 860px,
+    lg: 1140px,
+    xl: 1320px,
+    xxl: 1520px
+);
+
+$border-radius: 0.75rem;
+$border-radius-sm: 0.45rem;
+$border-radius-lg: 1.35rem;
+$border-radius-pill: 2rem;
+
+$h1-font-size: 2.75rem;
+$h2-font-size: 2.1rem;
+$h3-font-size: 1.55rem;
+$h4-font-size: 1.25rem;
+$h5-font-size: 1.05rem;
+$h6-font-size: 0.95rem;
+
+$spacer: 1.25rem;
+$card-border-radius: $border-radius-lg;
+
+@import "bootstrap/scss/bootstrap";
+
+[data-bs-theme="lux"] {
+    --bs-body-bg: #f8f4fb;
+    --bs-body-color: #2b2b2b;
+    --bs-primary: #5a2a7a;
+    --bs-primary-rgb: 90, 42, 122;
+    --bs-secondary: #a678c3;
+    --bs-secondary-rgb: 166, 120, 195;
+    --bs-link-color: #7b4b9a;
+    --bs-border-radius: #{$border-radius};
+    --bs-btn-color: #ffffff;
+}
+
+[data-bs-theme="nocturn"] {
+    --bs-body-bg: #1a1028;
+    --bs-body-color: #efe6f8;
+    --bs-primary: #c084f5;
+    --bs-primary-rgb: 192, 132, 245;
+    --bs-secondary: #5a2a7a;
+    --bs-secondary-rgb: 90, 42, 122;
+    --bs-link-color: #e6b7ff;
+    --bs-border-radius: 1rem;
+    --bs-btn-color: #1a1028;
+    color-scheme: dark;
+}
+
+.zona-produse-bootstrap {
+    margin: 2rem 0;
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+}
+

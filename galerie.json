@@ -1,0 +1,288 @@
+{
+  "cale_galerie": "/resurse/imagini/galerie/",
+  "imagini": [
+    {
+      "cale_imagine": "Lattafa.jpg",
+      "titlu": "Lattafa",
+      "alt": "Parfum Lattafa",
+      "descriere": "Un parfum oriental inconfundabil.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "My Way.jpg",
+      "titlu": "My Way",
+      "alt": "Parfum My Way",
+      "descriere": "O aromă florală și elegantă.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Musk.jpg",
+      "titlu": "Musk",
+      "alt": "Parfum Musk",
+      "descriere": "Esență intensă de mosc.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Valentino.jpg",
+      "titlu": "Valentino",
+      "alt": "Parfum Valentino",
+      "descriere": "Parfum rafinat și pasional.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Cannabis.jpg",
+      "titlu": "Cannabis",
+      "alt": "Parfum Cannabis",
+      "descriere": "Note lemnoase, unice.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Victoria Secret.jpg",
+      "titlu": "Victoria Secret",
+      "alt": "Parfum Victoria Secret",
+      "descriere": "Dulce, seducător, inconfundabil.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Narciso.jpg",
+      "titlu": "Narciso",
+      "alt": "Parfum Narciso",
+      "descriere": "O prezență pudrată și fină.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Alien.jpg",
+      "titlu": "Alien",
+      "alt": "Parfum Alien",
+      "descriere": "Misterios și captivant.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Olympus.jpg",
+      "titlu": "Olympus",
+      "alt": "Parfum Olympus",
+      "descriere": "Un parfum demn de zeițe.",
+      "sfert_ora": 1
+    },
+    {
+      "cale_imagine": "Lancome.jpg",
+      "titlu": "Lancome",
+      "alt": "Parfum Lancome",
+      "descriere": "Eleganță franțuzească pură.",
+      "sfert_ora": 1
+    },
+
+    {
+      "cale_imagine": "Blanche.jpg",
+      "titlu": "Blanche",
+      "alt": "Parfum Blanche",
+      "descriere": "Puritate și prospețime.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Libre.jpg",
+      "titlu": "Libre",
+      "alt": "Parfum Libre",
+      "descriere": "Pentru o femeie puternică.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Olympea.jpg",
+      "titlu": "Olympea",
+      "alt": "Parfum Olympea",
+      "descriere": "Note marine și vanilie dulce.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Paco.jpg",
+      "titlu": "Paco Rabanne",
+      "alt": "Parfum Paco Rabanne",
+      "descriere": "Aromă vibrantă și curajoasă.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Foreplay.jpg",
+      "titlu": "Foreplay",
+      "alt": "Parfum Foreplay",
+      "descriere": "Note senzuale de seară.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Chloe.jpg",
+      "titlu": "Chloe",
+      "alt": "Parfum Chloe",
+      "descriere": "Delicat, cu o semnătură florală.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "L-Interdit.jpg",
+      "titlu": "L-Interdit",
+      "alt": "Parfum L'Interdit",
+      "descriere": "O aromă interzis de atrăgătoare.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Oykp.jpg",
+      "titlu": "Oykp",
+      "alt": "Parfum Oykp",
+      "descriere": "Note proaspete și misterioase.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Infinite.jpg",
+      "titlu": "Infinite",
+      "alt": "Parfum Infinite",
+      "descriere": "Prospețime care durează.",
+      "sfert_ora": 2
+    },
+    {
+      "cale_imagine": "Sakura.jpg",
+      "titlu": "Sakura",
+      "alt": "Parfum Sakura",
+      "descriere": "Delicatețea florilor de cireș.",
+      "sfert_ora": 2
+    },
+
+    {
+      "cale_imagine": "Eclaire.jpg",
+      "titlu": "Eclaire",
+      "alt": "Parfum Eclaire",
+      "descriere": "Un desert olfactiv delicios.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "Chanel.jpg",
+      "titlu": "Chanel",
+      "alt": "Parfum Chanel",
+      "descriere": "Clasicul care nu se demodează niciodată.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "Scandal.jpg",
+      "titlu": "Scandal",
+      "alt": "Parfum Scandal",
+      "descriere": "Dulce, intens și provocator.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "Gucci.jpg",
+      "titlu": "Gucci",
+      "alt": "Parfum Gucci",
+      "descriere": "Rafinament și lux la superlativ.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "La Rive.jpg",
+      "titlu": "La Rive",
+      "alt": "Parfum La Rive",
+      "descriere": "O variantă fresh de zi.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "Versace.jpg",
+      "titlu": "Versace",
+      "alt": "Parfum Versace",
+      "descriere": "Glamour și opulență.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "Elixir.jpg",
+      "titlu": "Elixir",
+      "alt": "Parfum Elixir",
+      "descriere": "Pasiune concentrată într-o sticluță.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "Lattafa.jpg",
+      "titlu": "Lattafa",
+      "alt": "Parfum Lattafa",
+      "descriere": "Aromă intensă de seară târzie.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "My Way.jpg",
+      "titlu": "My Way",
+      "alt": "Parfum My Way",
+      "descriere": "Eleganță pentru momente speciale.",
+      "sfert_ora": 3
+    },
+    {
+      "cale_imagine": "Musk.jpg",
+      "titlu": "Musk",
+      "alt": "Parfum Musk",
+      "descriere": "Persistență și caracter.",
+      "sfert_ora": 3
+    },
+
+    {
+      "cale_imagine": "Valentino.jpg",
+      "titlu": "Valentino",
+      "alt": "Parfum Valentino",
+      "descriere": "Parfum rafinat și pasional.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Cannabis.jpg",
+      "titlu": "Cannabis",
+      "alt": "Parfum Cannabis",
+      "descriere": "Note lemnoase, unice.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Victoria Secret.jpg",
+      "titlu": "Victoria Secret",
+      "alt": "Parfum Victoria Secret",
+      "descriere": "Dulce, seducător, inconfundabil.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Narciso.jpg",
+      "titlu": "Narciso",
+      "alt": "Parfum Narciso",
+      "descriere": "O prezență pudrată și fină.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Alien.jpg",
+      "titlu": "Alien",
+      "alt": "Parfum Alien",
+      "descriere": "Misterios și captivant.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Olympus.jpg",
+      "titlu": "Olympus",
+      "alt": "Parfum Olympus",
+      "descriere": "Un parfum demn de zeițe.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Lancome.jpg",
+      "titlu": "Lancome",
+      "alt": "Parfum Lancome",
+      "descriere": "Eleganță franțuzească pură.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Blanche.jpg",
+      "titlu": "Blanche",
+      "alt": "Parfum Blanche",
+      "descriere": "Puritate și prospețime.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Libre.jpg",
+      "titlu": "Libre",
+      "alt": "Parfum Libre",
+      "descriere": "Pentru o femeie puternică.",
+      "sfert_ora": 4
+    },
+    {
+      "cale_imagine": "Olympea.jpg",
+      "titlu": "Olympea",
+      "alt": "Parfum Olympea",
+      "descriere": "Note marine și vanilie dulce.",
+      "sfert_ora": 4
+    }
+  ]
+}

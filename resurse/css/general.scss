@@ -1,4 +1,4 @@
-@import "reset";
+@import "reset.css";
 
 html {
     font-size: 16px;
@@ -6,21 +6,15 @@ html {
 }
 
 @media (min-width: 1200px) { 
-    html { 
-        font-size: 18px; 
-    } 
+    html { font-size: 18px; } 
 }
 
 @media (max-width: 1200px) { 
-    html { 
-        font-size: 16px; 
-    } 
+    html { font-size: 16px; } 
 }
 
 @media (max-width: 768px) { 
-    html { 
-        font-size: 14px; 
-    } 
+    html { font-size: 14px; } 
 }
 
 :root {
@@ -37,15 +31,11 @@ html {
 }
 
 @media screen and (max-width: 768px) { 
-    body { 
-        --margine-pagina: 50px; 
-    } 
+    body { --margine-pagina: 50px; } 
 }
 
 @media (max-width: 900px) { 
-    :root { 
-        --margine-pagina: 20px; 
-    } 
+    :root { --margine-pagina: 20px; } 
 }
 
 @media (max-width: 600px) { 
@@ -66,40 +56,17 @@ body {
 body::before {
     content: "";
     position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    
+    top: 0; left: 0; width: 100%; height: 100%;
     background: radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.15), transparent 40%),
                 radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1), transparent 40%);
     pointer-events: none;
 }
 
-h1, h2, h3 { 
-    color: var(--culoare-principala); 
-}
-
-h2 { 
-    font-size: 1.8rem; 
-}
-
-a { 
-    color: var(--culoare-secundara); 
-}
-
-a:hover { 
-    color: var(--culoare-hover); 
-}
-
-img { 
-    width: 100%; 
-    max-width: 500px; 
-    height: auto; 
-}
-
-
-
+h1, h2, h3 { color: var(--culoare-principala); }
+h2 { font-size: 1.8rem; }
+a { color: var(--culoare-secundara); }
+a:hover { color: var(--culoare-hover); }
+img { width: 100%; max-width: 500px; height: auto; }
 
 @keyframes aparitie_bare_meniu {
     0% {
@@ -118,9 +85,6 @@ img {
         background-color: white; 
     }
 }
-
-
-
 
 %reset-lista {
     list-style: none;
@@ -145,7 +109,7 @@ header {
             @extend %reset-lista;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 0;
 
             .item-meniu {
                 position: relative;
@@ -154,10 +118,13 @@ header {
                     color: white;
                     text-decoration: none;
                     font-size: 1.1rem;
-                    padding: 10px 15px;
+                    padding: 10px 30px;
                     display: flex;
-                    align-items: center;
-                    gap: 8px;
+                    flex-direction: row; 
+                    align-items: center; /* Centrate pe înălțime */
+                    justify-content: center; /* Centrate pe lățime */
+                    text-align: center;
+                    gap: 12px; 
                     position: relative;
                     overflow: hidden;
                     transition: 0.3s;
@@ -172,6 +139,10 @@ header {
                         background: linear-gradient(90deg, #333, #fff, #333);
                         opacity: 0;
                         transition: all 0.4s ease;
+                    }
+                    
+                    .text-optiune {
+                        display: inline-block;
                     }
                 }
 
@@ -191,7 +162,7 @@ header {
                     top: 100%; 
                     left: 0;
                     background-color: white;
-                    min-width: 200px;
+                    min-width: 100%;
                     border-radius: 8px;
                     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
                     
@@ -215,7 +186,7 @@ header {
                             color: var(--culoare-text);
                             text-decoration: none;
                             transition: background-color 0.3s;
-                            text-align: left; 
+                            text-align: center; 
 
                             &:hover { 
                                 background-color: var(--culoare-accent); 
@@ -232,11 +203,8 @@ header {
     }
 }
 
+
 @media (max-width: 900px) {
-    header nav .meniu .item-meniu > a .text-optiune { 
-        display: none; 
-    }
-    
     header nav .meniu .item-meniu > a i { 
         font-size: 1.5rem; 
     }
@@ -251,7 +219,6 @@ header {
         left: 20px;
         z-index: 101; 
 
-        /* BONUS 1: Containerul și cele 3 span-uri poziționate absolut */
         .container-bare {
             position: relative;
             width: 30px;
@@ -271,7 +238,6 @@ header {
             .bara:nth-child(2) { top: 8px; }
             .bara:nth-child(3) { top: 16px; }
 
-            /* BONUS 3: Bucla SASS @for pentru Delay */
             @for $i from 1 through 3 {
                 .bara:nth-child(#{$i}) {
                     animation-delay: $i * 0.1s; 
@@ -290,17 +256,29 @@ header {
             background-color: var(--culoare-principala);
             clip-path: circle(0% at 0 0);
             transition: clip-path 0.6s ease-out;
+            padding: 20px 0; 
 
             .item-meniu {
+                width: 100%; /* Fortăm elementele să ocupe toată lățimea */
+
+                > a {
+                    justify-content: center; /* Centrare PERFECTĂ pe ecran */
+                    width: 100%;
+                    padding: 15px 0;
+                    box-sizing: border-box;
+                }
+
                 .submenu {
                     position: static;
                     transform: none; 
                     display: none; 
                     flex-direction: column; 
+                    background-color: rgba(255, 255, 255, 0.1);
                     
                     li a { 
                         width: 100%; 
                         box-sizing: border-box; 
+                        color: white; /* Pentru contrast pe fundal mov */
                     }
                 }
                 
@@ -313,13 +291,28 @@ header {
                 }
             }
         }
-    }
-    
-    .checkbox-meniu:checked ~ nav .meniu { 
-        clip-path: circle(150% at 0 0); 
+        
+        .checkbox-meniu:checked ~ nav .meniu { 
+            clip-path: circle(150% at 0 0); 
+        }
     }
 }
 
+@media (max-width: 600px) {
+   .item-meniu:first-child a .text-optiune {
+    display: none !important;
+}
+
+
+.item-meniu:not(:first-child) a i {
+    display: none !important;
+}
+
+.item-meniu > a {
+    gap: 0 !important;
+}
+
+}
 
 /* =====================
    GRID & SECTIUNI
@@ -333,6 +326,37 @@ header {
 section { 
     padding: var(--spatire-text); 
     border-bottom: 1px solid var(--culoare-border); 
+}
+
+/* efect-css-stilizare-hr: gradient liniar + cerc (gradient radial) centrat */
+hr.hr-tema {
+    border: none;
+    height: 18px;
+    max-width: min(95%, 920px);
+    margin: 2.5rem auto;
+    border-radius: 999px;
+    box-shadow: 0 3px 12px rgba(90, 42, 122, 0.35);
+    background-image:
+        radial-gradient(
+            circle at center,
+            #ffffff 0,
+            #ffffff 4px,
+            var(--culoare-principala) 5px,
+            var(--culoare-principala) 13px,
+            var(--culoare-hover) 14px,
+            transparent 16px
+        ),
+        linear-gradient(
+            to right,
+            var(--culoare-principala) 0%,
+            var(--culoare-secundara) 15%,
+            var(--culoare-accent) 50%,
+            var(--culoare-secundara) 85%,
+            var(--culoare-principala) 100%
+        );
+    background-repeat: no-repeat, no-repeat;
+    background-position: center center, center;
+    background-size: auto, 100% 100%;
 }
 
 .grid-container {
@@ -420,6 +444,46 @@ section {
 .hero p { 
     font-size: 1.1rem; 
     margin-bottom: 20px; 
+}
+
+/* =========================================
+   EFECT REFLEXIE (AXA OY) - CORECTAT
+   ========================================= */
+.container-reflexie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 60px 0;
+    gap: 50px;
+    width: 100%;
+}
+
+.container-reflexie .text-original,
+.container-reflexie .text-reflectat {
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    color: #ffffff;
+    transition: color 0.4s ease;
+    margin: 0;
+    border: none;
+    padding: 0;
+    line-height: 1.15;
+}
+
+.text-original {
+    transform: rotate(-18deg);
+}
+
+.text-reflectat {
+    transform: scaleX(-1) rotate(-18deg);
+    opacity: 0.6;
+}
+
+.container-reflexie:hover .text-original,
+.container-reflexie:hover .text-reflectat {
+    color: #ffb300;
 }
 
 /* =====================
@@ -599,6 +663,105 @@ tfoot td {
 .table-container::-webkit-scrollbar-thumb { 
     background-color: var(--culoare-secundara); 
     border-radius: 10px; 
+}
+
+/* =========================================
+   Tabel responsive (min. 4 coloane, fără rowspan/colspan)
+   ========================================= */
+.sectiune-tabel-responsive {
+    margin: 2rem 0;
+}
+
+.sectiune-tabel-responsive > h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.tabel-responsive-cadru {
+    border: 1px solid var(--culoare-text);
+    padding: 1.25rem;
+    background-color: #ffffff;
+}
+
+.tabel-responsive {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #ffffff;
+    border: 1px solid var(--culoare-text);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.tabel-responsive th,
+.tabel-responsive td {
+    border: 1px solid var(--culoare-text);
+    padding: 0.55rem 0.4rem;
+    text-align: center;
+    color: var(--culoare-text) !important;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.tabel-responsive th {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+.tabel-responsive tbody tr:hover td {
+    background-color: var(--culoare-fundal);
+    color: var(--culoare-principala) !important;
+    border-color: var(--culoare-text);
+}
+
+.tabel-sumar {
+    margin: 0.85rem 0 0;
+    text-align: center;
+    font-style: italic;
+    color: var(--culoare-text);
+}
+
+.sr-only-visually {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Tabel transpus — tabel_transpus.css (laborator), doar pe ecran mic/mediu */
+@media (max-width: 900px) {
+    .tabel-responsive-cadru {
+        overflow-x: auto;
+    }
+
+    /* #transpus { border-collapse: collapse; } — nu merge aici; celulele sunt display: block */
+
+    #transpus thead,
+    #transpus tbody,
+    #transpus tr {
+        display: block;
+        float: left;
+    }
+
+    /* Exemplul are „#transpus th, td” — corect: #transpus th, #transpus td */
+    #transpus th,
+    #transpus td {
+        display: block;
+        border: 1px solid black;
+        padding: 0.3em;
+    }
+
+    /* scapati de borderul dublu vertical */
+    #transpus td + td,
+    #transpus th + th {
+        border-top: none;
+    }
 }
 
 .tabs { 
@@ -832,7 +995,7 @@ footer {
 
 
 /* =========================================
-   STILURI PENTRU PRINTARE (Exercițiul 7)
+   STILURI PENTRU PRINTARE 
 ========================================= */
 
 @media print {
@@ -874,7 +1037,7 @@ footer {
     }
     
     .grid-container > * { 
-        page-break-inside: avoid; 
+        page-break-inside: avoid; /* nu taiem elementele intre pagini */
         break-inside: avoid; 
         margin-bottom: 20px; 
     }
@@ -929,3 +1092,311 @@ footer {
         z-index: 9999;
     }
 }
+
+/* =========================================
+   GALERIA STATICA
+   ========================================= */
+
+.grid-container > .sectiune-galerie-statica {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.sectiune-galerie-statica {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#galerie-statica {
+    counter-reset: nr-poza;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+#galerie-statica figure:nth-child(5) {
+    grid-column-start: 3;
+}
+
+#galerie-statica figure:nth-child(7) {
+    grid-column-start: 3;
+}
+
+#galerie-statica figure {
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#galerie-statica .cadru-imagine {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f5f0f8;
+    border-radius: 8px;
+}
+
+#galerie-statica picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#galerie-statica img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    --border-galerie: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: var(--border-galerie);
+    transform: scale(1) rotate(0deg);
+    transition: transform 1.2s ease, border-width 1.2s ease;
+}
+
+#galerie-statica figure:hover {
+    position: relative;
+    z-index: 10;
+}
+
+#galerie-statica figure:hover .cadru-imagine {
+    overflow: visible;
+}
+
+#galerie-statica figure:hover img {
+    transform: scale(1.25) rotate(-10deg);
+    border-width: calc(var(--border-galerie) + 4px);
+}
+
+#galerie-statica figcaption::before {
+    counter-increment: nr-poza;
+    content: counter(nr-poza, upper-roman) ") ";
+    font-weight: bold;
+    color: #b8860b;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 900px) {
+    #galerie-statica {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #galerie-statica figure:nth-child(5),
+    #galerie-statica figure:nth-child(7) {
+        grid-column-start: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #galerie-statica {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pagina-galerie-statica {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+}
+
+.pagina-galerie-statica .sectiune-galerie-statica {
+    width: 100%;
+}
+
+/* =========================================
+   efect-css-duotone — ::before / ::after + mix-blend-mode
+   ========================================= */
+.parfum-detaliu figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.parfum-detaliu .efect-duotone {
+    --duotone-c1: var(--culoare-principala);
+    --duotone-c2: var(--culoare-secundara);
+
+    display: block;
+    width: min(100%, 520px);
+    height: clamp(240px, 50vw, 400px);
+    margin: 0 auto;
+    background-image: url("/resurse/imagini/parfum-mare.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    filter: grayscale(0%);
+    transition: filter 0.7s ease;
+
+    @media screen and (max-width: 1200px) {
+        background-image: url("/resurse/imagini/parfum-mediu.jpg");
+    }
+
+    @media screen and (max-width: 700px) {
+        background-image: url("/resurse/imagini/parfum-mic.jpg");
+    }
+}
+
+.parfum-detaliu .efect-duotone::before,
+.parfum-detaliu .efect-duotone::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: opacity 0.7s ease;
+}
+
+.parfum-detaliu .efect-duotone::before {
+    background-color: var(--duotone-c1);
+    mix-blend-mode: color;
+}
+
+.parfum-detaliu .efect-duotone::after {
+    background-color: var(--duotone-c2);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+}
+
+.parfum-detaliu .efect-duotone:hover {
+    filter: grayscale(100%);
+}
+
+.parfum-detaliu .efect-duotone:hover::before,
+.parfum-detaliu .efect-duotone:hover::after {
+    opacity: 0;
+}
+
+/* =========================================
+   ::selection — schema cromatică (min. 2 proprietăți)
+   ========================================= */
+::selection {
+    background-color: var(--culoare-principala);
+    color: var(--culoare-accent);
+}
+
+::-moz-selection {
+    background-color: var(--culoare-principala);
+    color: var(--culoare-accent);
+}
+
+/* =========================================
+   column-count — text pe coloane (lg+), o coloană pe mic/mediu
+   ========================================= */
+.text-coloane {
+    column-count: 1;
+    column-gap: 2.5rem;
+    column-rule: 3px solid var(--culoare-border);
+    text-align: justify;
+    line-height: 1.65;
+}
+
+@media (min-width: 1200px) {
+    .text-coloane {
+        column-count: 2;
+    }
+}
+
+.sectiune-text-coloane {
+    margin-top: 1.5rem;
+}
+
+.continut-despre {
+    max-width: 960px;
+    margin: 2rem auto 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 14px;
+    border: 1px solid var(--culoare-border);
+    box-shadow: 0 8px 24px rgba(90, 42, 122, 0.12);
+}
+
+/* =========================================
+   Text defilant (keyframes recurent, fără scroll orizontal)
+   ========================================= */
+.bandou-anunt {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, var(--culoare-principala), var(--culoare-secundara));
+    color: #ffffff;
+    padding: 0.65rem 0;
+    margin: 0;
+}
+
+.bandou-anunt__track {
+    display: flex;
+    width: max-content;
+    animation: defilare-anunt 28s linear infinite;
+    will-change: transform;
+}
+
+.bandou-anunt__text {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    letter-spacing: 0.04em;
+    padding-right: 0.25rem;
+}
+
+@keyframes defilare-anunt {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================================
+   background-attachment: fixed + animație fundal (pagina Despre, t = 18s)
+   ========================================= */
+body.pagina-despre {
+    background-color: var(--culoare-fundal);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fundal-despre-animat 18s ease-in-out infinite;
+}
+
+body.pagina-despre::before {
+    display: none;
+}
+
+@keyframes fundal-despre-animat {
+    0%, 30% {
+        background-image:
+            linear-gradient(rgba(90, 42, 122, 0.78), rgba(166, 120, 195, 0.78)),
+            url("/resurse/imagini/parfum-mare.jpg");
+    }
+    33%, 63% {
+        background-image:
+            linear-gradient(rgba(90, 42, 122, 0.78), rgba(166, 120, 195, 0.78)),
+            url("/resurse/imagini/parfum-mediu.jpg");
+    }
+    66%, 100% {
+        background-image:
+            linear-gradient(rgba(90, 42, 122, 0.78), rgba(166, 120, 195, 0.78)),
+            url("/resurse/imagini/parfum-mic.jpg");
+    }
+}
+
+@import "corectare-bootstrap.scss";
