@@ -1,0 +1,18 @@
+<%# Bonus 12 — anunț ofertă (prima din oferte.json) + temporizator %>
+<% if (typeof oferta_curenta !== 'undefined' && oferta_curenta) { %>
+<section
+    id="anunt-oferta"
+    class="anunt-oferta"
+    aria-live="polite"
+    data-expira="<%= oferta_curenta['data-finalizare'] %>"
+    data-categorie="<%= oferta_curenta.categorie %>"
+    data-reducere="<%= oferta_curenta.reducere %>">
+    <div class="anunt-oferta__continut">
+        <p class="anunt-oferta__titlu mb-1">
+            Ofertă <strong><%= oferta_curenta.reducere %>%</strong> reducere la categoria
+            <span class="text-capitalize"><%= oferta_curenta.categorie %></span>
+        </p>
+        <p id="oferta-countdown" class="oferta-countdown mb-0" role="timer"></p>
+    </div>
+</section>
+<% } %>

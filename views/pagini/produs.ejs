@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ro">
+<%- include('../fragmente/head') %>
+<body data-bs-theme="lux">
+<%- include('../fragmente/header') %>
+
+<% const imagini = (typeof imagini_produs !== 'undefined' && imagini_produs.length) ? imagini_produs : [produs.imagine]; %>
+<% const idCarusel = 'carusel-produs-' + produs.id; %>
+
+<main class="container pagina-produs">
+    <p class="pagina-produs__back">
+        <a href="/produse" class="link-frumos">Inapoi la produse</a>
+    </p>
+
+    <article class="produs-complet<%= (typeof este_produs_nou !== 'undefined' && este_produs_nou) ? ' produs-complet--nou' : '' %>">
+        <div class="produs-complet__titlu-rand">
+            <h1 class="produs-complet__titlu">
+                <%= produs.nume %>
+                <% if (typeof este_produs_nou !== 'undefined' && este_produs_nou) { %>
+                    <span class="badge-nou badge-nou--mare" title="Produs adăugat recent în catalog">NOU</span>
+                <% } %>
+            </h1>
+            <button type="button" class="btn-compara btn-compara--pagina"
+                data-compara-id="<%= produs.id %>"
+                data-compara-nume="<%= escapeAttr(produs.nume) %>"
+                aria-label="Adaugă la comparare">compară</button>
+        </div>
+
+        <div class="produs-complet__grid">
+            <%# Etapa 5 — Bonus 9) carusel imagini multiple %>
+            <figure class="produs-complet__imagine">
+                <% if (imagini.length > 1) { %>
+                    <div id="<%= idCarusel %>" class="carousel slide produs-complet__carusel" data-bs-ride="false" aria-label="Imagini produs">
+                        <div class="carousel-indicators">
+                            <% imagini.forEach(function(url, i) { %>
+                                <button type="button"
+                                    data-bs-target="#<%= idCarusel %>"
+                                    data-bs-slide-to="<%= i %>"
+                                    class="<%= i === 0 ? 'active' : '' %>"
+                                    aria-label="Imaginea <%= i + 1 %>"
+                                    <%= i === 0 ? 'aria-current="true"' : '' %>></button>
+                            <% }); %>
+                        </div>
+                        <div class="carousel-inner">
+                            <% imagini.forEach(function(url, i) { %>
+                                <div class="carousel-item<%= i === 0 ? ' active' : '' %>">
+                                    <img src="<%= url %>" class="d-block w-100 produs-complet__carusel-img"
+                                        alt="<%= produs.nume %> — imagine <%= i + 1 %> din <%= imagini.length %>"
+                                        width="320" height="320" loading="<%= i === 0 ? 'eager' : 'lazy' %>">
+                                </div>
+                            <% }); %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#<%= idCarusel %>" data-bs-slide="prev"
+                            aria-label="Imaginea anterioară">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#<%= idCarusel %>" data-bs-slide="next"
+                            aria-label="Imaginea următoare">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <figcaption class="produs-complet__carusel-info">
+                        <%= imagini.length %> imagini — folosiți săgețile sau indicatorii
+                    </figcaption>
+                <% } else { %>
+                    <img src="<%= imagini[0] %>" alt="<%= produs.nume %>" width="320" height="320" class="produs-complet__carusel-img">
+                <% } %>
+            </figure>
+
+            <section class="produs-complet__detalii" aria-label="Detalii complete produs">
+                <p><strong>ID:</strong> <%= produs.id %></p>
+                <p><strong>Categorie:</strong> <span class="text-capitalize"><%= produs.categorie %></span></p>
+                <p><strong>Subcategorie:</strong> <span class="text-capitalize"><%= produs.subcategorie %></span></p>
+                <p><strong>Pret:</strong> <%= produs.pret %> RON</p>
+                <p><strong>Volum:</strong> <%= produs.volum_ml %> ml</p>
+                <p><strong>Concentratie:</strong> <%= produs.concentratie %></p>
+                <p><strong>Note parfum:</strong> <%= produs.note_parfum %></p>
+                <p>
+                    <strong>Data lansare:</strong>
+                    <time datetime="<%= dataIsoPentruTime(produs.data_lansare) %>">
+                        <%= formataDataRo(produs.data_lansare) %>
+                    </time>
+                </p>
+                <p><strong>Editie limitata:</strong> <%= produs.editie_limitata ? 'Da' : 'Nu' %></p>
+                <% if (produs.folder_imagini) { %>
+                    <p class="small text-muted"><strong>Folder imagini:</strong> <%= produs.folder_imagini %></p>
+                <% } %>
+            </section>
+        </div>
+
+        <section class="produs-complet__descriere" aria-label="Descriere produs">
+            <h2>Descriere completa</h2>
+            <p><%= produs.descriere %></p>
+        </section>
+    </article>
+</main>
+
+<%- include('../fragmente/container-comparare') %>
+
+<%# Etapa 5 — Bonus 2) teme + localStorage %>
+<script src="/resurse/js/tema-bootstrap.js" defer></script>
+<script src="/resurse/js/comparare-produse.js" defer></script>
+<% if (imagini.length > 1) { %>
+    <%# Etapa 5 — Bonus 9) carusel Bootstrap %>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<% } %>
+</body>
+</html>

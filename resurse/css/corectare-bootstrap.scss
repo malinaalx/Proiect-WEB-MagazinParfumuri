@@ -8,7 +8,7 @@ body#top {
     background-attachment: fixed !important;
 }
 
-header {
+.header-site {
     background-color: var(--culoare-principala) !important;
     color: white !important;
 
@@ -41,8 +41,8 @@ header {
     }
 }
 
-// Butonul site-ului (fără clase Bootstrap suplimentare)
-a.btn:not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-light):not(.btn-dark):not(.btn-outline-primary):not(.btn-outline-secondary) {
+// Butonul site-ului (fără link-frumos — acela are stilizare-linkuri separat)
+a.btn:not(.link-frumos):not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-light):not(.btn-dark):not(.btn-outline-primary):not(.btn-outline-secondary) {
     background-color: var(--culoare-accent) !important;
     color: var(--culoare-text) !important;
     padding: 0.8rem 1.8rem !important;
@@ -53,36 +53,91 @@ a.btn:not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):n
     display: inline-block !important;
 }
 
-main a:not(.btn):not(.nav-link) {
-    color: var(--culoare-secundara);
+// „Vezi produse” — ultimul în cascadă, ca :active cu chenar negru să se vadă
+main a.btn.link-frumos {
+    background-color: #fff !important;
+    background-image: radial-gradient(
+        var(--culoare-pata-link) 0%,
+        var(--culoare-pata-link) 40%,
+        transparent 80%,
+        transparent 100%
+    ) !important;
+    background-position: center !important;
+    background-size: 0 0 !important;
+    background-repeat: no-repeat !important;
+    color: var(--culoare-text) !important;
+    border: 2px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 0.35em 0.75em !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    text-decoration: underline !important;
+    letter-spacing: normal !important;
+    animation: none !important;
+    box-shadow: none !important;
+    display: inline-block !important;
+    transition: background-size 0.45s ease, border-color 0.12s ease, color 0.25s ease !important;
+
+    &:visited {
+        color: var(--culoare-link-vizitat) !important;
+    }
+
+    &:hover {
+        background-color: #fff !important;
+        background-size: 100% 100% !important;
+        color: var(--culoare-text) !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    &:active {
+        border: 2px solid var(--culoare-border-link-activ) !important;
+        outline: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+        animation: none !important;
+        color: var(--culoare-text) !important;
+    }
 }
 
 .grid-container section {
     background-color: white;
 }
 
-// Player video HTML5 (VTT) — dimensiuni clare după integrarea Bootstrap
+// Player video HTML5 (VTT) — cerință video-vtt
 .video-section {
     .video-frame {
-        width: 100%;
+        width: 90%;
+        min-width: 280px;
         max-width: 700px;
         margin: 0 auto;
         padding: 10px;
     }
 
     .video-ratio {
-        max-width: 700px;
+        width: 100%;
         margin: 0 auto;
         background: #000;
         border-radius: 0 12px 12px 12px;
     }
 
     .video-prezentare {
-        width: 100% !important;
-        height: 100% !important;
-        max-width: none !important;
-        display: block !important;
+        width: 100%;
+        min-width: 280px;
+        max-width: 700px;
+        height: 100%;
+        display: block;
         object-fit: contain;
         background: #000;
+    }
+
+    // Stil subtitrări WebVTT (text alb, umbră neagră, fundal transparent)
+    #parfum-video::cue {
+        background-color: transparent;
+        color: #fff;
+        text-shadow:
+            1px 1px 2px #000,
+            -1px -1px 2px #000,
+            0 0 4px #000;
     }
 }

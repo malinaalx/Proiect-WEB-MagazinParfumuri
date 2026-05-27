@@ -1,5 +1,16 @@
-<header>
-    <h1>Magazin de Parfumuri de Lux</h1>
+<header class="header-site">
+    <div class="header-rand-sus">
+        <h1>Magazin de Parfumuri de Lux</h1>
+        <%# Etapa 5 — Bonus 2) select simplu: 3 temi (lux, nocturn, menta) %>
+        <div class="selector-tema">
+            <label for="select-tema" class="visually-hidden">Temă site</label>
+            <select id="select-tema" class="form-select form-select-sm selector-tema__control" title="Alege tema site-ului" aria-label="Alege tema site-ului">
+                <option value="lux">Lux (deschis)</option>
+                <option value="nocturn">Nocturn (închis)</option>
+                <option value="menta">Mentă (fresh)</option>
+            </select>
+        </div>
+    </div>
 
     <input type="checkbox" id="menu-toggle" class="checkbox-meniu">
 
@@ -27,6 +38,19 @@
             </li>
 
             <li class="item-meniu">
+                <a href="/produse">
+                    <i class="fa-solid fa-spray-can"></i>
+                    <span class="text-optiune">Produse</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="/produse">Toate</a></li>
+                    <% (typeof categorii_produse !== 'undefined' ? categorii_produse : []).forEach(function(cat) { %>
+                        <li><a href="/produse?categorie=<%= encodeURIComponent(cat) %>"><%= cat %></a></li>
+                    <% }); %>
+                </ul>
+            </li>
+
+            <li class="item-meniu">
                 <a href="#">
                     <i class="fa-solid fa-images"></i> 
                     <span class="text-optiune">Galerii</span>
@@ -43,6 +67,15 @@
                     <span class="text-optiune">Contact</span>
                 </a>
             </li>
+
+            <li class="item-meniu item-meniu--orar">
+                <button type="button" class="btn-orar-meniu" data-deschide-orar title="Vezi orarul de funcționare">
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    <span class="text-optiune">Orar</span>
+                </button>
+            </li>
         </ul>
     </nav>
 </header>
+
+<%- include('orar') %>

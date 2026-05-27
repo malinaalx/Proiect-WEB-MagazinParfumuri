@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+<%- include('../fragmente/head') %>
+<body data-bs-theme="lux" class="pagina-comparare-produse">
+<main class="container pagina-comparare">
+    <h1 class="pagina-comparare__titlu">Comparare produse</h1>
+    <p class="pagina-comparare__subtitlu">
+        <strong><%= produs1.nume %></strong> vs <strong><%= produs2.nume %></strong>
+    </p>
+
+    <div class="tabel-comparare-wrapper">
+        <table class="tabel-comparare">
+            <caption class="sr-only-visually">Tabel comparativ caracteristici</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Caracteristică</th>
+                    <th scope="col"><%= produs1.nume %></th>
+                    <th scope="col"><%= produs2.nume %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% randuri.forEach(function(r) { %>
+                    <tr>
+                        <th scope="row"><%= r.eticheta %></th>
+                        <td><%- r.valoare1 %></td>
+                        <td><%- r.valoare2 %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="pagina-comparare__actiuni">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="window.close()">Închide fereastra</button>
+        <a href="/produse" class="link-frumos ms-2">Înapoi la produse</a>
+    </p>
+</main>
+</body>
+</html>

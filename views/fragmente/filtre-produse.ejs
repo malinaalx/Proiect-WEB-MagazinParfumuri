@@ -1,0 +1,113 @@
+<% const opt = optiuni_filtre || { pret_min: 0, pret_max: 1000, subcategorii: [], concentratii: [], nume_parfumuri: [], note_olfactive: [], prag_noutati_iso: '', prag_noutati_ro: '', etichete: {} }; %>
+<% const lbl = opt.etichete || {}; %>
+<section
+    class="panou-filtre-catalog panou-filtre-catalog--client"
+    id="filtre-produse"
+    aria-label="Filtre produse"
+    data-pret-min="<%= opt.pret_min %>"
+    data-pret-max="<%= opt.pret_max %>"
+    data-prag-noutati="<%= opt.prag_noutati_iso %>">
+
+    <div class="panou-filtre-catalog__antet">
+        <div class="panou-filtre-catalog__titlu-rand">
+            <h2 class="panou-filtre-catalog__titlu">Filtrează parfumurile</h2>
+            <span class="panou-filtre-catalog__badge">în browser · JavaScript</span>
+        </div>
+        <p class="panou-filtre-catalog__info" id="filtre-rezultat-info" aria-live="polite"></p>
+        <p class="panou-filtre-catalog__hint">Criterii generate din tabelul <strong>parfumuri</strong> (filtrare automată la schimbare).</p>
+    </div>
+
+    <div class="panou-filtre-catalog__grid">
+        <div class="panou-filtre-catalog__camp">
+            <label for="filtru-descriere-text" class="form-label"><%= lbl.descriere || 'Descriere' %> — cuvânt cheie</label>
+            <input type="text" class="form-control form-control-sm" id="filtru-descriere-text" name="filtru-descriere-text"
+                placeholder="Caută în <%= (lbl.descriere || 'descriere').toLowerCase() %>" autocomplete="off">
+        </div>
+
+        <div class="panou-filtre-catalog__camp">
+            <label for="filtru-subcategorie-datalist" class="form-label"><%= lbl.subcategorie || 'Familie olfactivă' %></label>
+            <input type="text" class="form-control form-control-sm" id="filtru-subcategorie-datalist" name="filtru-subcategorie-datalist"
+                list="lista-subcategorii" placeholder="Alege din <%= opt.subcategorii.length %> valori">
+            <datalist id="lista-subcategorii">
+                <% opt.subcategorii.forEach(function(subcat) { %>
+                    <option value="<%= subcat %>"></option>
+                <% }); %>
+            </datalist>
+        </div>
+
+        <div class="panou-filtre-catalog__camp panou-filtre-catalog__camp--pret">
+            <label for="filtru-pret-range" class="form-label"><%= lbl.pret || 'Preț' %> maxim (RON)</label>
+            <div class="panou-filtre-catalog__range">
+                <span class="panou-filtre-catalog__range-extrem" title="min din DB"><%= opt.pret_min %></span>
+                <input type="range" class="form-range" id="filtru-pret-range" name="filtru-pret-range"
+                    min="<%= opt.pret_min %>" max="<%= opt.pret_max %>" step="1" value="<%= opt.pret_max %>"
+                    aria-valuemin="<%= opt.pret_min %>" aria-valuemax="<%= opt.pret_max %>">
+                <span class="panou-filtre-catalog__range-extrem" title="max din DB">
+                    <%= opt.pret_max %>
+                    <span class="filtru-range__selectat">(<%= opt.pret_max %>)</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="panou-filtre-catalog__camp">
+            <label for="filtru-concentratie-select" class="form-label"><%= lbl.concentratie || 'Concentrație' %></label>
+            <select class="form-select form-select-sm" id="filtru-concentratie-select" name="filtru-concentratie-select">
+                <option value="" selected>Oricare</option>
+                <% opt.concentratii.forEach(function(c) { %>
+                    <option value="<%= c %>"><%= c %></option>
+                <% }); %>
+            </select>
+        </div>
+
+        <div class="panou-filtre-catalog__camp panou-filtre-catalog__camp--inalt">
+            <label for="filtru-note-select" class="form-label"><%= lbl.note_parfum || 'Note olfactive' %></label>
+            <select class="form-select form-select-sm panou-filtre-catalog__select-multi" id="filtru-note-select" name="filtru-note-select" multiple
+                size="<%= Math.min(5, Math.max(4, opt.note_olfactive.length)) %>">
+                <% opt.note_olfactive.forEach(function(nota) { %>
+                    <option value="<%= nota %>"><%= nota %></option>
+                <% }); %>
+            </select>
+            <span class="form-text"><%= opt.note_olfactive.length %> note în catalog</span>
+        </div>
+
+        <div class="panou-filtre-catalog__camp panou-filtre-catalog__camp--inalt">
+            <label for="filtru-nume-textarea" class="form-label"><%= lbl.nume || 'Nume produs' %> (începe cu)</label>
+            <textarea class="form-control form-control-sm panou-filtre-catalog__textarea" id="filtru-nume-textarea"
+                name="filtru-nume-textarea" rows="4" placeholder="Ex: Alien, Blanche…"></textarea>
+        </div>
+
+        <div class="panou-filtre-catalog__camp panou-filtre-catalog__camp--lat">
+            <span class="form-label" id="filtru-categorie-label"><%= lbl.categorie || 'Categorie' %></span>
+            <div class="panou-filtre-catalog__chips" role="group" aria-labelledby="filtru-categorie-label">
+                <input type="radio" class="btn-check" name="filtru-categorie-radio" id="filtru-categorie-oricare" value="" checked autocomplete="off">
+                <label class="panou-filtre-catalog__chip" for="filtru-categorie-oricare">Oricare</label>
+                <% (typeof categorii_produse !== 'undefined' ? categorii_produse : []).forEach(function(cat) { %>
+                    <input type="radio" class="btn-check" name="filtru-categorie-radio" id="filtru-categorie-<%= cat %>" value="<%= cat %>" autocomplete="off">
+                    <label class="panou-filtre-catalog__chip text-capitalize" for="filtru-categorie-<%= cat %>"><%= cat %></label>
+                <% }); %>
+                <input type="checkbox" class="btn-check" id="filtru-noutati-checkbox" name="filtru-noutati-checkbox" autocomplete="off">
+                <label class="panou-filtre-catalog__chip panou-filtre-catalog__chip--secundar" for="filtru-noutati-checkbox">
+                    Noutăți<% if (opt.prag_noutati_ro) { %><span class="panou-filtre-catalog__chip-sub">după <%= opt.prag_noutati_ro %></span><% } %>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <footer class="panou-filtre-catalog__actiuni" aria-label="Acțiuni filtre produse">
+        <button type="button" class="btn btn-primary btn-sm" id="filtreaza-produse" title="Filtrează">
+            <i class="bi bi-funnel" aria-hidden="true"></i><span>filtrează</span>
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-sm" id="sort-asc" title="Sortare ascendentă">
+            <i class="bi bi-sort-alpha-down" aria-hidden="true"></i><span>Sortare ↑</span>
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-sm" id="sort-desc" title="Sortare descendentă">
+            <i class="bi bi-sort-alpha-up" aria-hidden="true"></i><span>Sortare ↓</span>
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-sm" id="calculeaza-preturi" title="Calculează prețuri">
+            <i class="bi bi-calculator" aria-hidden="true"></i><span>Calculează</span>
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" id="filtre-reset" title="Resetează filtrele">
+            <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i><span>Resetează</span>
+        </button>
+    </footer>
+</section>

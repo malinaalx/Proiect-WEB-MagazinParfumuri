@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ro">
+<%- include('../fragmente/head') %>
+<body data-bs-theme="lux">
+<%- include('../fragmente/header') %>
+
+<main class="container zona-produse-catalog">
+    <h1 class="titlu-pagina-produse">Colecția de Parfumuri MABFragrance</h1>
+
+    <% if (typeof mod_server !== 'undefined' && mod_server) { %>
+        <p class="produse-filtru-activ">Listă filtrată/sortată pe <strong>server</strong> (Bonus 10).</p>
+    <% } else if (typeof categorie_filtru !== 'undefined' && categorie_filtru !== 'toate') { %>
+        <p class="produse-filtru-activ">Afișare categorie: <strong><%= categorie_filtru %></strong></p>
+    <% } %>
+
+    <% if (typeof oferta_curenta !== 'undefined' && oferta_curenta) { %>
+        <p class="produse-oferta-banner">
+            Ofertă activă: <strong><%= oferta_curenta.reducere %>%</strong> la categoria
+            <span class="text-capitalize"><%= oferta_curenta.categorie %></span>
+            (preț vechi tăiat pe produsele eligibile).
+        </p>
+    <% } %>
+
+    <%- include('../fragmente/filtre-produse') %>
+    <%- include('../fragmente/filtre-server-produse') %>
+
+    <div class="catalog-produse" id="lista-produse"
+        data-mod-server="<%= (typeof mod_server !== 'undefined' && mod_server) ? '1' : '0' %>"
+        data-k="<%= typeof k_paginare !== 'undefined' ? k_paginare : 4 %>">
+        <%- include('../fragmente/catalog-produse-lista') %>
+    </div>
+
+    <% if (parfumuri.length) { %>
+        <nav id="paginare-produse" class="paginare-produse" aria-label="Paginare produse"
+            data-k="<%= typeof k_paginare !== 'undefined' ? k_paginare : 4 %>"
+            <%= parfumuri.length <= (k_paginare || 4) ? 'hidden' : '' %>></nav>
+    <% } %>
+
+    <% if (!parfumuri.length) { %>
+        <p class="produse-gol">Nu există produse conform filtrării curente.</p>
+    <% } %>
+</main>
+
+<%- include('../fragmente/modal-produs') %>
+<%- include('../fragmente/container-comparare') %>
+
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="/resurse/js/tema-bootstrap.js" defer></script>
+<script src="/resurse/js/filtre-produse.js" defer></script>
+<script src="/resurse/js/filtre-server-produse.js" defer></script>
+<script src="/resurse/js/produs-modal.js" defer></script>
+<script src="/resurse/js/comparare-produse.js" defer></script>
+</body>
+</html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="ro" data-bs-theme="lux">
+<html lang="ro">
 
 <%- include('../fragmente/head') %>
 
 <body id="top">
 
 <%- include('../fragmente/header') %>
+
+<%- include('../fragmente/anunt-oferta') %>
 
 <div class="bandou-anunt" aria-label="Anunțuri MABFragrance">
     <div class="bandou-anunt__track">
@@ -21,7 +23,7 @@
             <h2 class="text-reflectat" aria-hidden="true">Colecția de Lux</h2>
         </div>
         <p>Parfumuri de lux pentru femei și bărbați</p>
-        <a href="#produse" class="btn">Vezi produse</a>
+        <a href="#produse" class="btn link-frumos">Vezi produse</a>
     </section>
 
     <section class="zona5">
@@ -172,6 +174,7 @@
 </main>
 
 <div class="container-centru">
+    <%- include('../fragmente/produse-noi-index') %>
     <%- include('../fragmente/produse-bootstrap') %>
 
     <hr class="hr-tema" aria-hidden="true">
@@ -247,6 +250,11 @@
         </div>
     </section>
 
+    <section aria-labelledby="titlu-galerie-animata-index">
+        <h2 id="titlu-galerie-animata-index" class="text-center mt-5">Galerie Animată (Dinamică)</h2>
+        <%- include('../fragmente/galerie-animata') %>
+    </section>
+
     <section class="sectiune-galerie-statica" aria-label="Galerie statică parfumuri">
         <%- include('../fragmente/galerie') %>
     </section>
@@ -305,7 +313,7 @@
         <div class="video-frame">
             <div class="ratio ratio-16x9 video-ratio">
                 <video id="parfum-video" class="video-prezentare" controls
-                    poster="/resurse/imagini/poster.videoclip.png" preload="metadata">
+                    poster="/resurse/imagini/poster.videoclip.png" preload="none">
                     <source src="/resurse/video/videoplayback.mp4" type="video/mp4">
                     <source src="/resurse/video/videoplayback%20(1).webm" type="video/webm">
                     <track src="/resurse/trackuri/ro.vtt" kind="subtitles" srclang="ro" label="Română" default>
@@ -355,6 +363,8 @@ function schimbaTab(tab) {
 </script>
 
 <a href="#top" class="buton-top" title="Mergi sus"></a>
+
+<script src="/resurse/js/oferta-countdown.js" defer></script>
 
 </body>
 </html>

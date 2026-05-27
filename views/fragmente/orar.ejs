@@ -1,0 +1,48 @@
+<%# Bonus 19 — orar funcționare (overlay pe orice pagină, fragment reutilizabil) %>
+<% const dateOrar = (typeof orar !== 'undefined' && orar) ? orar : { auto_ascundere_sec: 20, program: [] }; %>
+<script type="application/json" id="date-orar"><%- JSON.stringify(dateOrar) %></script>
+
+<div id="panou-orar" class="panou-orar" role="dialog" aria-labelledby="orar-titlu" aria-modal="true" hidden>
+    <div class="panou-orar__fundal" data-inchide-orar tabindex="-1" aria-hidden="true"></div>
+    <div class="panou-orar__continut">
+        <button type="button" class="panou-orar__inchide" data-inchide-orar aria-label="Închide orarul">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+        <h2 id="orar-titlu" class="panou-orar__titlu">Orar de funcționare</h2>
+        <p class="panou-orar__hint">Se închide automat după <%= dateOrar.auto_ascundere_sec || 20 %> secunde sau la click pe ×.</p>
+
+        <div class="tabel-orar-wrapper">
+            <table class="tabel-orar">
+                <caption class="sr-only-visually">Program săptămânal MABFragrance</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Zi</th>
+                        <th scope="col">Program</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% dateOrar.program.forEach(function(ziOrar, idx) { %>
+                        <tr class="tabel-orar__rand" data-zi-index="<%= idx %>">
+                            <th scope="row" class="tabel-orar__zi"><%= ziOrar.zi %></th>
+                            <td class="tabel-orar__intervale">
+                                <% if (ziOrar.intervale && ziOrar.intervale.length) { %>
+                                    <ul class="tabel-orar__lista-intervale">
+                                        <% ziOrar.intervale.forEach(function(iv) { %>
+                                            <li><%= iv.start %> – <%= iv.end %></li>
+                                        <% }); %>
+                                    </ul>
+                                <% } else { %>
+                                    <span class="tabel-orar__inchis-zi">Închis</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+        <p id="orar-status" class="orar-status" role="status" aria-live="polite"></p>
+    </div>
+</div>
+
+<script src="/resurse/js/orar.js" defer></script>

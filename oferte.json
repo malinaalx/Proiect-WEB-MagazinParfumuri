@@ -1,0 +1,22 @@
+{
+  "oferte": [
+    {
+      "categorie": "copii",
+      "data-incepere": "2026-05-27T10:06:40.765Z",
+      "data-finalizare": "2026-05-27T10:08:40.765Z",
+      "reducere": 50
+    },
+    {
+      "categorie": "femei",
+      "data-incepere": "2026-05-27T10:04:40.753Z",
+      "data-finalizare": "2026-05-27T10:06:40.753Z",
+      "reducere": 45
+    },
+    {
+      "categorie": "unisex",
+      "data-incepere": "2026-05-27T10:02:40.725Z",
+      "data-finalizare": "2026-05-27T10:04:40.725Z",
+      "reducere": 15
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+<%# Bonus 18 — produse noi pe prima pagină (ordine invers cronologică) %>
+<% if (typeof produse_noi !== 'undefined' && produse_noi && produse_noi.length) { %>
+<section class="produse-noi-index" aria-labelledby="titlu-produse-noi">
+    <h2 id="titlu-produse-noi" class="produse-noi-index__titlu">Produse noi în catalog</h2>
+    <p class="produse-noi-index__subtitlu">
+        Adăugate recent — accesați direct pagina fiecărui parfum.
+    </p>
+    <ul class="produse-noi-index__lista">
+        <% produse_noi.forEach(function(p) { %>
+            <li class="produs-nou-card">
+                <a href="/produs/<%= p.id %>" class="produs-nou-card__link">
+                    <span class="produs-nou-card__imagine">
+                        <img src="<%= p.imagine %>" alt="<%= p.nume %>" width="72" height="72" loading="lazy">
+                    </span>
+                    <span class="produs-nou-card__info">
+                        <span class="badge-nou badge-nou--mic">NOU</span>
+                        <span class="produs-nou-card__nume"><%= p.nume %></span>
+                        <span class="produs-nou-card__meta text-capitalize">
+                            <%= p.categorie %> · <%= Number(p.pret).toFixed(2) %> RON
+                        </span>
+                        <% if (p.data_lansare) { %>
+                            <time class="produs-nou-card__data" datetime="<%= dataIsoPentruTime(p.data_lansare) %>">
+                                În catalog din <%= formataDataRo(p.data_lansare) %>
+                            </time>
+                        <% } %>
+                    </span>
+                </a>
+            </li>
+        <% }); %>
+    </ul>
+    <p class="produse-noi-index__footer">
+        <a href="/produse" class="link-frumos">Vezi toată colecția</a>
+    </p>
+</section>
+<% } %>

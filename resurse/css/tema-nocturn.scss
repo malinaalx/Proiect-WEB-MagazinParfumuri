@@ -1,0 +1,181 @@
+// Etapa 5 — tema „nocturn” (a 2-a temă); Bonus 2 — alături de lux și menta
+
+html[data-bs-theme="nocturn"] {
+    --culoare-principala: #e6b7ff;
+    --culoare-secundara: #d4b8f0;
+    --culoare-accent: #3d2a52;
+    --culoare-fundal: #2a1f38;
+    --culoare-text: #f5f0fa;
+    --culoare-border: #6b5580;
+    --culoare-hover: #f0d4ff;
+    --culoare-link-vizitat: #e8c9ff;
+    --culoare-pata-link: #6bb5e8;
+    --culoare-border-link-activ: #ffffff;
+    color-scheme: dark;
+}
+
+html[data-bs-theme="nocturn"] body,
+html[data-bs-theme="nocturn"] body#top {
+    background: linear-gradient(
+        135deg,
+        #14101f 0%,
+        #1f1630 35%,
+        #2a1f42 55%,
+        #1a1228 100%
+    ) !important;
+    background-attachment: fixed !important;
+    color: var(--culoare-text);
+}
+
+html[data-bs-theme="nocturn"] body::before {
+    background:
+        radial-gradient(circle at 15% 10%, rgba(192, 132, 245, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(230, 183, 255, 0.1), transparent 42%);
+    opacity: 1;
+}
+
+html[data-bs-theme="nocturn"] p,
+html[data-bs-theme="nocturn"] li,
+html[data-bs-theme="nocturn"] label,
+html[data-bs-theme="nocturn"] figcaption,
+html[data-bs-theme="nocturn"] caption,
+html[data-bs-theme="nocturn"] .total,
+html[data-bs-theme="nocturn"] math mo {
+    color: var(--culoare-text);
+}
+
+html[data-bs-theme="nocturn"] h1,
+html[data-bs-theme="nocturn"] h2,
+html[data-bs-theme="nocturn"] h3,
+html[data-bs-theme="nocturn"] h4,
+html[data-bs-theme="nocturn"] h5,
+html[data-bs-theme="nocturn"] h6 {
+    color: var(--culoare-principala);
+}
+
+html[data-bs-theme="nocturn"] .grid-container section {
+    background-color: var(--culoare-fundal) !important;
+    color: var(--culoare-text) !important;
+    border-color: var(--culoare-border) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+html[data-bs-theme="nocturn"] .header-site {
+    background: linear-gradient(180deg, #3d2458 0%, #2d1a42 100%) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+
+    h1,
+    nav .item-meniu > a {
+        color: #fff !important;
+    }
+
+    .selector-tema__control {
+        border-color: #e6b7ff !important;
+        color: #f5f0fa !important;
+        background-color: #2a1f38 !important;
+    }
+
+    nav .submenu {
+        background-color: #2a1f38 !important;
+        border: 1px solid var(--culoare-border);
+
+        a {
+            color: var(--culoare-text) !important;
+        }
+
+        a:hover {
+            background-color: var(--culoare-accent) !important;
+            color: var(--culoare-hover) !important;
+        }
+    }
+}
+
+html[data-bs-theme="nocturn"] footer {
+    background: linear-gradient(180deg, #2d1a42 0%, #1f1228 100%) !important;
+    color: #fff !important;
+}
+
+html[data-bs-theme="nocturn"] table {
+    background-color: var(--culoare-fundal);
+}
+
+html[data-bs-theme="nocturn"] th {
+    background-color: #4a2d6a !important;
+    color: #fff !important;
+}
+
+html[data-bs-theme="nocturn"] td:nth-child(odd) {
+    color: var(--culoare-principala);
+}
+
+html[data-bs-theme="nocturn"] td:nth-child(even) {
+    color: var(--culoare-secundara);
+}
+
+html[data-bs-theme="nocturn"] tbody tr:hover td {
+    background-color: #5a3d78 !important;
+    color: #fff !important;
+}
+
+html[data-bs-theme="nocturn"] hr.hr-tema {
+    box-shadow: 0 3px 14px rgba(192, 132, 245, 0.25);
+    background-image:
+        radial-gradient(
+            circle at center,
+            #2a1f38 0,
+            #2a1f38 4px,
+            var(--culoare-principala) 5px,
+            var(--culoare-principala) 13px,
+            #c084f5 14px,
+            transparent 16px
+        ),
+        linear-gradient(
+            to right,
+            #4a2d6a 0%,
+            #7b4b9a 25%,
+            #c084f5 50%,
+            #7b4b9a 75%,
+            #4a2d6a 100%
+        );
+}
+
+html[data-bs-theme="nocturn"] .bandou-anunt {
+    background: linear-gradient(90deg, #4a2d6a, #7b4b9a, #4a2d6a);
+    color: #fff;
+}
+
+html[data-bs-theme="nocturn"] #galerie-statica .cadru-imagine {
+    background: #1e1528;
+}
+
+html[data-bs-theme="nocturn"] #galerie-statica figcaption::before {
+    color: #e9c46a;
+}
+
+html[data-bs-theme="nocturn"] main a.btn.link-frumos {
+    background-color: var(--culoare-fundal) !important;
+    color: var(--culoare-text) !important;
+
+    &:hover {
+        background-color: #352845 !important;
+        color: var(--culoare-hover) !important;
+    }
+
+    &:active {
+        border-color: var(--culoare-border-link-activ) !important;
+    }
+}
+
+html[data-bs-theme="nocturn"] a.btn:not(.link-frumos):not([class*="btn-"]) {
+    color: var(--culoare-text) !important;
+}
+
+html[data-bs-theme="nocturn"] .card {
+    background-color: var(--culoare-fundal);
+    color: var(--culoare-text);
+    border-color: var(--culoare-border);
+}
+
+html[data-bs-theme="nocturn"] .alert {
+    border-color: var(--culoare-border);
+}

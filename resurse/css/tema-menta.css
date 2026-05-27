@@ -1,0 +1,146 @@
+html[data-bs-theme=menta] {
+  --culoare-principala: #1a6b5c;
+  --culoare-secundara: #3d9a87;
+  --culoare-accent: #b8e8dc;
+  --culoare-fundal: #eef9f5;
+  --culoare-text: #1a3d35;
+  --culoare-border: #9fd4c8;
+  --culoare-hover: #2d8f7a;
+  --culoare-link-vizitat: #1a6b5c;
+  --culoare-pata-link: #5ec4a8;
+  --culoare-border-link-activ: #0d3d32;
+  color-scheme: light;
+}
+
+html[data-bs-theme=menta] body,
+html[data-bs-theme=menta] body#top {
+  background: linear-gradient(135deg, #e8f7f2 0%, #f0faf7 40%, #dff3ec 70%, #e8f7f2 100%) !important;
+  background-attachment: fixed !important;
+  color: var(--culoare-text);
+}
+
+html[data-bs-theme=menta] body::before {
+  background: radial-gradient(circle at 20% 15%, rgba(61, 154, 135, 0.2), transparent 50%), radial-gradient(circle at 80% 85%, rgba(184, 232, 220, 0.35), transparent 45%);
+  opacity: 1;
+}
+
+html[data-bs-theme=menta] p,
+html[data-bs-theme=menta] li,
+html[data-bs-theme=menta] label,
+html[data-bs-theme=menta] figcaption,
+html[data-bs-theme=menta] caption,
+html[data-bs-theme=menta] .total,
+html[data-bs-theme=menta] math mo {
+  color: var(--culoare-text);
+}
+
+html[data-bs-theme=menta] h1,
+html[data-bs-theme=menta] h2,
+html[data-bs-theme=menta] h3,
+html[data-bs-theme=menta] h4,
+html[data-bs-theme=menta] h5,
+html[data-bs-theme=menta] h6 {
+  color: var(--culoare-principala);
+}
+
+html[data-bs-theme=menta] .grid-container section {
+  background-color: var(--culoare-fundal) !important;
+  color: var(--culoare-text) !important;
+  border-color: var(--culoare-border) !important;
+  box-shadow: 0 4px 16px rgba(26, 107, 92, 0.12);
+}
+
+html[data-bs-theme=menta] .header-site {
+  background: linear-gradient(180deg, #2d8f7a 0%, #1a6b5c 100%) !important;
+  box-shadow: 0 4px 14px rgba(26, 107, 92, 0.25);
+}
+html[data-bs-theme=menta] .header-site h1,
+html[data-bs-theme=menta] .header-site nav .item-meniu > a {
+  color: #fff !important;
+}
+html[data-bs-theme=menta] .header-site .selector-tema__control {
+  border-color: #b8e8dc !important;
+  color: #1a3d35 !important;
+  background-color: #f0faf7 !important;
+}
+html[data-bs-theme=menta] .header-site nav .submenu {
+  background-color: #eef9f5 !important;
+  border: 1px solid var(--culoare-border);
+}
+html[data-bs-theme=menta] .header-site nav .submenu a {
+  color: var(--culoare-text) !important;
+}
+html[data-bs-theme=menta] .header-site nav .submenu a:hover {
+  background-color: var(--culoare-accent) !important;
+  color: var(--culoare-hover) !important;
+}
+
+html[data-bs-theme=menta] footer {
+  background: linear-gradient(180deg, #1a6b5c 0%, #134d42 100%) !important;
+  color: #fff !important;
+}
+
+html[data-bs-theme=menta] table {
+  background-color: var(--culoare-fundal);
+}
+
+html[data-bs-theme=menta] th {
+  background-color: #2d8f7a !important;
+  color: #fff !important;
+}
+
+html[data-bs-theme=menta] td:nth-child(odd) {
+  color: var(--culoare-principala);
+}
+
+html[data-bs-theme=menta] td:nth-child(even) {
+  color: var(--culoare-secundara);
+}
+
+html[data-bs-theme=menta] tbody tr:hover td {
+  background-color: #b8e8dc !important;
+  color: #0d3d32 !important;
+}
+
+html[data-bs-theme=menta] hr.hr-tema {
+  box-shadow: 0 3px 12px rgba(61, 154, 135, 0.2);
+}
+
+html[data-bs-theme=menta] .bandou-anunt {
+  background: linear-gradient(90deg, #1a6b5c, #3d9a87, #1a6b5c);
+  color: #fff;
+}
+
+html[data-bs-theme=menta] #galerie-statica .cadru-imagine {
+  background: #dff3ec;
+}
+
+html[data-bs-theme=menta] #galerie-statica figcaption::before {
+  color: #1a6b5c;
+}
+
+html[data-bs-theme=menta] main a.btn.link-frumos {
+  background-color: var(--culoare-fundal) !important;
+  color: var(--culoare-text) !important;
+}
+html[data-bs-theme=menta] main a.btn.link-frumos:hover {
+  background-color: #dff3ec !important;
+  color: var(--culoare-hover) !important;
+}
+html[data-bs-theme=menta] main a.btn.link-frumos:active {
+  border-color: var(--culoare-border-link-activ) !important;
+}
+
+html[data-bs-theme=menta] a.btn:not(.link-frumos):not([class*=btn-]) {
+  color: var(--culoare-text) !important;
+}
+
+html[data-bs-theme=menta] .card {
+  background-color: var(--culoare-fundal);
+  color: var(--culoare-text);
+  border-color: var(--culoare-border);
+}
+
+html[data-bs-theme=menta] .alert {
+  border-color: var(--culoare-border);
+}

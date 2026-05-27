@@ -25,7 +25,10 @@ html {
     --culoare-text: #2b2b2b;
     --culoare-border: #d1b3e0;
     --culoare-hover: #c084f5;
-    
+    --culoare-link-vizitat: var(--culoare-principala);
+    --culoare-pata-link: #6ec4f5;
+    --culoare-border-link-activ: #000;
+
     --margine-pagina: 40px;
     --spatire-text: 20px;
 }
@@ -68,6 +71,56 @@ a { color: var(--culoare-secundara); }
 a:hover { color: var(--culoare-hover); }
 img { width: 100%; max-width: 500px; height: auto; }
 
+/* =========================================
+   stilizare-linkuri (conținut principal, fără meniu)
+   ========================================= */
+main a:not(.btn):not(.nav-link),
+.continut-despre a:not(.btn) {
+    display: inline;
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+    text-decoration: underline;
+    border: 2px solid transparent;
+    background-image: radial-gradient(
+        var(--culoare-accent) 0%,
+        var(--culoare-accent) 40%,
+        transparent 80%,
+        transparent 100%
+    );
+    background-position: center;
+    background-size: 0 0;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease, color 0.25s ease, border-color 0.15s ease;
+
+    &:visited {
+        color: var(--culoare-link-vizitat);
+    }
+
+    &:hover {
+        background-size: 100% 100%;
+    }
+
+    &:active {
+        border: 2px solid var(--culoare-border-link-activ);
+    }
+}
+
+main a[href^="http"]:not(.btn):not(.nav-link),
+.continut-despre a[href^="http"]:not(.btn) {
+    &::before {
+        content: "🔗";
+        font-size: 1.5em;
+        margin-right: 0.15em;
+        vertical-align: -0.1em;
+        color: var(--culoare-secundara);
+        transition: color 0.25s ease;
+    }
+
+    &:hover::before {
+        color: var(--culoare-hover);
+    }
+}
+
 @keyframes aparitie_bare_meniu {
     0% {
         opacity: 0;
@@ -96,13 +149,33 @@ img { width: 100%; max-width: 500px; height: auto; }
     display: none;
 }
 
-header {
+.header-site {
     background-color: var(--culoare-principala);
     color: white;
     padding: 1rem;
     position: relative;
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    .header-rand-sus {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+
+        h1 {
+            color: white;
+            margin: 0;
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+        }
+    }
+
+    // Etapa 5 — Bonus 2) selector temă în header
+    .selector-tema {
+        flex-shrink: 0;
+    }
 
     nav {
         .meniu {
@@ -205,7 +278,7 @@ header {
 
 
 @media (max-width: 900px) {
-    header nav .meniu .item-meniu > a i { 
+    .header-site nav .meniu .item-meniu > a i { 
         font-size: 1.5rem; 
     }
 }
@@ -246,7 +319,7 @@ header {
         }
     }
 
-    header {
+    .header-site {
         nav .meniu {
             flex-direction: column;
             position: absolute;
@@ -447,7 +520,7 @@ hr.hr-tema {
 }
 
 /* =========================================
-   EFECT REFLEXIE (AXA OY) - CORECTAT
+   EFECT REFLEXIE (AXA OY) -
    ========================================= */
 .container-reflexie {
     display: flex;
@@ -513,11 +586,12 @@ hr.hr-tema {
     }
 }
 
-.btn:visited, .btn:active { 
+.btn:visited,
+.btn:active:not(.link-frumos) { 
     color: var(--culoare-text) !important; 
 }
 
-.btn:active { 
+.btn:active:not(.link-frumos) { 
     transform: scale(0.95); 
     animation: none; 
     box-shadow: 0 0 10px rgba(230, 183, 255, 0.8); 
@@ -740,7 +814,7 @@ tfoot td {
         overflow-x: auto;
     }
 
-    /* #transpus { border-collapse: collapse; } — nu merge aici; celulele sunt display: block */
+    /* #transpus { border-collapse: collapse; }  */
 
     #transpus thead,
     #transpus tbody,
@@ -749,7 +823,7 @@ tfoot td {
         float: left;
     }
 
-    /* Exemplul are „#transpus th, td” — corect: #transpus th, #transpus td */
+    /* Exemplul are „#transpus th, td”  */
     #transpus th,
     #transpus td {
         display: block;
@@ -757,7 +831,7 @@ tfoot td {
         padding: 0.3em;
     }
 
-    /* scapati de borderul dublu vertical */
+    /*  */
     #transpus td + td,
     #transpus th + th {
         border-top: none;
@@ -1047,11 +1121,11 @@ footer {
         text-decoration: none !important; 
     }
 
-    header nav, .hamburger-icon, .checkbox-meniu { 
+    .header-site nav, .hamburger-icon, .checkbox-meniu { 
         display: none !important; 
     }
     
-    header { 
+    .header-site { 
         height: 100vh !important; 
         display: flex !important; 
         flex-direction: column; 
@@ -1094,7 +1168,7 @@ footer {
 }
 
 /* =========================================
-   GALERIA STATICA
+   GALERIA STATICA - ETAPA 5
    ========================================= */
 
 .grid-container > .sectiune-galerie-statica {
@@ -1216,6 +1290,23 @@ footer {
 
 .pagina-galerie-statica .sectiune-galerie-statica {
     width: 100%;
+}
+
+.pagina-galerie-dinamica {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+    text-align: center;
+}
+
+.pagina-galerie-dinamica .info-galerie-dinamica {
+    margin-bottom: 1.5rem;
+    color: var(--culoare-text, #333);
+}
+
+.pagina-galerie-dinamica .sectiune-galerie-animata {
+    display: block !important;
 }
 
 /* =========================================
@@ -1400,3 +1491,5 @@ body.pagina-despre::before {
 }
 
 @import "corectare-bootstrap.scss";
+@import "tema-nocturn.scss";
+@import "tema-menta.scss"; // Etapa 5 — Bonus 2) tema menta

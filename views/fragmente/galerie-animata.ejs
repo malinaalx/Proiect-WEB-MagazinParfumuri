@@ -1,0 +1,23 @@
+<!-- Cerinta: galerie animată — fragment reutilizat (index + pagina dinamica) -->
+<section class="sectiune-galerie-animata" aria-label="Galerie animată parfumuri">
+    <div class="galerie-animata-wrap">
+        <div id="galerie-animata">
+            <% const listaAnimata = (typeof imagini_animata !== 'undefined' && imagini_animata) ? imagini_animata : []; %>
+            <% if (listaAnimata.length > 0) { %>
+                <% const primaAnim = listaAnimata[0]; %>
+                <figure class="galerie-animata-baza" aria-hidden="true">
+                    <img src="<%= '/resurse/imagini/galerie/' + primaAnim.cale_imagine.replace(/ /g, '%20') %>"
+                         alt="">
+                </figure>
+            <% } %>
+            <% for (let i = 0; i < listaAnimata.length; i++) { %>
+                <% let img = listaAnimata[i]; %>
+                <figure>
+                    <img src="<%= '/resurse/imagini/galerie/' + img.cale_imagine.replace(/ /g, '%20') %>"
+                         alt="<%= img.titlu %>">
+                    <figcaption><%= img.titlu %></figcaption>
+                </figure>
+            <% } %>
+        </div>
+    </div>
+</section>

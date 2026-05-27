@@ -1,6 +1,6 @@
 // ============================================
 // Customizare Bootstrap — MABFragrance (SASS)
-// Variabilele se definesc ÎNAINTE de @import (sintaxa cerută la laborator)
+//
 // ============================================
 
 $font-family-base: 'Poppins', sans-serif;
@@ -53,39 +53,1585 @@ $h6-font-size: 0.95rem;
 $spacer: 1.25rem;
 $card-border-radius: $border-radius-lg;
 
+// Butoane și inputuri — border (cerință etapa 5)
+$btn-border-width: 2px;
+$input-btn-border-width: 2px;
+$input-border-width: 2px;
+
+// Range — bulină 50% mai mare decât font-size-ul root (1rem → 1.5rem)
+$form-range-track-height: 0.5rem;
+$form-range-track-bg: rgba($primary, 0.22);
+$form-range-track-border-radius: 1rem;
+$form-range-thumb-width: 1.5rem;
+$form-range-thumb-height: 1.5rem;
+$form-range-thumb-bg: $secondary;
+$form-range-thumb-border: 0;
+$form-range-thumb-box-shadow: 0 0.15rem 0.35rem rgba($primary, 0.35);
+$form-range-thumb-focus-box-shadow: 0 0 0 1px $body-bg, 0 0 0 0.25rem rgba($primary, 0.4);
+$form-range-thumb-active-bg: darken($secondary, 10%);
+
 @import "bootstrap/scss/bootstrap";
 
+// Etapa 5 — teme Bootstrap custom (lux + nocturn); Bonus 2 adaugă „menta”
 [data-bs-theme="lux"] {
-    --bs-body-bg: #f8f4fb;
-    --bs-body-color: #2b2b2b;
-    --bs-primary: #5a2a7a;
+    --culoare-principala: #{$primary};
+    --culoare-secundara: #{$secondary};
+    --culoare-accent: #e6b7ff;
+    --culoare-fundal: #{$body-bg};
+    --culoare-text: #{$body-color};
+    --culoare-border: #d1b3e0;
+    --culoare-hover: #c084f5;
+
+    --panou-filtre-fundal: #faf7fc;
+    --panou-filtre-fundal-subtil: rgba(90, 42, 122, 0.07);
+    --panou-filtre-eticheta: #{$primary};
+    --panou-filtre-text: #2b2b2b;
+    --panou-filtre-text-muted: #4a3d52;
+    --panou-filtre-camp-bg: #fff;
+    --panou-filtre-camp-text: #2b2b2b;
+    --panou-filtre-border: rgba(90, 42, 122, 0.22);
+
+    --bs-body-bg: #{$body-bg};
+    --bs-body-color: #{$body-color};
+    --bs-primary: #{$primary};
     --bs-primary-rgb: 90, 42, 122;
-    --bs-secondary: #a678c3;
+    --bs-secondary: #{$secondary};
     --bs-secondary-rgb: 166, 120, 195;
-    --bs-link-color: #7b4b9a;
+    --bs-link-color: #{$link-color};
     --bs-border-radius: #{$border-radius};
     --bs-btn-color: #ffffff;
 }
 
+// Tema dark — variabile CSS
 [data-bs-theme="nocturn"] {
-    --bs-body-bg: #1a1028;
-    --bs-body-color: #efe6f8;
+    --culoare-principala: #e6b7ff;
+    --culoare-secundara: #d4b8f0;
+    --culoare-accent: #3d2a52;
+    --culoare-fundal: #2a1f38;
+    --culoare-text: #f5f0fa;
+    --culoare-border: #6b5580;
+    --culoare-hover: #f0d4ff;
+
+    --panou-filtre-fundal: #2a1f38;
+    --panou-filtre-fundal-subtil: #3d2a52;
+    --panou-filtre-eticheta: #f0d4ff;
+    --panou-filtre-text: #f5f0fa;
+    --panou-filtre-text-muted: rgba(245, 240, 250, 0.82);
+    --panou-filtre-camp-bg: #1f1729;
+    --panou-filtre-camp-text: #f5f0fa;
+    --panou-filtre-border: #6b5580;
+
+    --bs-body-bg: #14101f;
+    --bs-body-color: #f5f0fa;
+    --bs-emphasis-color: #ffffff;
+    --bs-secondary-color: rgba(245, 240, 250, 0.78);
+    --bs-tertiary-color: rgba(245, 240, 250, 0.55);
+    --bs-heading-color: #e6b7ff;
     --bs-primary: #c084f5;
     --bs-primary-rgb: 192, 132, 245;
-    --bs-secondary: #5a2a7a;
-    --bs-secondary-rgb: 90, 42, 122;
+    --bs-secondary: #7b4b9a;
+    --bs-secondary-rgb: 123, 75, 154;
     --bs-link-color: #e6b7ff;
+    --bs-link-hover-color: #f0d4ff;
+    --bs-border-color: #6b5580;
+    --bs-card-bg: #2a1f38;
+    --bs-card-color: #f5f0fa;
+    --bs-card-border-color: #6b5580;
     --bs-border-radius: 1rem;
     --bs-btn-color: #1a1028;
     color-scheme: dark;
 }
 
+// Etapa 5 — Bonus 2) a 3-a temă: variabile Bootstrap pentru „menta”
+[data-bs-theme="menta"] {
+    --culoare-principala: #1a6b5c;
+    --culoare-secundara: #3d9a87;
+    --culoare-accent: #b8e8dc;
+    --culoare-fundal: #eef9f5;
+    --culoare-text: #1a3d35;
+    --culoare-border: #9fd4c8;
+
+    --panou-filtre-fundal: #eef9f5;
+    --panou-filtre-fundal-subtil: rgba(26, 107, 92, 0.08);
+    --panou-filtre-eticheta: #1a6b5c;
+    --panou-filtre-text: #1a3d35;
+    --panou-filtre-text-muted: #3d5c54;
+    --panou-filtre-camp-bg: #fff;
+    --panou-filtre-camp-text: #1a3d35;
+    --panou-filtre-border: #9fd4c8;
+    --culoare-hover: #2d8f7a;
+
+    --bs-body-bg: #f0faf7;
+    --bs-body-color: #1a3d35;
+    --bs-emphasis-color: #0d3d32;
+    --bs-primary: #1a6b5c;
+    --bs-primary-rgb: 26, 107, 92;
+    --bs-secondary: #3d9a87;
+    --bs-secondary-rgb: 61, 154, 135;
+    --bs-link-color: #1a6b5c;
+    --bs-link-hover-color: #2d8f7a;
+    --bs-border-color: #9fd4c8;
+    --bs-card-bg: #eef9f5;
+    --bs-card-color: #1a3d35;
+    --bs-card-border-color: #9fd4c8;
+    --bs-border-radius: 1rem;
+    --bs-btn-color: #ffffff;
+    color-scheme: light;
+}
+
 .zona-produse-bootstrap {
-    margin: 2rem 0;
+    margin: 2rem auto;
+    width: 100%;
+
+    .produse-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        gap: 1.5rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+
+    .produse-grid__item {
+        flex: 0 1 320px;
+        width: min(100%, 320px);
+        max-width: 360px;
+        box-sizing: border-box;
+    }
 
     .card-img-top {
         height: 200px;
         object-fit: cover;
+    }
+}
+
+// Pagină produse — format article (cerință laborator)
+// Bonus 12 — anunț ofertă + temporizator
+.anunt-oferta {
+    margin: 0.75rem auto 1rem;
+    max-width: 960px;
+    padding: 0.85rem 1.25rem;
+    border-radius: 12px;
+    border: 2px solid var(--culoare-principala, #5a2a7a);
+    background: linear-gradient(135deg, rgba(90, 42, 122, 0.12), rgba(230, 183, 255, 0.2));
+    box-shadow: 0 4px 16px rgba(90, 42, 122, 0.15);
+    text-align: center;
+    color: var(--culoare-text, #2b2b2b);
+
+    &--expirata {
+        opacity: 0.75;
+        border-style: dashed;
+    }
+}
+
+.anunt-oferta__titlu strong {
+    color: var(--culoare-principala, #5a2a7a);
+}
+
+.oferta-countdown {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--culoare-secundara, #7b4b9a);
+    letter-spacing: 0.02em;
+}
+
+.oferta-countdown--urgent {
+    color: #c9184a;
+    animation: oferta-pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes oferta-pulse {
+    from {
+        transform: scale(1);
+        text-shadow: 0 0 0 transparent;
+    }
+    to {
+        transform: scale(1.04);
+        text-shadow: 0 0 12px rgba(201, 24, 74, 0.55);
+    }
+}
+
+.produse-oferta-banner {
+    text-align: center;
+    padding: 0.65rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background: rgba(166, 120, 195, 0.15);
+    border: 1px solid var(--culoare-border, #d1b3e0);
+    color: var(--culoare-text, #333);
+}
+
+.articol-produs__pret .pret-vechi {
+    text-decoration: line-through;
+    opacity: 0.65;
+    margin-right: 0.5rem;
+}
+
+.articol-produs__pret .pret-redus {
+    font-weight: 700;
+    color: var(--culoare-principala, #5a2a7a);
+}
+
+.articol-produs__pret .pret-reducere-procent {
+    font-weight: 600;
+    color: #c9184a;
+}
+
+// Panouri filtre catalog (/produse) — layout grid unificat
+.panou-filtre-catalog {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem 1.35rem 1rem;
+    border-radius: 14px;
+    border: 1px solid var(--panou-filtre-border, var(--culoare-border, #d1b3e0));
+    background: var(--panou-filtre-fundal, var(--bs-body-bg, #faf7fc));
+    color: var(--panou-filtre-text, var(--bs-body-color, #2b2b2b));
+    box-shadow: 0 4px 16px rgba(90, 42, 122, 0.08);
+
+    &--client {
+        border-left: 4px solid var(--culoare-principala, #5a2a7a);
+    }
+
+    &--server {
+        border-left: 4px solid var(--culoare-secundara, #9d4edd);
+        background: linear-gradient(
+            180deg,
+            var(--panou-filtre-fundal-subtil, rgba(157, 78, 221, 0.06)) 0%,
+            var(--panou-filtre-fundal, var(--bs-body-bg, #faf7fc)) 45%
+        );
+    }
+
+    &__antet {
+        margin-bottom: 1rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid var(--panou-filtre-border, rgba(90, 42, 122, 0.12));
+        background: transparent;
+        color: inherit;
+        box-shadow: none;
+        position: static;
+        z-index: auto;
+    }
+
+    &__titlu-rand {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.5rem 0.75rem;
+        margin-bottom: 0.35rem;
+    }
+
+    &__titlu {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+        line-height: 1.3;
+    }
+
+    &__badge {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        background: var(--panou-filtre-fundal-subtil, rgba(90, 42, 122, 0.12));
+        color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+    }
+
+    &__info {
+        margin: 0.35rem 0 0;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+
+        &--jos {
+            margin-top: 0.75rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed var(--panou-filtre-border, rgba(90, 42, 122, 0.15));
+            font-weight: 500;
+            color: var(--panou-filtre-text-muted, var(--culoare-text, #555));
+        }
+    }
+
+    &__hint {
+        margin: 0.25rem 0 0;
+        font-size: 0.82rem;
+        color: var(--panou-filtre-text-muted, var(--culoare-text, #666));
+        line-height: 1.45;
+
+        strong {
+            color: var(--panou-filtre-text, inherit);
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem 1.15rem;
+        align-items: start;
+    }
+
+    &__camp {
+        min-width: 0;
+
+        .form-label {
+            margin-bottom: 0.35rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+        }
+
+        .form-text {
+            margin-top: 0.25rem;
+            font-size: 0.75rem;
+            color: var(--panou-filtre-text-muted, var(--bs-secondary-color, #666));
+        }
+
+        &--lat {
+            grid-column: 1 / -1;
+        }
+
+        &--pret {
+            grid-column: 1 / -1;
+
+            @media (min-width: 640px) {
+                grid-column: span 1;
+            }
+        }
+
+        &--inalt {
+            display: flex;
+            flex-direction: column;
+
+            .panou-filtre-catalog__select-multi,
+            .panou-filtre-catalog__textarea,
+            .panou-filtre-catalog__input-inalt {
+                flex: 1;
+                min-height: 7.5rem;
+            }
+        }
+    }
+
+    &__range {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.35rem 0.5rem;
+        border-radius: 10px;
+        background: var(--panou-filtre-fundal-subtil, rgba(157, 78, 221, 0.08));
+        border: 1px solid var(--panou-filtre-border, rgba(90, 42, 122, 0.12));
+
+        .form-range {
+            flex: 1;
+            margin: 0;
+        }
+    }
+
+    &__range-extrem {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--panou-filtre-text, var(--culoare-principala, #5a2a7a));
+        min-width: 2.5rem;
+        text-align: center;
+
+        .filtru-range__selectat {
+            display: block;
+            font-weight: 500;
+            color: var(--panou-filtre-text-muted, inherit);
+            font-size: 0.7rem;
+        }
+    }
+
+    &__select-multi,
+    &__textarea,
+    &__input-inalt {
+        background-color: var(--panou-filtre-camp-bg, var(--bs-body-bg, #fff));
+        color: var(--panou-filtre-camp-text, var(--bs-body-color, #2b2b2b));
+        border-color: var(--panou-filtre-border, rgba(90, 42, 122, 0.25));
+        border-radius: 8px;
+
+        &::placeholder {
+            color: var(--panou-filtre-text-muted, var(--bs-secondary-color, #888));
+            opacity: 1;
+        }
+
+        &:focus {
+            border-color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+            box-shadow: 0 0 0 0.2rem rgba(157, 78, 221, 0.2);
+            color: var(--panou-filtre-camp-text, var(--bs-body-color, #2b2b2b));
+        }
+    }
+
+    &__chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        align-items: center;
+    }
+
+    &__chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0.4rem 0.85rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.2;
+        border-radius: 999px;
+        border: 1px solid var(--panou-filtre-border, rgba(90, 42, 122, 0.35));
+        background: var(--panou-filtre-camp-bg, var(--bs-body-bg, #fff));
+        color: var(--panou-filtre-text, var(--culoare-principala, #5a2a7a));
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+        box-shadow: none;
+
+        &:hover {
+            background: var(--panou-filtre-fundal-subtil, rgba(157, 78, 221, 0.12));
+            border-color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+            color: var(--panou-filtre-text, inherit);
+        }
+
+        &--secundar {
+            border-style: dashed;
+        }
+    }
+
+    .btn-check:checked + .panou-filtre-catalog__chip {
+        background: var(--bs-primary, var(--culoare-principala, #5a2a7a));
+        border-color: var(--bs-primary, var(--culoare-principala, #5a2a7a));
+        color: var(--bs-btn-color, #fff);
+        box-shadow: 0 2px 8px rgba(90, 42, 122, 0.25);
+    }
+
+    &__chip-sub {
+        font-size: 0.68rem;
+        font-weight: 500;
+        color: inherit;
+        opacity: 0.9;
+        margin-left: 0.15rem;
+    }
+
+    &__sortare {
+        margin-top: 1rem;
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
+        background: var(--panou-filtre-fundal-subtil, rgba(90, 42, 122, 0.07));
+        border: 1px solid var(--panou-filtre-border, rgba(90, 42, 122, 0.15));
+        color: var(--panou-filtre-text, inherit);
+    }
+
+    &__sortare-titlu {
+        margin: 0 0 0.65rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    &__sortare-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem 1rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    &__actiuni {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding-top: 0.85rem;
+        border-top: 1px solid var(--panou-filtre-border, rgba(90, 42, 122, 0.12));
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+    }
+
+    .form-control,
+    .form-select {
+        background-color: var(--panou-filtre-camp-bg, var(--bs-body-bg, #fff));
+        color: var(--panou-filtre-camp-text, var(--bs-body-color, #2b2b2b));
+        border-color: var(--panou-filtre-border, rgba(90, 42, 122, 0.22));
+        border-radius: 8px;
+
+        &::placeholder {
+            color: var(--panou-filtre-text-muted, var(--bs-secondary-color, #888));
+            opacity: 1;
+        }
+
+        &:focus {
+            border-color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+            box-shadow: 0 0 0 0.2rem rgba(157, 78, 221, 0.18);
+            color: var(--panou-filtre-camp-text, var(--bs-body-color, #2b2b2b));
+        }
+    }
+
+    .form-select option {
+        background-color: var(--panou-filtre-camp-bg, var(--bs-body-bg, #fff));
+        color: var(--panou-filtre-camp-text, var(--bs-body-color, #2b2b2b));
+    }
+
+    @media (max-width: 639px) {
+        padding: 1rem;
+
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+
+        &__camp--pret {
+            grid-column: 1 / -1;
+        }
+    }
+}
+
+// Modal detalii produs — schema cromatică site
+.articol-produs--clickabil {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        border-color: var(--culoare-principala, #5a2a7a);
+        box-shadow: 0 6px 20px rgba(90, 42, 122, 0.18);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--culoare-principala, #5a2a7a);
+        outline-offset: 3px;
+    }
+}
+
+.articol-produs__hint-modal {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.modal-produs-mab .modal-content {
+    border: 2px solid var(--culoare-border, #d1b3e0);
+    border-radius: 12px;
+    background: var(--bs-body-bg, #f8f4fb);
+    color: var(--culoare-text, #2b2b2b);
+    box-shadow: 0 12px 40px rgba(90, 42, 122, 0.25);
+}
+
+.modal-produs-mab__header {
+    background: linear-gradient(135deg, var(--culoare-principala, #5a2a7a), var(--culoare-secundara, #a678c3));
+    color: #fff;
+    border-bottom: none;
+
+    .modal-title {
+        color: #fff;
+    }
+}
+
+.modal-produs-mab__footer {
+    border-top: 1px solid var(--culoare-border, #d1b3e0);
+    background: rgba(166, 120, 195, 0.08);
+}
+
+.modal-produs-mab__grid {
+    display: grid;
+    grid-template-columns: minmax(180px, 280px) 1fr;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.modal-produs-mab__img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid var(--culoare-border, #d1b3e0);
+}
+
+.modal-produs-mab__carusel {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--culoare-border, #d1b3e0);
+}
+
+.modal-produs-mab__detalii p {
+    margin: 0.35rem 0;
+}
+
+.modal-produs-mab__detalii strong {
+    color: var(--culoare-principala, #5a2a7a);
+}
+
+.modal-produs-mab__descriere {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--culoare-border, #d1b3e0);
+
+    h3 {
+        color: var(--culoare-principala, #5a2a7a);
+    }
+}
+
+@media (max-width: 640px) {
+    .modal-produs-mab__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.zona-produse-catalog {
+    margin: 2rem auto 3rem;
+    max-width: 1040px;
+    padding: 0 1rem;
+
+    .titlu-pagina-produse {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .produse-filtru-activ {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--culoare-text, #333);
+    }
+
+    .catalog-produse {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+        gap: 1.75rem;
+    }
+
+    .articol-produs {
+        border: 1px solid var(--culoare-border, #ddd);
+        border-radius: 12px;
+        padding: 1.25rem;
+        background: var(--bs-body-bg, #fff);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .articol-produs.ascuns {
+        display: none;
+    }
+
+    .produse-fara-rezultat-filtru {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin: 2rem 0;
+        padding: 1.25rem 1.5rem;
+        border-radius: 12px;
+        border: 1px dashed var(--culoare-border, #ccc);
+        background: var(--bs-body-bg, #fff);
+        color: var(--culoare-text, #333);
+        font-size: 1.05rem;
+    }
+
+    .produse-fara-rezultat-filtru.ascuns {
+        display: none;
+    }
+
+    .produse-gol {
+        text-align: center;
+        margin: 2rem 0;
+        padding: 1.25rem;
+        font-size: 1.05rem;
+        color: var(--culoare-text, #333);
+    }
+
+    // Etapa 5 — Bonus 5) paginare produse
+    .paginare-produse {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 1.75rem 0 0.5rem;
+    }
+
+    .paginare-produse__btn.active {
+        font-weight: 700;
+    }
+
+    .articol-produs.pagina-ascuns {
+        display: none;
+    }
+
+    .articol-produs__header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .articol-produs__titlu {
+        margin: 0;
+        font-size: 1.35rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        flex: 1 1 12rem;
+    }
+
+    .articol-produs__toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.45rem;
+        flex-shrink: 0;
+        max-width: 100%;
+    }
+
+    .articol-produs__actiuni {
+        display: flex;
+        flex-shrink: 0;
+        gap: 0.35rem;
+    }
+
+    .btn-compara--card {
+        flex: 0 0 auto;
+        min-height: 2.25rem;
+        padding: 0.4rem 0.85rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        line-height: 1;
+        white-space: nowrap;
+        border: 1px solid var(--culoare-principala, #5a2a7a);
+        border-radius: 8px;
+        background: rgba(157, 78, 221, 0.12);
+        color: var(--culoare-principala, #5a2a7a);
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+        &:hover:not(:disabled) {
+            background: var(--culoare-principala, #5a2a7a);
+            color: #fff;
+        }
+
+        &:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+    }
+
+    .btn-produs-actiune {
+        position: relative;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0;
+        border: 1px solid var(--culoare-border, #d1b3e0);
+        border-radius: 8px;
+        background: var(--bs-body-bg, #fff);
+        color: var(--culoare-principala, #5a2a7a);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+
+        &:hover,
+        &:focus-visible {
+            background: rgba(166, 120, 195, 0.15);
+            border-color: var(--culoare-principala, #5a2a7a);
+            transform: scale(1.06);
+            z-index: 2;
+        }
+
+        &__hint {
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + 6px);
+            min-width: 11rem;
+            max-width: 16rem;
+            padding: 0.45rem 0.55rem;
+            font-size: 0.72rem;
+            line-height: 1.35;
+            font-weight: 500;
+            text-align: left;
+            color: #fff;
+            background: rgba(30, 20, 40, 0.94);
+            border-radius: 6px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
+        }
+
+        &:hover .btn-produs-actiune__hint,
+        &:focus-visible .btn-produs-actiune__hint {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .btn-produs-fixeaza.activ {
+        background: linear-gradient(135deg, #9d4edd, #c084f5);
+        border-color: #7b2cbf;
+        color: #fff;
+    }
+
+    .articol-produs.produs-fixat {
+        border-color: #9d4edd;
+        box-shadow: 0 0 0 2px rgba(157, 78, 221, 0.35), 0 6px 18px rgba(90, 42, 122, 0.15);
+        background: linear-gradient(180deg, rgba(230, 183, 255, 0.12) 0%, var(--bs-body-bg, #fff) 45%);
+    }
+
+    .articol-produs.eliminat-sesiune {
+        display: none !important;
+    }
+
+    // Bonus 18 — marcaj produs nou
+    .articol-produs--nou {
+        border-color: #ea580c;
+        box-shadow: 0 0 0 1px rgba(234, 88, 12, 0.25), 0 4px 14px rgba(234, 88, 12, 0.12);
+    }
+
+    .badge-nou {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fff;
+        background: linear-gradient(135deg, #ea580c, #f97316);
+        border: 2px solid #c2410c;
+        border-radius: 4px;
+        padding: 0.15rem 0.45rem;
+        box-shadow: 0 2px 10px rgba(234, 88, 12, 0.45);
+        animation: badge-nou-pulse 1.8s ease-in-out infinite;
+        vertical-align: middle;
+        margin-left: 0.35rem;
+    }
+
+    @keyframes badge-nou-pulse {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.06);
+        }
+    }
+
+    // Bonus 14 — cel mai ieftin produs per categorie
+    .articol-produs--cel-mai-ieftin {
+        border-color: #0d9488;
+        box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.35), 0 6px 20px rgba(13, 148, 136, 0.12);
+        background: linear-gradient(180deg, rgba(45, 212, 191, 0.14) 0%, var(--bs-body-bg, #fff) 50%);
+    }
+
+    .badge-cel-mai-ieftin {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #064e3b;
+        background: linear-gradient(135deg, #5eead4, #fbbf24);
+        border: 2px solid #0d9488;
+        border-radius: 999px;
+        padding: 0.22rem 0.6rem;
+        box-shadow: 0 2px 8px rgba(13, 148, 136, 0.35);
+        animation: cel-mai-ieftin-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes cel-mai-ieftin-pulse {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.04);
+        }
+    }
+
+    .eticheta-cel-mai-ieftin {
+        margin: 0 0 0.75rem;
+        padding: 0.5rem 0.85rem;
+        border-radius: 8px;
+        border-left: 4px solid #0d9488;
+        background: rgba(45, 212, 191, 0.18);
+        color: var(--culoare-text, #1a3c34);
+        font-size: 0.92rem;
+        text-align: center;
+
+        strong {
+            color: #0f766e;
+        }
+    }
+
+    .articol-produs__grid {
+        display: grid;
+        grid-template-columns: minmax(160px, 220px) 1fr;
+        gap: 1.25rem 1.5rem;
+        align-items: start;
+    }
+
+    .articol-produs__figura {
+        margin: 0 0 0.75rem;
+        text-align: center;
+    }
+
+    .articol-produs__figura img {
+        width: 140px;
+        height: 140px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 8px;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .articol-produs__caracteristici {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .articol-produs__caracteristici li {
+        margin-bottom: 0.45rem;
+        line-height: 1.4;
+    }
+
+    .caracteristica-nume {
+        font-weight: bold;
+        color: var(--culoare-principala, #5a2a7a);
+        background-color: rgba(166, 120, 195, 0.15);
+        padding: 0.1em 0.35em;
+        border-radius: 4px;
+        margin-right: 0.25em;
+    }
+
+    .caracteristica-valoare {
+        color: var(--culoare-text, #333);
+    }
+
+    .articol-produs__descriere {
+        margin: 0.5rem 0 0;
+        line-height: 1.5;
+    }
+
+    .articol-produs__link-detaliu {
+        margin-top: 0.75rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.35rem 0.5rem;
+    }
+
+    .articol-produs__link-separator {
+        opacity: 0.6;
+    }
+
+    .articol-produs__hint-modal {
+        font-size: 0.88rem;
+        opacity: 0.8;
+    }
+
+    @media (max-width: 640px) {
+        .catalog-produse {
+            grid-template-columns: 1fr;
+        }
+
+        .articol-produs__grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// Bonus 18 — secțiune produse noi (index)
+.produse-noi-index {
+    margin: 2rem auto 2.5rem;
+    padding: 1.25rem 1.5rem;
+    max-width: 960px;
+    border-radius: 14px;
+    border: 2px solid var(--culoare-principala, #5a2a7a);
+    background: linear-gradient(160deg, rgba(230, 183, 255, 0.2), rgba(255, 237, 213, 0.35));
+    box-shadow: 0 8px 24px rgba(90, 42, 122, 0.12);
+}
+
+.produse-noi-index__titlu {
+    margin: 0 0 0.35rem;
+    font-size: 1.4rem;
+    color: var(--culoare-principala, #5a2a7a);
+    text-align: center;
+}
+
+.produse-noi-index__subtitlu {
+    text-align: center;
+    margin: 0 0 1.1rem;
+    font-size: 0.92rem;
+    color: var(--culoare-text, #555);
+}
+
+.produse-noi-index__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.75rem;
+}
+
+.produs-nou-card__link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--culoare-border, #d1b3e0);
+    background: var(--bs-body-bg, #fff);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 6px 16px rgba(90, 42, 122, 0.18);
+        transform: translateY(-2px);
+    }
+}
+
+.produs-nou-card__imagine img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #fff;
+    padding: 4px;
+}
+
+.produs-nou-card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.produs-nou-card__nume {
+    font-weight: 700;
+    color: var(--culoare-principala, #5a2a7a);
+}
+
+.produs-nou-card__meta,
+.produs-nou-card__data {
+    font-size: 0.82rem;
+    color: var(--culoare-text, #555);
+}
+
+.badge-nou--mic {
+    font-size: 0.65rem;
+    margin-left: 0;
+    margin-bottom: 0.15rem;
+}
+
+.produse-noi-index__footer {
+    text-align: center;
+    margin: 1rem 0 0;
+}
+
+.pagina-produs {
+    margin: 2rem auto 3rem;
+}
+
+.produs-complet__titlu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.produs-complet--nou {
+    border-color: #ea580c;
+    box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.2);
+}
+
+.badge-nou--mare {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.65rem;
+    margin-left: 0;
+}
+
+// Bonus 19 — panou orar (overlay pe orice pagină)
+body.panou-orar-deschis {
+    overflow: hidden;
+}
+
+.header-site nav .meniu .item-meniu--orar .btn-orar-meniu {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: var(--culoare-secundara, #a678c3);
+    }
+}
+
+.panou-orar {
+    position: fixed;
+    inset: 0;
+    z-index: 1080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    &[hidden] {
+        display: none !important;
+    }
+}
+
+.panou-orar__fundal {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 10, 30, 0.55);
+    cursor: pointer;
+}
+
+.panou-orar__continut {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 520px);
+    max-height: 90vh;
+    overflow: auto;
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-radius: 14px;
+    border: 2px solid var(--culoare-border, #d1b3e0);
+    background: var(--panou-filtre-fundal, var(--bs-card-bg, var(--bs-body-bg, #fff)));
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+    color: var(--panou-filtre-text, var(--culoare-text, #2b2b2b));
+}
+
+.panou-orar__inchide {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    border: none;
+    background: var(--panou-filtre-fundal-subtil, rgba(90, 42, 122, 0.12));
+    color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+    border-radius: 8px;
+    width: 2.25rem;
+    height: 2.25rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+
+    &:hover {
+        background: var(--panou-filtre-border, rgba(90, 42, 122, 0.22));
+        color: var(--panou-filtre-text, inherit);
+    }
+}
+
+.panou-orar__titlu {
+    margin: 0 2rem 0.35rem 0;
+    font-size: 1.35rem;
+    color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+}
+
+.panou-orar__hint {
+    margin: 0 0 1rem;
+    font-size: 0.82rem;
+    color: var(--panou-filtre-text-muted, var(--culoare-text, #666));
+}
+
+.tabel-orar {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    color: var(--panou-filtre-text, var(--culoare-text, #2b2b2b));
+
+    th,
+    td {
+        padding: 0.55rem 0.75rem;
+        border: 1px solid var(--panou-filtre-border, var(--culoare-border, #d1b3e0));
+        text-align: left;
+        vertical-align: top;
+        color: inherit;
+    }
+
+    thead th {
+        background: var(--panou-filtre-fundal-subtil, rgba(90, 42, 122, 0.12));
+        color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+        font-weight: 700;
+    }
+
+    tbody th {
+        color: var(--panou-filtre-text, inherit);
+    }
+}
+
+.tabel-orar__rand--azi {
+    background: var(--panou-filtre-fundal-subtil, rgba(157, 78, 221, 0.18)) !important;
+
+    .tabel-orar__zi {
+        font-weight: 700;
+        color: var(--panou-filtre-eticheta, var(--culoare-principala, #5a2a7a));
+    }
+
+    td {
+        color: var(--panou-filtre-text, inherit);
+    }
+}
+
+.tabel-orar__lista-intervale {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tabel-orar__lista-intervale li + li {
+    margin-top: 0.2rem;
+}
+
+.tabel-orar__inchis-zi {
+    font-style: italic;
+    color: var(--panou-filtre-text-muted, #888);
+}
+
+.orar-status {
+    margin: 1rem 0 0;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.orar-status--deschis {
+    background: rgba(34, 197, 94, 0.22);
+    color: #14532d;
+    border: 2px solid #22c55e;
+}
+
+.orar-status--inchis {
+    background: rgba(239, 68, 68, 0.2);
+    color: #7f1d1d;
+    border: 2px solid #ef4444;
+}
+
+html[data-bs-theme="nocturn"] {
+    .orar-status--deschis {
+        background: rgba(34, 197, 94, 0.28);
+        color: #bbf7d0;
+        border-color: #4ade80;
+    }
+
+    .orar-status--inchis {
+        background: rgba(239, 68, 68, 0.28);
+        color: #fecaca;
+        border-color: #f87171;
+    }
+
+    .panou-filtre-catalog .btn-outline-primary {
+        color: var(--panou-filtre-eticheta, #f0d4ff);
+        border-color: var(--panou-filtre-border, #6b5580);
+
+        &:hover {
+            background: var(--panou-filtre-fundal-subtil, #3d2a52);
+            color: #fff;
+        }
+    }
+}
+
+// Bonus 20 — comparare produse
+#container-comparare.container-comparare {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    width: min(96vw, 640px);
+    border-radius: 12px;
+    border: 2px solid var(--culoare-principala, #5a2a7a);
+    background: var(--bs-body-bg, #fff);
+    box-shadow: 0 10px 32px rgba(90, 42, 122, 0.28);
+    color: var(--culoare-text, #2b2b2b);
+
+    &[hidden] {
+        display: none !important;
+    }
+}
+
+.container-comparare__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    padding: 0.75rem 1rem;
+}
+
+.container-comparare__eticheta {
+    margin: 0;
+    font-weight: 700;
+    color: var(--culoare-principala, #5a2a7a);
+}
+
+.lista-comparare-produse {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.lista-comparare-produse__item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    background: rgba(157, 78, 221, 0.12);
+    border: 1px solid var(--culoare-border, #d1b3e0);
+}
+
+.lista-comparare-produse__nume {
+    font-weight: 600;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn-sterge-comparare {
+    border: none;
+    background: rgba(201, 24, 74, 0.15);
+    color: #c9184a;
+    border-radius: 6px;
+    width: 1.6rem;
+    height: 1.6rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+
+    &:hover {
+        background: #c9184a;
+        color: #fff;
+    }
+}
+
+.btn-afiseaza-comparare {
+    border: none;
+    border-radius: 8px;
+    padding: 0.45rem 1rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    background: var(--culoare-principala, #5a2a7a);
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--culoare-secundara, #7b4b9a);
+    }
+}
+
+.btn-compara--pagina {
+    border: 1px solid var(--culoare-principala, #5a2a7a);
+    background: rgba(157, 78, 221, 0.12);
+    color: var(--culoare-principala, #5a2a7a);
+    border-radius: 8px;
+    padding: 0.45rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+        background: var(--culoare-principala, #5a2a7a);
+        color: #fff;
+    }
+
+    &:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+    }
+}
+
+.produs-complet__titlu-rand {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.tooltip-compara-dezactivat {
+    position: fixed;
+    z-index: 1100;
+    max-width: 260px;
+    padding: 0.4rem 0.65rem;
+    border-radius: 6px;
+    background: #1f1f1f;
+    color: #fff;
+    font-size: 0.82rem;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+
+    &[hidden] {
+        display: none !important;
+    }
+}
+
+.pagina-comparare {
+    margin: 1.5rem auto 2rem;
+}
+
+.pagina-comparare__titlu {
+    color: var(--culoare-principala, #5a2a7a);
+    margin-bottom: 0.35rem;
+}
+
+.tabel-comparare {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+
+    th,
+    td {
+        border: 1px solid var(--culoare-border, #d1b3e0);
+        padding: 0.55rem 0.75rem;
+        vertical-align: top;
+    }
+
+    thead th {
+        background: rgba(90, 42, 122, 0.12);
+        color: var(--culoare-principala, #5a2a7a);
+    }
+
+    tbody th[scope='row'] {
+        background: rgba(166, 120, 195, 0.08);
+        font-weight: 600;
+        width: 28%;
+    }
+}
+
+.comparare-img {
+    object-fit: contain;
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.pagina-produs__back {
+    margin-bottom: 1rem;
+}
+
+.produs-complet {
+    border: 1px solid var(--culoare-border, #ddd);
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: var(--bs-body-bg, #fff);
+}
+
+.produs-complet__grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: 1.25rem 1.5rem;
+    align-items: start;
+}
+
+.produs-complet__imagine {
+    margin: 0;
+    text-align: center;
+}
+
+// Etapa 5 — Bonus 9) carusel imagini produs
+.produs-complet__carusel {
+    max-width: 320px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.produs-complet__carusel-img {
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.produs-complet__carusel-info {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--culoare-text, #555);
+}
+
+.produs-complet__imagine img:not(.produs-complet__carusel-img) {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.produs-complet__detalii p {
+    margin: 0.45rem 0;
+}
+
+.produs-complet__descriere {
+    margin-top: 1.25rem;
+}
+
+@media (max-width: 740px) {
+    .produs-complet__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Etapa 5 — Bonus 2) select alegere temă (înlocuiește comutatorul light/dark)
+.selector-tema {
+    flex-shrink: 0;
+    min-width: 9.5rem;
+}
+
+.selector-tema__control {
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.92);
+    color: #2b2b2b;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    &:focus {
+        border-color: #fff;
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.35);
     }
 }
 

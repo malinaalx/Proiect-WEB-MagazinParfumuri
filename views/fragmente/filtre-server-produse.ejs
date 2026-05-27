@@ -1,0 +1,139 @@
+<% const opt = optiuni_filtre || {}; %>
+<% const lbl = opt.etichete || {}; %>
+<% const fs = filtre_server || {}; %>
+<% const sortOpt = typeof optiuni_sortare !== 'undefined' ? optiuni_sortare : []; %>
+
+<section class="panou-filtre-catalog panou-filtre-catalog--server" aria-label="Filtrare și sortare server">
+    <div class="panou-filtre-catalog__antet">
+        <div class="panou-filtre-catalog__titlu-rand">
+            <h2 class="panou-filtre-catalog__titlu">Filtrare și sortare pe server</h2>
+            <span class="panou-filtre-catalog__badge">Bonus 10</span>
+        </div>
+        <p class="panou-filtre-catalog__hint">
+            Trimite criteriile către server · sortare după <strong>2 chei</strong>.
+            Filtrarea din browser (panoul de sus) rămâne separată.
+        </p>
+    </div>
+
+    <form id="form-filtre-server" class="panou-filtre-catalog__form" method="get" action="/produse" accept-charset="UTF-8">
+        <input type="hidden" name="srv" value="1">
+
+        <div class="panou-filtre-catalog__grid">
+            <div class="panou-filtre-catalog__camp">
+                <label for="srv-descriere" class="form-label"><%= lbl.descriere || 'Descriere' %> — cuvânt cheie</label>
+                <input type="text" class="form-control form-control-sm" id="srv-descriere" name="descriere"
+                    value="<%= fs.descriere || '' %>" autocomplete="off" placeholder="Cuvânt în descriere">
+            </div>
+            <div class="panou-filtre-catalog__camp">
+                <label for="srv-subcategorie" class="form-label"><%= lbl.subcategorie || 'Familie olfactivă' %></label>
+                <input type="text" class="form-control form-control-sm" id="srv-subcategorie" name="subcategorie"
+                    list="lista-subcategorii-srv" value="<%= fs.subcategorie || '' %>" placeholder="Din listă">
+                <datalist id="lista-subcategorii-srv">
+                    <% (opt.subcategorii || []).forEach(function(subcat) { %>
+                        <option value="<%= subcat %>"></option>
+                    <% }); %>
+                </datalist>
+            </div>
+            <div class="panou-filtre-catalog__camp">
+                <label for="srv-pret-max" class="form-label"><%= lbl.pret || 'Preț' %> maxim (RON)</label>
+                <input type="number" class="form-control form-control-sm" id="srv-pret-max" name="pret_max"
+                    min="<%= opt.pret_min || 0 %>" max="<%= opt.pret_max || 1000 %>" step="1"
+                    value="<%= typeof fs.pret_max !== 'undefined' && fs.pret_max !== null && fs.pret_max !== '' ? fs.pret_max : (opt.pret_max || '') %>">
+            </div>
+            <div class="panou-filtre-catalog__camp">
+                <label for="srv-concentratie" class="form-label"><%= lbl.concentratie || 'Concentrație' %></label>
+                <select class="form-select form-select-sm" id="srv-concentratie" name="concentratie">
+                    <option value="" <%= !fs.concentratie ? 'selected' : '' %>>Oricare</option>
+                    <% (opt.concentratii || []).forEach(function(c) { %>
+                        <option value="<%= c %>" <%= fs.concentratie === c ? 'selected' : '' %>><%= c %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="panou-filtre-catalog__camp panou-filtre-catalog__camp--inalt">
+                <label for="srv-note" class="form-label"><%= lbl.note_parfum || 'Note olfactive' %></label>
+                <select class="form-select form-select-sm panou-filtre-catalog__select-multi" id="srv-note" name="note" multiple size="4">
+                    <% const noteSel = fs.note || []; %>
+                    <% (opt.note_olfactive || []).forEach(function(nota) { %>
+                        <option value="<%= nota %>" <%= noteSel.indexOf(nota) >= 0 ? 'selected' : '' %>><%= nota %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="panou-filtre-catalog__camp panou-filtre-catalog__camp--inalt">
+                <label for="srv-nume" class="form-label"><%= lbl.nume || 'Nume produs' %> (începe cu)</label>
+                <input type="text" class="form-control form-control-sm panou-filtre-catalog__input-inalt" id="srv-nume" name="nume"
+                    value="<%= fs.nume || '' %>" autocomplete="off" placeholder="Începe cu…">
+            </div>
+            <div class="panou-filtre-catalog__camp panou-filtre-catalog__camp--lat">
+                <span class="form-label" id="srv-categorie-label"><%= lbl.categorie || 'Categorie' %></span>
+                <div class="panou-filtre-catalog__chips">
+                    <input type="radio" class="btn-check" name="categorie" id="srv-categorie-oricare" value=""
+                        <%= !fs.categorie ? 'checked' : '' %> autocomplete="off">
+                    <label class="panou-filtre-catalog__chip" for="srv-categorie-oricare">Oricare</label>
+                    <% (typeof categorii_produse !== 'undefined' ? categorii_produse : []).forEach(function(cat) { %>
+                        <input type="radio" class="btn-check" name="categorie" id="srv-categorie-<%= cat %>" value="<%= cat %>"
+                            <%= fs.categorie === cat ? 'checked' : '' %> autocomplete="off">
+                        <label class="panou-filtre-catalog__chip text-capitalize" for="srv-categorie-<%= cat %>"><%= cat %></label>
+                    <% }); %>
+                    <input type="checkbox" class="btn-check" id="srv-noutati" name="noutati" value="1"
+                        <%= fs.noutati ? 'checked' : '' %> autocomplete="off">
+                    <label class="panou-filtre-catalog__chip panou-filtre-catalog__chip--secundar" for="srv-noutati">Noutăți</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="panou-filtre-catalog__sortare">
+            <h3 class="panou-filtre-catalog__sortare-titlu">Sortare (2 chei)</h3>
+            <div class="panou-filtre-catalog__sortare-grid">
+                <div class="panou-filtre-catalog__camp">
+                    <label for="srv-sort1" class="form-label">Cheie 1</label>
+                    <select class="form-select form-select-sm" id="srv-sort1" name="sort1">
+                        <% sortOpt.forEach(function(o) { %>
+                            <option value="<%= o.cheie %>" <%= fs.sort1 === o.cheie ? 'selected' : '' %>><%= o.eticheta %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="panou-filtre-catalog__camp">
+                    <label for="srv-dir1" class="form-label">Direcție 1</label>
+                    <select class="form-select form-select-sm" id="srv-dir1" name="dir1">
+                        <option value="asc" <%= fs.dir1 === 'asc' ? 'selected' : '' %>>Crescător</option>
+                        <option value="desc" <%= fs.dir1 === 'desc' ? 'selected' : '' %>>Descrescător</option>
+                    </select>
+                </div>
+                <div class="panou-filtre-catalog__camp">
+                    <label for="srv-sort2" class="form-label">Cheie 2</label>
+                    <select class="form-select form-select-sm" id="srv-sort2" name="sort2">
+                        <option value="" <%= !fs.sort2 ? 'selected' : '' %>>—</option>
+                        <% sortOpt.forEach(function(o) { %>
+                            <option value="<%= o.cheie %>" <%= fs.sort2 === o.cheie ? 'selected' : '' %>><%= o.eticheta %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="panou-filtre-catalog__camp">
+                    <label for="srv-dir2" class="form-label">Direcție 2</label>
+                    <select class="form-select form-select-sm" id="srv-dir2" name="dir2">
+                        <option value="asc" <%= fs.dir2 === 'asc' ? 'selected' : '' %>>Crescător</option>
+                        <option value="desc" <%= fs.dir2 === 'desc' ? 'selected' : '' %>>Descrescător</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <footer class="panou-filtre-catalog__actiuni">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+                <span>Trimite (server)</span>
+            </button>
+            <button type="button" class="btn btn-outline-primary btn-sm" id="btn-filtre-server-fetch">
+                <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+                <span>Aplică fetch()</span>
+            </button>
+            <a href="/produse" class="btn btn-secondary btn-sm">Reset server</a>
+        </footer>
+    </form>
+
+    <p class="panou-filtre-catalog__info panou-filtre-catalog__info--jos" id="filtre-server-info" aria-live="polite">
+        <% if (typeof mod_server !== 'undefined' && mod_server) { %>
+            Ultima listă: <strong><%= parfumuri.length %></strong> produse de la server (filtrare/sortare SQL).
+        <% } %>
+    </p>
+</section>

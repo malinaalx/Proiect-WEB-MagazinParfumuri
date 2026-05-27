@@ -1,0 +1,126 @@
+.sectiune-galerie-animata {
+  text-align: center;
+  padding: 0.5rem 0 1rem;
+  border-bottom: none;
+}
+
+.grid-container .sectiune-galerie-animata {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.grid-container .sectiune-galerie-animata:hover {
+  transform: none !important;
+}
+
+.galerie-animata-wrap {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0;
+  line-height: 0;
+  vertical-align: top;
+  box-sizing: content-box;
+  overflow: hidden;
+  background-color: #1a1208;
+  border-style: solid;
+  border-width: 40px;
+  border-color: transparent;
+  border-image-source: url("../imagini/border.png");
+  border-image-slice: 14;
+  border-image-width: 40px;
+  border-image-repeat: round;
+}
+
+#galerie-animata {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f7f5f2;
+}
+#galerie-animata figure {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f5f2;
+}
+#galerie-animata figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  object-fit: contain;
+  object-position: center;
+}
+#galerie-animata figure figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 5;
+  pointer-events: none;
+}
+#galerie-animata .galerie-animata-baza {
+  z-index: 0 !important;
+  clip-path: inset(0 0 0 0) !important;
+  animation: none !important;
+}
+#galerie-animata figure:not(.galerie-animata-baza) {
+  clip-path: inset(0 0 0 0);
+  animation: animatie-taiere 8s linear infinite;
+}
+#galerie-animata figure:nth-child(2) {
+  animation-delay: 0s;
+  z-index: 3;
+}
+#galerie-animata figure:nth-child(3) {
+  animation-delay: 4s;
+  z-index: 2;
+}
+#galerie-animata:hover figure:not(.galerie-animata-baza) {
+  animation-play-state: paused;
+}
+
+@keyframes animatie-taiere {
+  0%, 40% {
+    clip-path: inset(0 0 0 0);
+    z-index: 20;
+  }
+  50% {
+    clip-path: inset(50% 0 50% 0);
+    z-index: 20;
+  }
+  50.001%, 100% {
+    clip-path: inset(50% 0 50% 0);
+    z-index: -1;
+  }
+}
+@media (max-width: 1199px) {
+  .sectiune-galerie-animata {
+    display: none;
+  }
+  .pagina-galerie-dinamica .sectiune-galerie-animata {
+    display: block;
+  }
+}
+@media (min-width: 1200px) {
+  .sectiune-galerie-animata {
+    display: block;
+  }
+}

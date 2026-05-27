@@ -1,0 +1,116 @@
+<% if (parfumuri.length) { %>
+    <p id="produse-fara-rezultat-filtru" class="produse-fara-rezultat-filtru ascuns" role="status" aria-live="polite">
+        Nu există produse conform filtrării curente.
+    </p>
+<% } %>
+<% parfumuri.forEach(function(parfum, idx) { %>
+    <% const esteProdusNouFlag = (typeof esteProdusNou === 'function') && esteProdusNou(parfum.data_lansare); %>
+    <% const esteCelMaiIeftin = (typeof ids_cel_mai_ieftin !== 'undefined') && ids_cel_mai_ieftin.indexOf(parfum.id) !== -1; %>
+    <article
+        id="artc-<%= parfum.id %>"
+        class="articol-produs articol-produs--clickabil <%= clasaDinCategorie(parfum.categorie) %><%= esteCelMaiIeftin ? ' articol-produs--cel-mai-ieftin' : '' %><%= esteProdusNouFlag ? ' articol-produs--nou' : '' %>"
+        role="button"
+        tabindex="0"
+        aria-label="Deschide detalii pentru <%= parfum.nume %>"
+        data-original-idx="<%= idx %>"
+        data-id="<%= parfum.id %>"
+        data-nume="<%= escapeAttr(parfum.nume) %>"
+        data-descriere="<%= escapeAttr(parfum.descriere) %>"
+        data-categorie="<%= parfum.categorie %>"
+        data-subcategorie="<%= parfum.subcategorie %>"
+        data-concentratie="<%= escapeAttr(parfum.concentratie) %>"
+        data-note="<%= escapeAttr((parfum.note_parfum || '').toLowerCase()) %>"
+        data-data-lansare="<%= dataIsoPentruTime(parfum.data_lansare) %>"
+        data-pret="<%= parfum.pret %>"
+        data-volum="<%= parfum.volum_ml %>"
+        data-editie-limitata="<%= parfum.editie_limitata %>">
+
+        <div class="articol-produs__header">
+            <h2 class="articol-produs__titlu">
+                <%= parfum.nume %>
+                <% if (esteProdusNouFlag) { %>
+                    <span class="badge-nou" title="Produs adăugat recent în catalog">NOU</span>
+                <% } %>
+                <% if (esteCelMaiIeftin) { %>
+                    <span class="badge-cel-mai-ieftin" title="Cel mai mic preț din categoria <%= parfum.categorie %>">
+                        <i class="bi bi-tag-fill" aria-hidden="true"></i> Cel mai ieftin
+                    </span>
+                <% } %>
+            </h2>
+            <div class="articol-produs__toolbar">
+                <div class="articol-produs__actiuni" role="group" aria-label="Acțiuni produs">
+                    <button type="button" class="btn-produs-actiune btn-produs-fixeaza" aria-pressed="false"
+                        aria-label="Păstrează produsul pe ecran la filtrare">
+                        <i class="bi bi-pin-angle" aria-hidden="true"></i>
+                        <span class="btn-produs-actiune__hint">Păstrează produsul vizibil chiar dacă nu mai trece filtrele (click din nou pentru a dezactiva)</span>
+                    </button>
+                    <button type="button" class="btn-produs-actiune btn-produs-ascunde-temp" aria-label="Ascunde temporar produsul">
+                        <i class="bi bi-eye-slash" aria-hidden="true"></i>
+                        <span class="btn-produs-actiune__hint">Ascunde produsul din afișarea curentă; poate reapărea la filtrare, sortare sau reset</span>
+                    </button>
+                    <button type="button" class="btn-produs-actiune btn-produs-elimina-sesiune" aria-label="Elimină produsul din listă pe durata sesiunii în acest tab">
+                        <i class="bi bi-trash3" aria-hidden="true"></i>
+                        <span class="btn-produs-actiune__hint">Elimină produsul din listă în acest tab (persistă la refresh; alt tab îl arată din nou)</span>
+                    </button>
+                </div>
+                <button type="button" class="btn-compara btn-compara--card"
+                    data-compara-id="<%= parfum.id %>"
+                    data-compara-nume="<%= escapeAttr(parfum.nume) %>"
+                    aria-label="Adaugă <%= parfum.nume %> la comparare">compară</button>
+            </div>
+        </div>
+
+        <% if (esteCelMaiIeftin) { %>
+            <p class="eticheta-cel-mai-ieftin" role="note">
+                <strong>Cel mai ieftin</strong> din categoria
+                <span class="text-capitalize"><%= parfum.categorie %></span>
+                — preț de referință în catalogul curent.
+            </p>
+        <% } %>
+
+        <div class="articol-produs__grid">
+            <div class="articol-produs__coloana-stanga">
+                <figure class="articol-produs__figura">
+                    <img src="<%= parfum.imagine %>" alt="<%= parfum.nume %>" width="140" height="140" loading="lazy">
+                </figure>
+                        <ul class="articol-produs__caracteristici">
+                            <% const pretOferta = (typeof pretCuOferta === 'function') ? pretCuOferta(parfum.pret, parfum.categorie) : null; %>
+                            <li class="articol-produs__pret">
+                                <span class="caracteristica-nume">Preț:</span>
+                                <span class="caracteristica-valoare">
+                                    <% if (pretOferta) { %>
+                                        <span class="pret-vechi" aria-label="Preț vechi"><%= pretOferta.vechi.toFixed(2) %> RON</span>
+                                        <span class="pret-redus" aria-label="Preț cu reducere">
+                                            <%= pretOferta.nou.toFixed(2) %> RON
+                                            <small class="pret-reducere-procent">(-<%= pretOferta.reducere %>%)</small>
+                                        </span>
+                                    <% } else { %>
+                                        <%= Number(parfum.pret).toFixed(2) %> RON
+                                    <% } %>
+                                </span>
+                            </li>
+                            <li><span class="caracteristica-nume">Volum:</span> <span class="caracteristica-valoare"><%= parfum.volum_ml %> ml</span></li>
+                    <li><span class="caracteristica-nume">Concentrație:</span> <span class="caracteristica-valoare"><%= parfum.concentratie %></span></li>
+                    <li><span class="caracteristica-nume">Note olfactive:</span> <span class="caracteristica-valoare"><%= parfum.note_parfum %></span></li>
+                    <li>
+                        <span class="caracteristica-nume">În catalog din:</span>
+                        <span class="caracteristica-valoare">
+                            <time datetime="<%= dataIsoPentruTime(parfum.data_lansare) %>"><%= formataDataRo(parfum.data_lansare) %></time>
+                        </span>
+                    </li>
+                    <li><span class="caracteristica-nume">Ediție limitată:</span> <span class="caracteristica-valoare"><%= parfum.editie_limitata ? 'Da' : 'Nu' %></span></li>
+                </ul>
+            </div>
+            <div class="articol-produs__coloana-dreapta">
+                <p class="articol-produs__categorie"><span class="caracteristica-nume">Categorie:</span> <span class="caracteristica-valoare text-capitalize"><%= parfum.categorie %></span></p>
+                <p class="articol-produs__subcategorie"><span class="caracteristica-nume">Familie:</span> <span class="caracteristica-valoare text-capitalize"><%= parfum.subcategorie %></span></p>
+                <p class="articol-produs__descriere"><%= parfum.descriere %></p>
+                        <p class="articol-produs__link-detaliu">
+                            <a href="/produs/<%= parfum.id %>" class="link-frumos articol-produs__link-pagina">Pagina produsului</a>
+                            <span class="articol-produs__link-separator" aria-hidden="true">·</span>
+                            <span class="articol-produs__hint-modal">click pe card pentru detalii rapide</span>
+                        </p>
+            </div>
+        </div>
+    </article>
+<% }); %>

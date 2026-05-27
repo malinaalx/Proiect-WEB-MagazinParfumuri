@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ro">
+<%- include('../fragmente/head') %>
+<body>
+    <%- include('../fragmente/header') %>
+    <main class="pagina-galerie-dinamica">
+        <h2>Galerie dinamică</h2>
+        <% if (typeof nr_imagini !== 'undefined') { %>
+        <p class="info-galerie-dinamica">
+            La această încărcare: <strong><%= nr_imagini %></strong> imagini (indici pari din <code>galerie.json</code>).
+            Reîncarcă pagina pentru un număr nou (2, 4 sau 8).
+        </p>
+        <% } %>
+        <%- include('../fragmente/galerie-animata') %>
+    </main>
+    <%- include('../fragmente/footer') %>
+</body>
+</html>

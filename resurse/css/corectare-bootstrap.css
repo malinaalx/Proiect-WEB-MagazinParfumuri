@@ -5,16 +5,16 @@ body#top {
   background-attachment: fixed !important;
 }
 
-header {
+.header-site {
   background-color: var(--culoare-principala) !important;
   color: white !important;
 }
-header h1 {
+.header-site h1 {
   color: white !important;
   font-size: 1.8rem !important;
   margin: 0.5rem 0 !important;
 }
-header nav .meniu {
+.header-site nav .meniu {
   list-style: none !important;
   padding-left: 0 !important;
   margin-bottom: 0 !important;
@@ -35,7 +35,7 @@ header nav .meniu {
   color: #fff !important;
 }
 
-a.btn:not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-light):not(.btn-dark):not(.btn-outline-primary):not(.btn-outline-secondary) {
+a.btn:not(.link-frumos):not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-light):not(.btn-dark):not(.btn-outline-primary):not(.btn-outline-secondary) {
   background-color: var(--culoare-accent) !important;
   color: var(--culoare-text) !important;
   padding: 0.8rem 1.8rem !important;
@@ -46,8 +46,42 @@ a.btn:not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):n
   display: inline-block !important;
 }
 
-main a:not(.btn):not(.nav-link) {
-  color: var(--culoare-secundara);
+main a.btn.link-frumos {
+  background-color: #fff !important;
+  background-image: radial-gradient(var(--culoare-pata-link) 0%, var(--culoare-pata-link) 40%, transparent 80%, transparent 100%) !important;
+  background-position: center !important;
+  background-size: 0 0 !important;
+  background-repeat: no-repeat !important;
+  color: var(--culoare-text) !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 0.35em 0.75em !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  text-decoration: underline !important;
+  letter-spacing: normal !important;
+  animation: none !important;
+  box-shadow: none !important;
+  display: inline-block !important;
+  transition: background-size 0.45s ease, border-color 0.12s ease, color 0.25s ease !important;
+}
+main a.btn.link-frumos:visited {
+  color: var(--culoare-link-vizitat) !important;
+}
+main a.btn.link-frumos:hover {
+  background-color: #fff !important;
+  background-size: 100% 100% !important;
+  color: var(--culoare-text) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+main a.btn.link-frumos:active {
+  border: 2px solid var(--culoare-border-link-activ) !important;
+  outline: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+  color: var(--culoare-text) !important;
 }
 
 .grid-container section {
@@ -55,22 +89,29 @@ main a:not(.btn):not(.nav-link) {
 }
 
 .video-section .video-frame {
-  width: 100%;
+  width: 90%;
+  min-width: 280px;
   max-width: 700px;
   margin: 0 auto;
   padding: 10px;
 }
 .video-section .video-ratio {
-  max-width: 700px;
+  width: 100%;
   margin: 0 auto;
   background: #000;
   border-radius: 0 12px 12px 12px;
 }
 .video-section .video-prezentare {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  display: block !important;
+  width: 100%;
+  min-width: 280px;
+  max-width: 700px;
+  height: 100%;
+  display: block;
   object-fit: contain;
   background: #000;
+}
+.video-section #parfum-video::cue {
+  background-color: transparent;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 0 0 4px #000;
 }
